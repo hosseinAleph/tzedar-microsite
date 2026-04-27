@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/atoms/Logo";
 import { PrimaryButton } from "@/components/atoms/PrimaryButton";
@@ -17,9 +18,9 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <div className="flex items-center gap-10">
-            <a href="#" aria-label="Tzedar home">
+            <Link to="/" aria-label="Tzedar home">
               <Logo height={40} />
-            </a>
+            </Link>
             <nav className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
                 <a

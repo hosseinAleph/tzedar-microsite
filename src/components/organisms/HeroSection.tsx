@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PrimaryButton } from "@/components/atoms/PrimaryButton";
 
 const heroImage     = "https://www.figma.com/api/mcp/asset/f2f5686b-f253-44c2-80bb-3f01b02d43b5";
@@ -85,14 +86,17 @@ export function HeroSection() {
   );
 }
 
-/* ── Ghost button (white text + arrow icon) ── */
+/* ── Ghost button (white text + arrow icon) — navigates to /join ── */
 function GhostButton({ children, icon }: { children: React.ReactNode; icon: string }) {
   return (
-    <button className="flex items-center gap-2 px-4 py-3 rounded-full font-semibold text-white text-sm md:text-lg hover:bg-white/10 transition-colors cursor-pointer">
+    <Link
+      to="/join"
+      className="flex items-center gap-2 px-4 py-3 rounded-full font-semibold text-white text-sm md:text-lg hover:bg-white/10 transition-colors"
+    >
       {children}
       <span className="inline-flex items-center justify-center w-4 h-4 md:w-5 md:h-5">
         <img src={icon} alt="" className="w-full h-full" />
       </span>
-    </button>
+    </Link>
   );
 }

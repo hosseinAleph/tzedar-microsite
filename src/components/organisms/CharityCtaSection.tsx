@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PrimaryButton } from "@/components/atoms/PrimaryButton";
 
 const ctaImage = "https://www.figma.com/api/mcp/asset/2854d660-3f99-470f-b7c9-759218e4092c";
@@ -27,7 +28,9 @@ export function CharityCtaSection() {
             Tzedar is open to charities of every size. List your cause and let generous sellers find you — no ads, no friction.
           </p>
           <div>
-            <PrimaryButton size="md" showArrow>Join as charity</PrimaryButton>
+            <Link to="/join">
+              <PrimaryButton size="md" showArrow>Join as charity</PrimaryButton>
+            </Link>
           </div>
         </div>
       </div>
