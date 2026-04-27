@@ -52,18 +52,34 @@ export function HowItWorksSection() {
         </div>
 
         {/*
-          Interactive accordion — same layout on mobile and desktop.
-          Active step is flex-1 (takes remaining space).
-          Collapsed steps are fixed-width vertical pills.
-          Height is fixed via a min-h on the container; steps fill it with h-full.
+          Desktop (md+): vertical flex-col accordion.
+          Active step = wide landscape card, collapsed steps = full-width horizontal pills.
         */}
-        <div className="flex gap-2 sm:gap-3 lg:gap-4 min-h-[260px] sm:min-h-[380px] lg:min-h-[480px]">
+        <div className="hidden md:flex flex-col gap-4 lg:gap-6">
           {steps.map((step, index) => (
             <HowItWorksStep
               key={step.step}
               {...step}
               stepIndex={index}
               isActive={activeIndex === index}
+              layout="desktop"
+              onClick={() => setActiveIndex(index)}
+            />
+          ))}
+        </div>
+
+        {/*
+          Mobile: horizontal flex-row accordion.
+          Active step = flex-1 portrait card, collapsed steps = narrow vertical pills.
+        */}
+        <div className="flex md:hidden gap-2 min-h-[260px]">
+          {steps.map((step, index) => (
+            <HowItWorksStep
+              key={step.step}
+              {...step}
+              stepIndex={index}
+              isActive={activeIndex === index}
+              layout="mobile"
               onClick={() => setActiveIndex(index)}
             />
           ))}
