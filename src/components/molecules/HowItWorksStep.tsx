@@ -76,17 +76,25 @@ export function HowItWorksStep({
         "relative overflow-hidden border border-border-subtle shadow-[var(--shadow-step-card)]",
         "transition-all duration-500 ease-out",
         "animate-in duration-400",
+        // Figma outer radius: 49.836px ≈ 50px (desktop), proportional for mobile
         layout === "desktop"
-          ? "w-full h-[360px] lg:h-[460px] shrink-0 rounded-[32px] lg:rounded-[48px]"
-          : "flex-1 min-w-0 rounded-[24px]",
+          ? "w-full h-[360px] lg:h-[460px] shrink-0 rounded-[50px]"
+          : "flex-1 min-w-0 rounded-[32px]",
       )}
       style={{
         background: "var(--gradient-step-card)",
         backdropFilter: "blur(16px)",
       }}
     >
-      {/* Inner image — fades in with a subtle scale */}
-      <div className="absolute inset-[6px] sm:inset-[7px] rounded-[18px] sm:rounded-[24px] lg:rounded-[32px] overflow-hidden border border-[var(--inner-border-color)] animate-in zoom-in-95 duration-500">
+      {/* Inner image — Figma inset: 14.54px, inner radius: 33.224px ≈ 34px */}
+      <div
+        className={cn(
+          "absolute overflow-hidden border border-[var(--inner-border-color)] animate-in zoom-in-95 duration-500",
+          layout === "desktop"
+            ? "inset-[14px] rounded-[34px]"
+            : "inset-[8px] rounded-[22px]",
+        )}
+      >
         <img
           src={image}
           alt={title}
