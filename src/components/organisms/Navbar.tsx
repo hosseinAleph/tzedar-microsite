@@ -35,7 +35,7 @@ export function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <PrimaryButton size="sm">Get the app</PrimaryButton>
+            <PrimaryButton size="sm" href="#app-download">Get the app</PrimaryButton>
           </div>
 
           <button
@@ -62,7 +62,7 @@ export function Navbar() {
               </a>
             ))}
             <div className="pt-2">
-              <PrimaryButton size="sm" className="w-full justify-center">Get the app</PrimaryButton>
+              <PrimaryButton size="sm" href="#app-download" className="w-full justify-center">Get the app</PrimaryButton>
             </div>
           </nav>
         </div>

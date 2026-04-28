@@ -63,6 +63,14 @@
     --color-pill-border:    #d9dbe9;
     --color-card-edge:      #f1f2f9;
 
+    /* ── App store download badges ── */
+    --color-store-badge-bg:         #000000;
+    --color-store-badge-border:     #a6a6a6;
+    --color-store-badge-shadow-ink: #0a1032;  /* Apple inset shadow hue */
+
+    /* ── Ghost / show-more button ── */
+    --color-ghost-btn-end: #f9fdff;
+
     /* ── Info / DGR callout (independent of brand) ── */
     --color-info:         #4a82c4;
     --color-info-surface: #edf3fb;
@@ -146,11 +154,19 @@
     --inner-border-color:    color-mix(in srgb, var(--primitive-600) 27%, transparent);
     --highlight-inset-color: rgba(255, 255, 255, 0.15);
 
+    /* ── Store pill switcher background ── */
+    --color-store-pill-bg: color-mix(in srgb, var(--primitive-400) 35%, transparent);
+
+    /* ── Ghost / show-more button gradient ── */
+    --gradient-btn-ghost: linear-gradient(180deg, var(--color-background) 62.65%, var(--color-ghost-btn-end) 83.01%);
+
     /* ── Shadows ── */
     --shadow-navbar:       0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
     --shadow-charity-card: 0px 16px 35px color-mix(in srgb, var(--primitive-900) 4%, transparent), 0px 63px 63px rgba(0, 0, 0, 0.04);
     --shadow-step-card:    0px 16px 35px color-mix(in srgb, var(--primitive-900) 4%, transparent);
-    --shadow-listing-card: 0px 8px 16px  color-mix(in srgb, var(--primitive-900) 8%, transparent);
+    --shadow-listing-card:    0px 8px 16px color-mix(in srgb, var(--primitive-900) 8%, transparent);
+    --shadow-listing-card-sm: 0px 4px 8px  color-mix(in srgb, var(--primitive-900) 8%, transparent);
+    --shadow-store-badge-active: inset 0px -1px 1px 0px color-mix(in srgb, var(--color-store-badge-shadow-ink) 7%, transparent);
     --shadow-form-card:    0px 2px 7.5px rgba(25, 33, 61, 0.1);
     --shadow-pricing-card: 0px 4px 2px   rgba(0, 0, 0, 0.25);
     --shadow-pill-btn:     0px 2px 2.5px rgba(78, 143, 191, 0.35);
@@ -173,5 +189,6 @@
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
 }

@@ -4,6 +4,7 @@ import { HowItWorksSection } from "@/components/organisms/HowItWorksSection";
 import { PricingSection } from "@/components/organisms/PricingSection";
 import { PastSalesSection } from "@/components/organisms/PastSalesSection";
 import { CharitiesSection } from "@/components/organisms/CharitiesSection";
+import { AppDownloadSection } from "@/components/organisms/AppDownloadSection";
 import { CharityCtaSection } from "@/components/organisms/CharityCtaSection";
 import { Footer } from "@/components/organisms/Footer";
 
@@ -18,6 +19,7 @@ export function HomePage() {
         <PastSalesSection />
         <CharitiesSection />
         <CharityCtaSection />
+        <AppDownloadSection />
       </main>
       <Footer />
     </div>

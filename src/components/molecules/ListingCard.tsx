@@ -42,7 +42,7 @@ export function ListingCard({ item, variant = "desktop" }: ListingCardProps) {
 
   if (variant === "featured") {
     return (
-      <div className="flex flex-col h-full rounded-[32px] border border-border-default bg-card shadow-[0px_8px_16px_rgba(21,29,23,0.08)] overflow-hidden">
+      <div className="flex flex-col h-full rounded-[32px] border border-border-default bg-card shadow-[var(--shadow-listing-card)] overflow-hidden">
         {/* flex-basis 53% in a flex-col gives image ~53% of card height */}
         <div className="relative w-full overflow-hidden" style={{ flex: "0 0 53%" }}>
           <img
@@ -70,7 +70,7 @@ export function ListingCard({ item, variant = "desktop" }: ListingCardProps) {
 
   // desktop — small grid card
   return (
-    <div className="flex flex-col rounded-2xl border border-border-default bg-card shadow-[0px_4px_8px_rgba(21,29,23,0.08)] overflow-hidden">
+    <div className="flex flex-col rounded-2xl border border-border-default bg-card shadow-[var(--shadow-listing-card-sm)] overflow-hidden">
       <div className="relative h-[180px] lg:h-[220px] w-full shrink-0">
         <img
           src={item.image}

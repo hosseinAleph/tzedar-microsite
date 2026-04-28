@@ -152,7 +152,7 @@ export function PastSalesSection() {
             <button
               onClick={() => setShowAll(true)}
               className="w-full py-3.5 sm:py-5 px-6 rounded-full border border-pill-border font-semibold text-brand-dark text-sm sm:text-base hover:bg-brand-surface transition-colors shadow-[var(--shadow-pill-btn)]"
-              style={{ backgroundImage: "linear-gradient(180deg, #ffffff 62.65%, #f9fdff 83.01%)" }}
+              style={{ backgroundImage: "var(--gradient-btn-ghost)" }}
             >
               Show more
             </button>
