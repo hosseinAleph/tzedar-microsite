@@ -121,10 +121,11 @@ export function JoinAsCharityPage() {
       {/* ════════════════════════════════
           DESKTOP layout (lg+): two columns
       ════════════════════════════════ */}
-      <div className="hidden lg:flex flex-1 min-h-screen">
+      {/* p-4 on the outer wrapper + gap-4 between panels eliminates the gray background gaps */}
+      <div className="hidden lg:flex flex-1 min-h-screen p-4 gap-4 relative">
 
         {/* Left sidebar — green */}
-        <div className="relative flex flex-col justify-between w-[360px] xl:w-[420px] shrink-0 px-8 pt-10 pb-12 rounded-[24px] m-4 overflow-hidden bg-brand-sidebar">
+        <div className="relative flex flex-col w-[360px] xl:w-[420px] shrink-0 px-8 pt-10 pb-12 rounded-[24px] overflow-hidden bg-brand-sidebar">
           {/* Decorative glow */}
           <img
             src={decorImage}
@@ -139,8 +140,8 @@ export function JoinAsCharityPage() {
             <div className="border-t border-primary-foreground/20 w-full" />
           </div>
 
-          {/* Heading block */}
-          <div className="relative z-10 flex flex-col gap-6 mt-8">
+          {/* Heading block — vertically centered in the remaining sidebar height */}
+          <div className="relative z-10 flex flex-col gap-6 flex-1 justify-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">
               Charity partnership
             </p>
@@ -153,12 +154,21 @@ export function JoinAsCharityPage() {
           </div>
         </div>
 
-        {/* Right column — form card */}
-        <div className="flex-1 flex items-center justify-center p-8">
-          <div className="w-full max-w-[580px] bg-card rounded-[32px] shadow-[var(--shadow-form-card)] border border-card-edge px-12 py-10">
+        {/* Right panel — full-height white card, form centered inside */}
+        <div className="flex-1 bg-card rounded-[32px] shadow-[var(--shadow-form-card)] border border-card-edge flex items-center justify-center py-10">
+          <div className="w-full max-w-[540px] px-8">
             <PartnerForm onSubmit={() => setSubmitted(true)} />
           </div>
         </div>
+
+        {/* Close button — top-right of the overall desktop container */}
+        <Link
+          to="/"
+          aria-label="Close"
+          className="absolute top-[17px] right-[17px] flex items-center justify-center size-12 rounded-full hover:bg-border-default/30 transition-colors"
+        >
+          <X className="w-5 h-5 text-text-secondary" />
+        </Link>
       </div>
 
       {/* ════════════════════════════════
