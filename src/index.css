@@ -3,8 +3,6 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/figtree";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
     --font-heading: var(--font-sans);
     --font-sans: 'Figtree Variable', sans-serif;
@@ -160,40 +158,6 @@
     --sidebar-accent-foreground: #0e2a20;
     --sidebar-border: #d4ddd4;
     --sidebar-ring: #3d8c6e;
-}
-
-.dark {
-    --background: #0e2a20;
-    --foreground: #f2f7f4;
-    --card: #153b2e;
-    --card-foreground: #f2f7f4;
-    --popover: #153b2e;
-    --popover-foreground: #f2f7f4;
-    --primary: #5ba88a;
-    --primary-foreground: #ffffff;
-    --secondary: #2e7d5e;
-    --secondary-foreground: #f2f7f4;
-    --muted: #153b2e;
-    --muted-foreground: #8fa898;
-    --accent: #2e7d5e;
-    --accent-foreground: #f2f7f4;
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: rgba(255, 255, 255, 0.1);
-    --input: rgba(255, 255, 255, 0.15);
-    --ring: #5ba88a;
-    --chart-1: #5ba88a;
-    --chart-2: #3d8c6e;
-    --chart-3: #2e7d5e;
-    --chart-4: #c49a3a;
-    --chart-5: #d0e6da;
-    --sidebar: #153b2e;
-    --sidebar-foreground: #f2f7f4;
-    --sidebar-primary: #5ba88a;
-    --sidebar-primary-foreground: #ffffff;
-    --sidebar-accent: #2e7d5e;
-    --sidebar-accent-foreground: #f2f7f4;
-    --sidebar-border: rgba(255, 255, 255, 0.1);
-    --sidebar-ring: #5ba88a;
 }
 
 @layer base {
