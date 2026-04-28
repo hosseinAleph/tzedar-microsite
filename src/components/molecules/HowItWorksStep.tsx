@@ -73,7 +73,9 @@ export function HowItWorksStep({
   return (
     <div
       className={cn(
-        "relative overflow-hidden border border-border-subtle shadow-[var(--shadow-step-card)] transition-all duration-300",
+        "relative overflow-hidden border border-border-subtle shadow-[var(--shadow-step-card)]",
+        "transition-all duration-500 ease-out",
+        "animate-in duration-400",
         layout === "desktop"
           ? "w-full h-[360px] lg:h-[460px] shrink-0 rounded-[32px] lg:rounded-[48px]"
           : "flex-1 min-w-0 rounded-[24px]",
@@ -83,14 +85,16 @@ export function HowItWorksStep({
         backdropFilter: "blur(16px)",
       }}
     >
-      {/* Inner image */}
-      <div className="absolute inset-[6px] sm:inset-[7px] rounded-[18px] sm:rounded-[24px] lg:rounded-[32px] overflow-hidden border border-[var(--inner-border-color)]">
-        <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
+      {/* Inner image — fades in with a subtle scale */}
+      <div className="absolute inset-[6px] sm:inset-[7px] rounded-[18px] sm:rounded-[24px] lg:rounded-[32px] overflow-hidden border border-[var(--inner-border-color)] animate-in zoom-in-95 duration-500">
+        <img
+          src={image}
+          alt={title}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div
           className="absolute inset-0"
-          style={{
-            backgroundImage: "var(--gradient-dark-content)",
-          }}
+          style={{ backgroundImage: "var(--gradient-dark-content)" }}
         />
       </div>
 
@@ -113,8 +117,8 @@ export function HowItWorksStep({
         </div>
       </div>
 
-      {/* Text */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 p-5 sm:p-8 lg:p-10 flex flex-col gap-1 sm:gap-2">
+      {/* Text — slides up slightly after the image fades in */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 p-5 sm:p-8 lg:p-10 flex flex-col gap-1 sm:gap-2 animate-in slide-in-from-bottom-3 duration-500 delay-150">
         <p
           className={cn(
             "font-bold text-primary-foreground leading-tight",
