@@ -34,7 +34,7 @@ const items = [
 
 export function PastSalesSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28 px-6 sm:px-8 lg:px-20 bg-white">
+    <section className="py-16 sm:py-20 lg:py-28 px-6 sm:px-8 lg:px-20 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 sm:mb-14">
           <div className="flex flex-col gap-3">
@@ -65,7 +65,7 @@ export function PastSalesSection() {
         </div>
 
         <div className="mt-8 flex justify-center">
-          <button className="px-8 py-3 rounded-full border border-[#d4ddd4] font-semibold text-brand-darkest text-base hover:bg-brand-surface transition-colors">
+          <button className="px-8 py-3 rounded-full border border-border-default font-semibold text-brand-darkest text-base hover:bg-brand-surface transition-colors">
             Show more
           </button>
         </div>

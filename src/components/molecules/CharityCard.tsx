@@ -11,15 +11,15 @@ export function CharityCard({ image, name, description }: CharityCardProps) {
   return (
     /* Outer frosted card */
     <div
-      className="relative w-[260px] sm:w-[280px] h-[420px] sm:h-[479px] shrink-0 rounded-[24px] overflow-hidden border border-[#eee] shadow-[0px_16px_35px_rgba(21,32,30,0.04),0px_63px_63px_rgba(0,0,0,0.04)]"
+      className="relative w-[260px] sm:w-[280px] h-[420px] sm:h-[479px] shrink-0 rounded-[24px] overflow-hidden border border-border-subtle shadow-[var(--shadow-charity-card)]"
       style={{
-        background: "linear-gradient(to bottom, rgba(242,247,244,0.7), rgba(208,230,218,0.7))",
+        background: "var(--gradient-frosted-card)",
         backdropFilter: "blur(32px)",
         WebkitBackdropFilter: "blur(32px)",
       }}
     >
       {/* Inner inset image container */}
-      <div className="absolute inset-[7px] rounded-2xl overflow-hidden border border-[rgba(124,139,137,0.27)]">
+      <div className="absolute inset-[7px] rounded-2xl overflow-hidden border border-[var(--inner-border-color)]">
 
         {/* Photo — no full-image blur; stays sharp at the top */}
         <img
@@ -42,7 +42,7 @@ export function CharityCard({ image, name, description }: CharityCardProps) {
             WebkitBackdropFilter: "blur(11px)",
             maskImage: "linear-gradient(to bottom, transparent 0%, black 30%)",
             WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 30%)",
-            backgroundImage: "linear-gradient(to bottom, rgba(247,252,252,0) 31.5%, rgba(244,244,244,0.50) 79.4%)",
+            backgroundImage: "var(--gradient-image-mask)",
           }}
         />
 
@@ -51,31 +51,31 @@ export function CharityCard({ image, name, description }: CharityCardProps) {
           className="absolute bottom-0 left-0 right-0 mix-blend-overlay"
           style={{
             height: "48%",
-            backgroundImage: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.13) 8%, rgba(0,0,0,0.48) 47%, rgba(0,0,0,0.78) 84%, rgba(0,0,0,0.88) 100%)",
+            backgroundImage: "var(--gradient-dark-overlay-1)",
           }}
         />
         <div
           className="absolute bottom-0 left-0 right-0"
           style={{
             height: "48%",
-            backgroundImage: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.006) 8%, rgba(0,0,0,0.022) 15%, rgba(0,0,0,0.088) 47%, rgba(0,0,0,0.319) 58%, rgba(0,0,0,0.575) 70%, rgba(0,0,0,0.777) 84%, rgba(0,0,0,0.88) 100%)",
+            backgroundImage: "var(--gradient-dark-overlay-2)",
           }}
         />
 
         {/* Inner highlight ring */}
-        <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_0px_8px_0px_rgba(255,255,255,0.15)]" />
+        <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[var(--shadow-highlight-inset)]" />
       </div>
 
       {/* Profile info — pinned to bottom */}
       <div className="absolute bottom-0 left-0 right-0 px-7 pb-4 pt-5 flex flex-col gap-1">
         <div className="flex items-center gap-2">
-          <p className="font-semibold text-lg text-[#fafafa] leading-snug">{name}</p>
+          <p className="font-semibold text-lg text-surface-bright leading-snug">{name}</p>
           <div className="relative shrink-0 w-6 h-6">
             <img src={verifiedStar}  alt="" className="absolute inset-0 w-full h-full" />
             <img src={verifiedCheck} alt="" className="absolute inset-[20%] w-[60%] h-[60%]" />
           </div>
         </div>
-        <p className="text-sm text-[#fafafa] leading-snug opacity-90">{description}</p>
+        <p className="text-sm text-surface-bright leading-snug opacity-90">{description}</p>
       </div>
     </div>
   );

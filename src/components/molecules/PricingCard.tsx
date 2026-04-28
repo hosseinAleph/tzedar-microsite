@@ -8,7 +8,7 @@ export function PricingCard({ type }: PricingCardProps) {
   const isSubscription = type === "subscription";
 
   return (
-    <div className="flex-1 min-w-0 flex flex-col gap-4 items-end border border-[#d4ddd4] rounded-2xl pt-6 px-4 pb-10 shadow-[0px_4px_2px_rgba(0,0,0,0.25)] bg-transparent">
+    <div className="flex-1 min-w-0 flex flex-col gap-4 items-end border border-border-default rounded-2xl pt-6 px-4 pb-10 shadow-[var(--shadow-pricing-card)] bg-transparent">
       <Badge variant="green">
         {isSubscription ? "Annual Subscription" : "Commissions"}
       </Badge>

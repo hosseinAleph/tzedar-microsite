@@ -14,7 +14,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-[0px_1px_2px_rgba(0,0,0,0.06),0px_1px_3px_rgba(0,0,0,0.1)]">
+    <header className="sticky top-0 z-50 bg-background shadow-[var(--shadow-navbar)]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <div className="flex items-center gap-10">
@@ -49,7 +49,7 @@ export function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden border-t border-[#d4ddd4] bg-white px-6 pb-6">
+        <div className="md:hidden border-t border-border-default bg-background px-6 pb-6">
           <nav className="flex flex-col gap-1 pt-4">
             {navLinks.map((link) => (
               <a

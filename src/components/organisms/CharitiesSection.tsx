@@ -37,7 +37,7 @@ const charities = [
 
 export function CharitiesSection() {
   return (
-    <section id="charities" className="py-16 sm:py-20 lg:py-28 overflow-hidden bg-white">
+    <section id="charities" className="py-16 sm:py-20 lg:py-28 overflow-hidden bg-background">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-20 mb-10 sm:mb-14">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div className="flex flex-col gap-3">

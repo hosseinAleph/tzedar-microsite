@@ -30,17 +30,17 @@ export function PrimaryButton({
     "inline-flex items-center gap-2 rounded-full font-semibold transition-all duration-200 cursor-pointer select-none",
     sizeClasses[size],
     variant === "solid" && [
-      "text-white",
-      "shadow-[0px_2px_2.5px_rgba(61,140,110,0.25)]",
-      "shadow-[inset_0px_-2px_2px_rgba(30,96,73,0.15),inset_0px_1px_1px_rgba(255,255,255,0.1)]",
+      "text-primary-foreground",
+      "shadow-[var(--shadow-primary-btn)]",
+      "shadow-[var(--shadow-primary-btn-inset)]",
     ],
-    variant === "ghost" && "text-white hover:bg-white/10",
+    variant === "ghost" && "text-primary-foreground hover:bg-primary-foreground/10",
     className,
   );
 
   const solidStyle =
     variant === "solid"
-      ? { backgroundImage: "linear-gradient(175deg, #5ba88a 5%, #3d8c6e 87%)" }
+      ? { backgroundImage: "var(--gradient-btn-primary)" }
       : undefined;
 
   if (href) {

@@ -34,10 +34,10 @@ export function HowItWorksStep({
           collapsedBg[stepIndex],
         )}
       >
-        <div className="w-14 h-14 shrink-0 rounded-full flex items-center justify-center bg-gold-surface border-2 border-white backdrop-blur-sm">
+        <div className="w-14 h-14 shrink-0 rounded-full flex items-center justify-center bg-gold-surface border-2 border-primary-foreground backdrop-blur-sm">
           <span className="font-semibold text-2xl text-gold leading-none">{step}</span>
         </div>
-        <span className="font-bold text-4xl lg:text-5xl text-white leading-none whitespace-nowrap">{title}</span>
+        <span className="font-bold text-4xl lg:text-5xl text-primary-foreground leading-none whitespace-nowrap">{title}</span>
       </button>
     );
   }
@@ -54,12 +54,12 @@ export function HowItWorksStep({
           collapsedBg[stepIndex],
         )}
       >
-        <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gold-surface border border-white shrink-0">
+        <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gold-surface border border-primary-foreground shrink-0">
           <span className="font-semibold text-[10px] text-gold leading-none">{step}</span>
         </div>
         <div className="flex-1 flex items-center justify-center overflow-hidden py-2">
           <span
-            className="font-semibold text-xs text-white whitespace-nowrap"
+            className="font-semibold text-xs text-primary-foreground whitespace-nowrap"
             style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
           >
             {title}
@@ -73,23 +73,23 @@ export function HowItWorksStep({
   return (
     <div
       className={cn(
-        "relative overflow-hidden border border-[#eee] shadow-[0px_16px_35px_rgba(21,32,30,0.04)] transition-all duration-300",
+        "relative overflow-hidden border border-border-subtle shadow-[var(--shadow-step-card)] transition-all duration-300",
         layout === "desktop"
           ? "w-full h-[360px] lg:h-[460px] shrink-0 rounded-[32px] lg:rounded-[48px]"
           : "flex-1 min-w-0 rounded-[24px]",
       )}
       style={{
-        background: "linear-gradient(to bottom, rgba(150,192,224,0.7), rgba(21,59,46,0.7))",
+        background: "var(--gradient-step-card)",
         backdropFilter: "blur(16px)",
       }}
     >
       {/* Inner image */}
-      <div className="absolute inset-[6px] sm:inset-[7px] rounded-[18px] sm:rounded-[24px] lg:rounded-[32px] overflow-hidden border border-[rgba(124,139,137,0.27)]">
+      <div className="absolute inset-[6px] sm:inset-[7px] rounded-[18px] sm:rounded-[24px] lg:rounded-[32px] overflow-hidden border border-[var(--inner-border-color)]">
         <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.82) 100%)",
+            backgroundImage: "var(--gradient-dark-content)",
           }}
         />
       </div>
@@ -98,7 +98,7 @@ export function HowItWorksStep({
       <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:top-8 lg:left-8 z-10">
         <div
           className={cn(
-            "rounded-full flex items-center justify-center bg-gold-surface border-2 border-white",
+            "rounded-full flex items-center justify-center bg-gold-surface border-2 border-primary-foreground",
             layout === "desktop" ? "w-14 h-14 lg:w-16 lg:h-16" : "w-8 h-8",
           )}
         >
@@ -117,7 +117,7 @@ export function HowItWorksStep({
       <div className="absolute bottom-0 left-0 right-0 z-10 p-5 sm:p-8 lg:p-10 flex flex-col gap-1 sm:gap-2">
         <p
           className={cn(
-            "font-bold text-white leading-tight",
+            "font-bold text-primary-foreground leading-tight",
             layout === "desktop" ? "text-3xl lg:text-5xl" : "text-xl",
           )}
         >
@@ -125,7 +125,7 @@ export function HowItWorksStep({
         </p>
         <p
           className={cn(
-            "text-[#f2f9f7] leading-snug opacity-90",
+            "text-brand-pale leading-snug opacity-90",
             layout === "desktop" ? "text-base lg:text-2xl" : "text-xs",
           )}
         >

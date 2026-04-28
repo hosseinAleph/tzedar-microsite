@@ -15,7 +15,7 @@ type ListingCardProps = {
 export function ListingCard({ item, variant = "desktop" }: ListingCardProps) {
   if (variant === "mobile") {
     return (
-      <div className="flex gap-6 items-start pb-4 border-b border-[#d4ddd4]">
+      <div className="flex gap-6 items-start pb-4 border-b border-border-default">
         <div className="relative rounded-2xl shrink-0 size-[88px] overflow-hidden">
           <img
             src={item.image}
@@ -41,7 +41,7 @@ export function ListingCard({ item, variant = "desktop" }: ListingCardProps) {
   }
 
   return (
-    <div className="flex flex-col flex-1 min-w-0 rounded-[32px] border border-[#d4ddd4] bg-white shadow-[0px_8px_16px_rgba(21,29,23,0.08)] overflow-hidden">
+    <div className="flex flex-col flex-1 min-w-0 rounded-[32px] border border-border-default bg-card shadow-[var(--shadow-listing-card)] overflow-hidden">
       <div className="relative h-[220px] sm:h-[260px] w-full shrink-0">
         <img
           src={item.image}

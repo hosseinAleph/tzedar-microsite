@@ -11,7 +11,7 @@ export function Footer() {
             <div className="h-10">
               <img src={imgLogoWhite} alt="Tzedar" className="h-full w-auto object-contain brightness-0 invert" />
             </div>
-            <p className="font-semibold text-lg text-white leading-snug">Good things, going further.</p>
+            <p className="font-semibold text-lg text-primary-foreground leading-snug">Good things, going further.</p>
           </div>
           <div className="flex items-center gap-6">
             <a href="#" aria-label="Facebook" className="opacity-80 hover:opacity-100 transition-opacity">
@@ -25,13 +25,13 @@ export function Footer() {
 
         <div className="flex flex-col gap-6 sm:items-end">
           <div className="flex flex-wrap gap-4 sm:gap-6 items-center">
-            <a href="#" className="text-sm text-white/80 hover:text-white transition-colors">Privacy Notice</a>
-            <span className="text-white/30 hidden sm:block">|</span>
-            <a href="#" className="text-sm text-white/80 hover:text-white transition-colors">Terms and Conditions</a>
-            <span className="text-white/30 hidden sm:block">|</span>
-            <a href="#" className="text-sm text-white/80 hover:text-white transition-colors">Disclaimer</a>
+            <a href="#" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">Privacy Notice</a>
+            <span className="text-primary-foreground/30 hidden sm:block">|</span>
+            <a href="#" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">Terms and Conditions</a>
+            <span className="text-primary-foreground/30 hidden sm:block">|</span>
+            <a href="#" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">Disclaimer</a>
           </div>
-          <p className="text-sm text-white/70 sm:text-right">© 2026 Tzedar. All Rights Reserved.</p>
+          <p className="text-sm text-primary-foreground/70 sm:text-right">© 2026 Tzedar. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
