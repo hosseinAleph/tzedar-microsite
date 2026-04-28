@@ -157,6 +157,9 @@
     /* ── Store pill switcher background ── */
     --color-store-pill-bg: color-mix(in srgb, var(--primitive-400) 35%, transparent);
 
+    /* ── Modal overlay ── */
+    --color-modal-overlay: color-mix(in srgb, var(--color-foreground) 45%, transparent);
+
     /* ── Ghost / show-more button gradient ── */
     --gradient-btn-ghost: linear-gradient(180deg, var(--color-background) 62.65%, var(--color-ghost-btn-end) 83.01%);
 
