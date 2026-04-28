@@ -1,5 +1,5 @@
-import { useState, type FormEvent } from "react"
-import { Link } from "react-router-dom"
+import { useState, useCallback, type FormEvent } from "react"
+import { useNavigate } from "react-router-dom"
 import { ArrowRight, Info, X } from "lucide-react"
 import { Logo } from "@/components/atoms/Logo"
 import { SubmissionPopup } from "@/components/molecules/SubmissionPopup"
@@ -109,9 +109,17 @@ function PartnerForm({ onSubmit }: Readonly<{ onSubmit: () => void }>) {
 ══════════════════════════════════════════ */
 export function JoinAsCharityPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [isLeaving, setIsLeaving]   = useState(false)
+  const navigate = useNavigate()
+
+  // Play exit animation, then navigate away
+  const handleClose = useCallback(() => {
+    setIsLeaving(true)
+    setTimeout(() => navigate("/"), 280) // matches page-exit duration
+  }, [navigate])
 
   return (
-    <div className="min-h-screen bg-background lg:bg-surface-neutral flex flex-col">
+    <div className={`min-h-screen bg-background lg:bg-surface-neutral flex flex-col ${isLeaving ? "animate-page-exit" : "animate-page-enter"}`}>
 
       {/* ── Submission popup (shown over both layouts) ── */}
       {submitted && (
@@ -162,13 +170,14 @@ export function JoinAsCharityPage() {
         </div>
 
         {/* Close button — top-right of the overall desktop container */}
-        <Link
-          to="/"
+        <button
+          type="button"
+          onClick={handleClose}
           aria-label="Close"
           className="absolute top-[17px] right-[17px] flex items-center justify-center size-12 rounded-full hover:bg-border-default/30 transition-colors"
         >
           <X className="w-5 h-5 text-text-secondary" />
-        </Link>
+        </button>
       </div>
 
       {/* ════════════════════════════════
@@ -179,9 +188,9 @@ export function JoinAsCharityPage() {
         {/* Mobile nav bar */}
         <div className="flex items-center justify-between px-4 py-3 border-b border-border-default sticky top-0 bg-background z-10">
           <Logo height={28} />
-          <Link to="/" aria-label="Close" className="p-2 rounded-full hover:bg-brand-surface transition-colors">
+          <button type="button" onClick={handleClose} aria-label="Close" className="p-2 rounded-full hover:bg-brand-surface transition-colors">
             <X className="w-5 h-5 text-text-secondary" />
-          </Link>
+          </button>
         </div>
 
         {/* Green hero card — Figma: solid #5ba88a (brand-light), heading 28px SemiBold */}

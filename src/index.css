@@ -195,3 +195,22 @@
     scroll-behavior: smooth;
   }
 }
+
+/* ── Page transition animations ── */
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes page-exit {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(28px); }
+}
+
+@layer utilities {
+  .animate-page-enter {
+    animation: page-enter 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+  .animate-page-exit {
+    animation: page-exit 0.28s cubic-bezier(0.4, 0, 1, 1) both;
+  }
+}
