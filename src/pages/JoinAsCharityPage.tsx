@@ -1,4 +1,4 @@
-import { useState, useCallback, type FormEvent } from "react"
+import { useState, useCallback, type SubmitEvent } from "react"
 import { useNavigate } from "react-router-dom"
 import { ArrowRight, Info, X } from "lucide-react"
 import { Logo } from "@/components/atoms/Logo"
@@ -8,10 +8,10 @@ const decorImage = "https://www.figma.com/api/mcp/asset/b7f2046f-02cc-40d5-88b7-
 
 /* ── Shared form field definitions ── */
 const fields = [
-  { id: "name",  label: "Full name",         placeholder: "e.g. John Doe",               hint: "" },
-  { id: "email", label: "Work email",         placeholder: "e.g. john@oceancare.au",       hint: "" },
-  { id: "org",   label: "Organisation name",  placeholder: "e.g. Ocean Care Australia Ltd", hint: "" },
-  { id: "abn",   label: "ABN",                placeholder: "e.g. 12 345 678 901",          hint: "We'll use this to confirm your spot and send next steps." },
+  { name: "name",  id: "name",  label: "Full name",         placeholder: "e.g. John Doe",               hint: "" },
+  { name: "email", id: "email", label: "Work email",         placeholder: "e.g. john@oceancare.au",       hint: "" },
+  { name: "org",   id: "org",   label: "Organisation name",  placeholder: "e.g. Ocean Care Australia Ltd", hint: "" },
+  { name: "abn",   id: "abn",   label: "ABN",                placeholder: "e.g. 12 345 678 901",          hint: "We'll use this to confirm your spot and send next steps." },
 ]
 
 /* ── DGR callout ── */
@@ -54,7 +54,7 @@ function FormInput({ id, label, placeholder, hint }: Readonly<{ id: string; labe
 
 /* ── Form content (used in both layouts) ── */
 function PartnerForm({ onSubmit }: Readonly<{ onSubmit: () => void }>) {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
     onSubmit()
   }
