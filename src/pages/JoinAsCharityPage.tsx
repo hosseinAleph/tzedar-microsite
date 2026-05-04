@@ -1,10 +1,13 @@
-import { useState, useCallback, type SubmitEvent } from "react"
+import { useState, useCallback,useRef ,type SubmitEvent } from "react"
 import { useNavigate } from "react-router-dom"
-import { ArrowRight, Info, X } from "lucide-react"
+import { Info, X } from "lucide-react"
 import { Logo } from "@/components/atoms/Logo"
 import { SubmissionPopup } from "@/components/molecules/SubmissionPopup"
+import emailJS from "@emailjs/browser";
+import { PrimaryButton } from "@/components/atoms/PrimaryButton";
 
-const decorImage = "https://www.figma.com/api/mcp/asset/b7f2046f-02cc-40d5-88b7-21dd2e116668"
+
+const decorImage = "https://www.figma.com/api/mcp/asset/7bdfbb8e-0b72-40ce-9272-3e9e8bf6d719"
 
 /* ── Shared form field definitions ── */
 const fields = [
@@ -54,16 +57,33 @@ function FormInput({ id, label, placeholder, hint }: Readonly<{ id: string; labe
 
 /* ── Form content (used in both layouts) ── */
 function PartnerForm({ onSubmit }: Readonly<{ onSubmit: () => void }>) {
+  console.log("🚀 ~ PartnerForm ~ onSubmit:", onSubmit)
+  const [loading, setLoading] = useState(false)
+
   const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
-    onSubmit()
+    console.log('first', e.target)
+    setLoading(true)
+    // TODO: Add the public key to the environment variables
+    // emailJS.sendForm('service_874wrye', 'template_dos7199', e.target as HTMLFormElement, 'MW7fh2GtF3biGDMAH')
+    //   .then((result) => {
+    //     console.log(result);
+    //   }, (error) => {
+    //     console.error(error);
+    //   }).finally(() => {
+    //     onSubmit()
+    //   })
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+   
   }
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-8">
       {/* Form header */}
       <div className="flex flex-col gap-2">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-medium leading-snug">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#6b9db8] leading-snug">
           Join as a partner
         </p>
         <div>
@@ -81,14 +101,14 @@ function PartnerForm({ onSubmit }: Readonly<{ onSubmit: () => void }>) {
 
       {/* Submit */}
       <div className="flex flex-col gap-3">
-        <button
+        <PrimaryButton
           type="submit"
-          className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold text-sm text-primary-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
-          style={{ backgroundImage: "var(--gradient-btn-submit)" }}
+          className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold text-sm text-primary-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-light"
+          loading={loading}
+          showArrow={!loading}
         >
           Join as a partner
-          <ArrowRight className="w-4 h-4" />
-        </button>
+        </PrimaryButton>
         <p className="text-[12px] text-text-secondary/70 text-center leading-snug">
           Already have an account?{" "}
           <button type="button" className="text-brand-light font-semibold hover:underline">Login</button>.
@@ -132,8 +152,8 @@ export function JoinAsCharityPage() {
       {/* p-4 on the outer wrapper + gap-4 between panels eliminates the gray background gaps */}
       <div className="hidden lg:flex flex-1 min-h-screen p-4 gap-4 relative">
 
-        {/* Left sidebar — green */}
-        <div className="relative flex flex-col w-[360px] xl:w-[420px] shrink-0 px-8 pt-10 pb-12 rounded-[24px] overflow-hidden bg-brand-sidebar">
+        {/* Left sidebar — pale blue */}
+        <div className="relative flex flex-col w-[360px] xl:w-[420px] shrink-0 px-8 pt-10 pb-12 rounded-[24px] overflow-hidden bg-[#9fc5e0]">
           {/* Decorative glow */}
           <img
             src={decorImage}
@@ -193,8 +213,8 @@ export function JoinAsCharityPage() {
           </button>
         </div>
 
-        {/* Green hero card — Figma: solid #5ba88a (brand-light), heading 28px SemiBold */}
-        <div className="relative mx-4 mt-4 rounded-2xl px-6 py-10 overflow-hidden bg-brand-light">
+        {/* Pale-blue hero card */}
+        <div className="relative mx-4 mt-4 rounded-2xl px-6 py-10 overflow-hidden bg-[#9fc5e0]">
           <img
             src={decorImage}
             alt=""

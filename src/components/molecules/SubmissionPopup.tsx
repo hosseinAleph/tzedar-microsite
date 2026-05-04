@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-// Figma: popup/art — envelope notification on a green circle
-const imgEllipse = "https://www.figma.com/api/mcp/asset/bdb8849d-03d8-4887-8333-a60d0840ef1a";
-const imgEnvIcon = "https://www.figma.com/api/mcp/asset/c8daf772-c2b9-4303-8db1-beb132b07872";
+// Figma: popup/art — envelope notification on a pale-blue circle
+const imgEllipse = "https://www.figma.com/api/mcp/asset/8763158f-85e9-4361-9a2e-c17e1ea479d1";
+const imgEnvIcon = "https://www.figma.com/api/mcp/asset/e9e9edee-a2ba-4b18-8da5-22dc7e9b3ac7";
 
 type SubmissionPopupProps = Readonly<{
   onClose: () => void;
@@ -58,7 +58,8 @@ export function SubmissionPopup({ onClose }: SubmissionPopupProps) {
         <div className="w-full px-2 pb-2">
           <button
             onClick={onClose}
-            className="w-full py-4 rounded-2xl font-semibold text-sm text-primary-foreground bg-brand-light hover:opacity-90 transition-opacity"
+            className="w-full py-4 rounded-[8px] font-semibold text-sm text-primary-foreground hover:opacity-90 transition-opacity"
+            style={{ backgroundImage: "var(--gradient-btn-submit)" }}
           >
             Okay
           </button>

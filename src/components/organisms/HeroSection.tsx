@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { PrimaryButton } from "@/components/atoms/PrimaryButton";
 
-const heroImage     = "https://www.figma.com/api/mcp/asset/f2f5686b-f253-44c2-80bb-3f01b02d43b5";
+const heroImage     = "https://www.figma.com/api/mcp/asset/7cb4d73d-aadb-4920-9f91-b81d4138f13e";
 const arrowIcon     = "https://www.figma.com/api/mcp/asset/d0647506-ed15-4d95-946d-73ccaf6827f3";
 
 export function HeroSection() {

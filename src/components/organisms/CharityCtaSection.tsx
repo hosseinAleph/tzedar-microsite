@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-/* Desktop and mobile share the same photo subject but use different crops */
-const bgWeb    = "https://www.figma.com/api/mcp/asset/6a55b59c-b318-41d6-b1e7-551bddc684b5";
-const bgMobile = "https://www.figma.com/api/mcp/asset/afd09bbb-b22b-4c8a-b23c-d968c08a27dd";
+/* Desktop and mobile share the same photo (different crops via CSS) */
+const bgWeb    = "https://www.figma.com/api/mcp/asset/4504a664-4f8e-456f-8b81-9a9a1469aa6c";
+const bgMobile = "https://www.figma.com/api/mcp/asset/4504a664-4f8e-456f-8b81-9a9a1469aa6c";
 
 /* White pill CTA button matching Figma "gradient/secondary" */
 function WhitePillButton({ className = "" }: { className?: string }) {

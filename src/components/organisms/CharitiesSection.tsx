@@ -13,9 +13,9 @@ const imgRSPCA        = "https://www.figma.com/api/mcp/asset/dc0a79bc-0175-4fc4-
 const imgLifeline     = "https://www.figma.com/api/mcp/asset/d5f895d1-8493-49b2-93ea-3ce956fbffc4";
 
 // Background decoration assets
-const imgEllipse = "https://www.figma.com/api/mcp/asset/eaac7d13-d582-4987-ac50-c64a5beb1680";
-const imgPolygon = "https://www.figma.com/api/mcp/asset/336aac90-2c63-46cf-8d8c-ab6bc0eda477";
-const imgTexture = "https://www.figma.com/api/mcp/asset/519880c5-d3f2-4c6a-ab86-6f9d4993cc41";
+const imgEllipse = "https://www.figma.com/api/mcp/asset/27538d7d-2ad6-4bf4-a91c-22e766ab592b";
+const imgPolygon = "https://www.figma.com/api/mcp/asset/c96e460f-6d1e-4e82-a513-52363bf67179";
+const imgTexture = "https://www.figma.com/api/mcp/asset/43cacece-b262-484e-814f-9a0a181bf3f3";
 
 const charities = [
   {

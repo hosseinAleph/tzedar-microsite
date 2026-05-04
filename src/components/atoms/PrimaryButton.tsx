@@ -10,6 +10,7 @@ type PrimaryButtonProps = {
   size?: "sm" | "md" | "lg";
   showArrow?: boolean;
   className?: string;
+  style?: React.CSSProperties;
   loading?: boolean;
   type?: "button" | "submit" | "reset";
 };
@@ -22,6 +23,7 @@ export function PrimaryButton({
   size = "md",
   showArrow = false,
   className,
+  style,
   loading = false,
   type = "button",
 }: PrimaryButtonProps) {
@@ -45,8 +47,8 @@ export function PrimaryButton({
 
   const solidStyle =
     variant === "solid"
-      ? { backgroundImage: "var(--gradient-btn-primary)" }
-      : undefined;
+      ? { backgroundImage: "var(--gradient-btn-primary)", ...style }
+      : style;
 
   if (href) {
     return (
