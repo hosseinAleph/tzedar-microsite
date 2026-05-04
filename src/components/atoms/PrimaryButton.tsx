@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
+import { Spinner } from "./Spinner";
 
 type PrimaryButtonProps = {
   children: React.ReactNode;
@@ -9,6 +10,8 @@ type PrimaryButtonProps = {
   size?: "sm" | "md" | "lg";
   showArrow?: boolean;
   className?: string;
+  loading?: boolean;
+  type?: "button" | "submit" | "reset";
 };
 
 export function PrimaryButton({
@@ -19,6 +22,8 @@ export function PrimaryButton({
   size = "md",
   showArrow = false,
   className,
+  loading = false,
+  type = "button",
 }: PrimaryButtonProps) {
   const sizeClasses = {
     sm: "px-4 py-3 text-sm",
@@ -46,15 +51,15 @@ export function PrimaryButton({
   if (href) {
     return (
       <a href={href} className={baseClasses} style={solidStyle}>
-        {children}
+        {loading ? <Spinner /> : children}
         {showArrow && <ArrowRight className="w-4 h-4" />}
       </a>
     );
   }
 
   return (
-    <button onClick={onClick} className={baseClasses} style={solidStyle}>
-      {children}
+    <button onClick={onClick} className={baseClasses} style={solidStyle} type={type}>
+      {loading ? <Spinner /> : children}
       {showArrow && <ArrowRight className="w-4 h-4" />}
     </button>
   );
