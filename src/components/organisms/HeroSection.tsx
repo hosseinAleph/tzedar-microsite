@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { PrimaryButton } from "@/components/atoms/PrimaryButton";
+import { ArrowRight } from "lucide-react";
 
 const heroImage     = "https://www.figma.com/api/mcp/asset/7cb4d73d-aadb-4920-9f91-b81d4138f13e";
-const arrowIcon     = "https://www.figma.com/api/mcp/asset/d0647506-ed15-4d95-946d-73ccaf6827f3";
 
 export function HeroSection() {
   return (
@@ -21,14 +21,14 @@ export function HeroSection() {
         The section height adapts: shorter on mobile (hero fills ~80vh),
         taller on desktop (hero is a fixed ~680px).
       */}
-      <div className="relative min-h-[520px] sm:min-h-[600px] lg:min-h-[720px]">
+      <div className="relative min-h-[811px] lg:min-h-[720px]">
 
         {/* ══ MOBILE glass panel ══
             Full-width, sits at the bottom, rounded top corners only.
             Visible below md. */}
         <div
-          className="md:hidden absolute bottom-0 left-0 right-0 rounded-tl-[40px] rounded-tr-[40px] border-t border-brand-tint px-8 pt-12 pb-14 flex flex-col gap-6 justify-end"
-          style={{ background: "var(--glass-bg)", backdropFilter: "blur(8px)" }}
+          className="md:hidden absolute bottom-0 left-0 right-20 rounded-tl-[40px] rounded-tr-[40px] border-t border-brand-tint px-8 pt-12 pb-14 flex flex-col gap-6 justify-end"
+          style={{ background: "var(--glass-bg)", backdropFilter: "blur(1px)" }}
         >
           {/* inner dark overlay */}
           <div className="absolute inset-0 rounded-tl-[40px] rounded-tr-[40px] bg-[var(--glass-bg)] mix-blend-darken pointer-events-none" />
@@ -47,7 +47,7 @@ export function HeroSection() {
             </div>
             <div className="flex flex-wrap gap-3 items-center">
               <PrimaryButton size="sm">Start selling</PrimaryButton>
-              <GhostButton icon={arrowIcon}>Join as a charity</GhostButton>
+              <GhostButton >Join as a charity</GhostButton>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@ export function HeroSection() {
             Visible from md+. */}
         <div
           className="hidden md:flex absolute bottom-10 lg:bottom-16 left-0 flex-col justify-end p-12 lg:p-16 rounded-tr-[48px] rounded-br-[48px] border-t border-brand-tint max-w-[520px] lg:max-w-[680px]"
-          style={{ background: "var(--glass-bg)", backdropFilter: "blur(8px)", boxShadow: "var(--glass-shadow)" }}
+          style={{ background: "var(--glass-bg)", backdropFilter: "blur(1px)", boxShadow: "var(--glass-shadow)" }}
         >
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-6 text-primary-foreground">
@@ -76,7 +76,7 @@ export function HeroSection() {
             </div>
             <div className="flex flex-wrap gap-3 items-center">
               <PrimaryButton size="md">Start selling</PrimaryButton>
-              <GhostButton icon={arrowIcon}>Join as a charity</GhostButton>
+              <GhostButton >Join as a charity</GhostButton>
             </div>
           </div>
         </div>
@@ -87,16 +87,14 @@ export function HeroSection() {
 }
 
 /* ── Ghost button (white text + arrow icon) — navigates to /join ── */
-function GhostButton({ children, icon }: { children: React.ReactNode; icon: string }) {
+function GhostButton({ children }: { children: React.ReactNode }) {
   return (
     <Link
       to="/join"
       className="flex items-center gap-2 px-4 py-3 rounded-full font-semibold text-primary-foreground text-sm md:text-lg hover:bg-primary-foreground/10 transition-colors"
     >
       {children}
-      <span className="inline-flex items-center justify-center w-4 h-4 md:w-5 md:h-5">
-        <img src={icon} alt="" className="w-full h-full" />
-      </span>
+      <ArrowRight className="w-5 h-5" />
     </Link>
   );
 }
