@@ -1,31 +1,58 @@
-import { useState, useCallback,useRef ,type SubmitEvent } from "react"
+import { useState, useCallback, type SubmitEvent } from "react"
 import { useNavigate } from "react-router-dom"
 import { Info, X } from "lucide-react"
 import { Logo } from "@/components/atoms/Logo"
 import { SubmissionPopup } from "@/components/molecules/SubmissionPopup"
-import emailJS from "@emailjs/browser";
-import { PrimaryButton } from "@/components/atoms/PrimaryButton";
+// import emailJS from "@emailjs/browser";
+import { TzButton } from "@/components/atoms/TzButton"
 
-
-const decorImage = "https://www.figma.com/api/mcp/asset/7bdfbb8e-0b72-40ce-9272-3e9e8bf6d719"
+const decorImage =
+  "https://www.figma.com/api/mcp/asset/7bdfbb8e-0b72-40ce-9272-3e9e8bf6d719"
 
 /* ── Shared form field definitions ── */
 const fields = [
-  { name: "name",  id: "name",  label: "Full name",         placeholder: "e.g. John Doe",               hint: "" },
-  { name: "email", id: "email", label: "Work email",         placeholder: "e.g. john@oceancare.au",       hint: "" },
-  { name: "org",   id: "org",   label: "Organisation name",  placeholder: "e.g. Ocean Care Australia Ltd", hint: "" },
-  { name: "abn",   id: "abn",   label: "ABN",                placeholder: "e.g. 12 345 678 901",          hint: "We'll use this to confirm your spot and send next steps." },
+  {
+    name: "name",
+    id: "name",
+    label: "Full name",
+    placeholder: "e.g. John Doe",
+    hint: "",
+  },
+  {
+    name: "email",
+    id: "email",
+    label: "Work email",
+    placeholder: "e.g. john@oceancare.au",
+    hint: "",
+  },
+  {
+    name: "org",
+    id: "org",
+    label: "Organisation name",
+    placeholder: "e.g. Ocean Care Australia Ltd",
+    hint: "",
+  },
+  {
+    name: "abn",
+    id: "abn",
+    label: "ABN",
+    placeholder: "e.g. 12 345 678 901",
+    hint: "We'll use this to confirm your spot and send next steps.",
+  },
 ]
 
 /* ── DGR callout ── */
 function DgrCallout() {
   return (
-    <div className="flex gap-3 items-start p-4 rounded-xl border border-info bg-info-surface">
-      <Info className="w-5 h-5 text-info-dark shrink-0 mt-0.5" />
+    <div className="flex items-start gap-3 rounded-xl border border-info bg-info-surface p-4">
+      <Info className="mt-0.5 h-5 w-5 shrink-0 text-info-dark" />
       <div className="flex flex-col gap-0.5">
-        <p className="text-sm font-semibold text-info-darker">DGR status is required</p>
-        <p className="text-xs text-info-dark leading-snug">
-          Tzedar automatically generates tax-deductible receipts for donors — your DGR endorsement is what makes this possible.
+        <p className="text-sm font-semibold text-info-darker">
+          DGR status is required
+        </p>
+        <p className="text-xs leading-snug text-info-dark">
+          Tzedar automatically generates tax-deductible receipts for donors —
+          your DGR endorsement is what makes this possible.
         </p>
       </div>
     </div>
@@ -33,12 +60,17 @@ function DgrCallout() {
 }
 
 /* ── Single text input ── */
-function FormInput({ id, label, placeholder, hint }: Readonly<{ id: string; label: string; placeholder: string; hint: string }>) {
+function FormInput({
+  id,
+  label,
+  placeholder,
+  hint,
+}: Readonly<{ id: string; label: string; placeholder: string; hint: string }>) {
   return (
-    <div className="flex flex-col gap-1 w-full">
+    <div className="flex w-full flex-col gap-1">
       <label
         htmlFor={id}
-        className="text-[12px] font-semibold text-text-primary/70 leading-snug"
+        className="text-[12px] leading-snug font-semibold text-text-primary/70"
       >
         {label}
       </label>
@@ -46,10 +78,10 @@ function FormInput({ id, label, placeholder, hint }: Readonly<{ id: string; labe
         id={id}
         type={id === "email" ? "email" : "text"}
         placeholder={placeholder}
-        className="h-11 w-full px-4 rounded-lg border border-border-strong bg-background text-sm text-text-primary placeholder:text-text-placeholder focus:outline-none focus:ring-2 focus:ring-brand transition"
+        className="h-11 w-full rounded-lg border border-border-strong bg-background px-4 text-sm text-text-primary transition placeholder:text-text-placeholder focus:ring-2 focus:ring-brand focus:outline-none"
       />
       {hint && (
-        <p className="text-[12px] text-brand-medium/70 leading-snug">{hint}</p>
+        <p className="text-[12px] leading-snug text-brand-medium/70">{hint}</p>
       )}
     </div>
   )
@@ -62,7 +94,7 @@ function PartnerForm({ onSubmit }: Readonly<{ onSubmit: () => void }>) {
 
   const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('first', e.target)
+    console.log("first", e.target)
     setLoading(true)
     // TODO: Add the public key to the environment variables
     // emailJS.sendForm('service_874wrye', 'template_dos7199', e.target as HTMLFormElement, 'MW7fh2GtF3biGDMAH')
@@ -76,48 +108,46 @@ function PartnerForm({ onSubmit }: Readonly<{ onSubmit: () => void }>) {
     setTimeout(() => {
       setLoading(false)
     }, 3000)
-   
   }
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-8">
       {/* Form header */}
       <div className="flex flex-col gap-2">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#6b9db8] leading-snug">
+        <p className="text-[11px] leading-snug font-semibold tracking-[0.2em] text-[#6b9db8] uppercase">
           Join as a partner
         </p>
         <div>
-          <p className="font-semibold text-[18px] text-text-primary leading-snug">Let's get started.</p>
-          <p className="text-[12px] text-text-secondary/70 leading-snug">Join Tzedar as a launch partner charity.</p>
+          <p className="text-[18px] leading-snug font-semibold text-text-primary">
+            Let's get started.
+          </p>
+          <p className="text-[12px] leading-snug text-text-secondary/70">
+            Join Tzedar as a launch partner charity.
+          </p>
         </div>
       </div>
 
       {/* Fields */}
       <div className="flex flex-col gap-4">
-        {fields.map((f) => <FormInput key={f.id} {...f} />)}
+        {fields.map((f) => (
+          <FormInput key={f.id} {...f} />
+        ))}
       </div>
 
       <DgrCallout />
 
       {/* Submit */}
       <div className="flex flex-col gap-3">
-        <PrimaryButton
-          type="submit"
-          className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold text-sm text-primary-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-light"
-          loading={loading}
-          showArrow={!loading}
-        >
+        <TzButton type="submit" loading={loading} showArrow={!loading}>
           Join as a partner
-        </PrimaryButton>
-        <p className="text-[12px] text-text-secondary/70 text-center leading-snug">
-          Already have an account?{" "}
-          <button type="button" className="text-brand-light font-semibold hover:underline">Login</button>.
-        </p>
+        </TzButton>
       </div>
 
-      <p className="text-[12px] text-text-secondary/70 text-center leading-snug">
+      <p className="text-center text-[12px] leading-snug text-text-secondary/70">
         By submitting you agree to{" "}
-        <a href="/terms" className="text-brand-light underline">our terms</a>
+        <a href="/terms" className="text-brand-light underline">
+          our terms
+        </a>
         {". We'll only contact you about your application."}
       </p>
     </form>
@@ -129,7 +159,7 @@ function PartnerForm({ onSubmit }: Readonly<{ onSubmit: () => void }>) {
 ══════════════════════════════════════════ */
 export function JoinAsCharityPage() {
   const [submitted, setSubmitted] = useState(false)
-  const [isLeaving, setIsLeaving]   = useState(false)
+  const [isLeaving, setIsLeaving] = useState(false)
   const navigate = useNavigate()
 
   // Play exit animation, then navigate away
@@ -139,52 +169,51 @@ export function JoinAsCharityPage() {
   }, [navigate])
 
   return (
-    <div className={`min-h-screen bg-background lg:bg-surface-neutral flex flex-col ${isLeaving ? "animate-page-exit" : "animate-page-enter"}`}>
-
+    <div
+      className={`flex min-h-screen flex-col bg-background lg:bg-surface-neutral ${isLeaving ? "animate-page-exit" : "animate-page-enter"}`}
+    >
       {/* ── Submission popup (shown over both layouts) ── */}
-      {submitted && (
-        <SubmissionPopup onClose={() => setSubmitted(false)} />
-      )}
+      {submitted && <SubmissionPopup onClose={() => setSubmitted(false)} />}
 
       {/* ════════════════════════════════
           DESKTOP layout (lg+): two columns
       ════════════════════════════════ */}
       {/* p-4 on the outer wrapper + gap-4 between panels eliminates the gray background gaps */}
-      <div className="hidden lg:flex flex-1 min-h-screen p-4 gap-4 relative">
-
+      <div className="relative hidden min-h-screen flex-1 gap-4 p-4 lg:flex">
         {/* Left sidebar — pale blue */}
-        <div className="relative flex flex-col w-[360px] xl:w-[420px] shrink-0 px-8 pt-10 pb-12 rounded-[24px] overflow-hidden bg-[#9fc5e0]">
+        <div className="relative flex w-[360px] shrink-0 flex-col overflow-hidden rounded-[24px] bg-[#9fc5e0] px-8 pt-10 pb-12 xl:w-[420px]">
           {/* Decorative glow */}
           <img
             src={decorImage}
             alt=""
-            className="absolute left-[160px] top-1/2 -translate-y-1/4 w-[236px] mix-blend-plus-lighter opacity-60 pointer-events-none"
+            className="pointer-events-none absolute top-1/2 left-[160px] w-[236px] -translate-y-1/4 opacity-60 mix-blend-plus-lighter"
             aria-hidden="true"
           />
 
           {/* Logo + divider */}
-          <div className="flex flex-col gap-6 relative z-10">
+          <div className="relative z-10 flex flex-col items-center gap-6">
             <Logo height={40} variant="white" />
-            <div className="border-t border-primary-foreground/20 w-full" />
+            <div className="w-full border-t border-primary-foreground/20" />
           </div>
 
           {/* Heading block — vertically centered in the remaining sidebar height */}
-          <div className="relative z-10 flex flex-col gap-6 flex-1 justify-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">
+          <div className="relative z-10 flex flex-1 flex-col justify-center gap-6">
+            <p className="text-[11px] font-semibold tracking-[0.2em] text-primary-foreground/80 uppercase">
               Charity partnership
             </p>
-            <h1 className="font-bold text-[48px] text-primary-foreground leading-none">
+            <h1 className="text-[48px] leading-none font-bold text-primary-foreground">
               raise funds better, faster, and for free.
             </h1>
-            <p className="text-[18px] text-primary-foreground/70 leading-snug">
-              Partner with Tzedar and receive a percentage of every auction that supports your cause.
+            <p className="text-[18px] leading-snug text-primary-foreground/70">
+              Partner with Tzedar and receive a percentage of every auction that
+              supports your cause.
             </p>
           </div>
         </div>
 
         {/* Right panel — full-height white card, form centered inside */}
-        <div className="flex-1 bg-card rounded-[32px] shadow-[var(--shadow-form-card)] border border-card-edge flex items-center justify-center py-10">
-          <div className="w-full max-w-[540px] px-8">
+        <div className="flex flex-1 items-center justify-center rounded-[32px] border border-card-edge bg-card py-10 shadow-[var(--shadow-form-card)]">
+          <div className="w-full max-w-[720px] px-8">
             <PartnerForm onSubmit={() => setSubmitted(true)} />
           </div>
         </div>
@@ -194,42 +223,47 @@ export function JoinAsCharityPage() {
           type="button"
           onClick={handleClose}
           aria-label="Close"
-          className="absolute top-[17px] right-[17px] flex items-center justify-center size-12 rounded-full hover:bg-border-default/30 transition-colors"
+          className="absolute top-[17px] right-[17px] flex size-12 items-center justify-center rounded-full transition-colors hover:bg-border-default/30"
         >
-          <X className="w-5 h-5 text-text-secondary" />
+          <X className="h-5 w-5 text-text-secondary" />
         </button>
       </div>
 
       {/* ════════════════════════════════
           MOBILE layout (< lg): stacked
       ════════════════════════════════ */}
-      <div className="lg:hidden flex flex-col flex-1">
-
+      <div className="flex flex-1 flex-col lg:hidden">
         {/* Mobile nav bar */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-border-default sticky top-0 bg-background z-10">
+        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border-default bg-background px-4 py-3">
           <Logo height={28} />
-          <button type="button" onClick={handleClose} aria-label="Close" className="p-2 rounded-full hover:bg-brand-surface transition-colors">
-            <X className="w-5 h-5 text-text-secondary" />
+          <button
+            type="button"
+            onClick={handleClose}
+            aria-label="Close"
+            className="rounded-full p-2 transition-colors hover:bg-brand-surface"
+          >
+            <X className="h-5 w-5 text-text-secondary" />
           </button>
         </div>
 
         {/* Pale-blue hero card */}
-        <div className="relative mx-4 mt-4 rounded-2xl px-6 py-10 overflow-hidden bg-[#9fc5e0]">
+        <div className="relative mx-4 mt-4 overflow-hidden rounded-2xl bg-[#9fc5e0] px-6 py-10">
           <img
             src={decorImage}
             alt=""
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-[180px] mix-blend-plus-lighter opacity-50 pointer-events-none"
+            className="pointer-events-none absolute top-1/2 right-0 w-[180px] -translate-y-1/2 opacity-50 mix-blend-plus-lighter"
             aria-hidden="true"
           />
           <div className="relative z-10 flex flex-col gap-6">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">
+            <p className="text-[11px] font-semibold tracking-[0.2em] text-primary-foreground/80 uppercase">
               Charity partnership
             </p>
-            <h1 className="font-semibold text-[28px] text-primary-foreground leading-snug">
+            <h1 className="text-[28px] leading-snug font-semibold text-primary-foreground">
               Raise funds better, faster, and for free.
             </h1>
-            <p className="text-[18px] text-primary-foreground/70 leading-snug">
-              Partner with Tzedar and receive a percentage of every auction that supports your cause.
+            <p className="text-[18px] leading-snug text-primary-foreground/70">
+              Partner with Tzedar and receive a percentage of every auction that
+              supports your cause.
             </p>
           </div>
         </div>
@@ -239,7 +273,6 @@ export function JoinAsCharityPage() {
           <PartnerForm onSubmit={() => setSubmitted(true)} />
         </div>
       </div>
-
     </div>
   )
 }
