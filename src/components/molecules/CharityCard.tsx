@@ -1,17 +1,24 @@
-const verifiedStar  = "https://www.figma.com/api/mcp/asset/ed98512b-6123-4451-b826-66d3e1627617";
-const verifiedCheck = "https://www.figma.com/api/mcp/asset/da1d30df-2d95-4b89-b41e-3d346c26b8b2";
-
 type CharityCardProps = Readonly<{
-  image: string;
-  name: string;
-  description: string;
-}>;
+  image: string
+  name: string
+  description: string
+  location: string
+}>
 
-export function CharityCard({ image, name, description }: CharityCardProps) {
+// marker-pin-icon
+const marker = "/images/marker-pin-icon.png"
+const verifiedCheck = "/images/verification-icon.png"
+
+export function CharityCard({
+  image,
+  name,
+  description,
+  location,
+}: CharityCardProps) {
   return (
     /* Outer frosted card */
     <div
-      className="relative w-[260px] sm:w-[280px] h-[420px] sm:h-[479px] shrink-0 rounded-[24px] overflow-hidden border border-border-subtle shadow-[var(--shadow-charity-card)]"
+      className="relative h-[420px] w-[264px] shrink-0 overflow-hidden rounded-[24px] border border-border-subtle shadow-(--shadow-charity-card) sm:h-[479px] sm:w-[280px]"
       style={{
         background: "var(--gradient-frosted-card)",
         backdropFilter: "blur(32px)",
@@ -19,13 +26,12 @@ export function CharityCard({ image, name, description }: CharityCardProps) {
       }}
     >
       {/* Inner inset image container */}
-      <div className="absolute inset-[7px] rounded-2xl overflow-hidden border border-[var(--inner-border-color)]">
-
+      <div className="absolute inset-[7px] overflow-hidden rounded-2xl border border-(--inner-border-color)">
         {/* Photo — no full-image blur; stays sharp at the top */}
         <img
           src={image}
           alt={name}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 h-full w-full rounded-2xl object-cover"
         />
 
         {/*
@@ -35,27 +41,28 @@ export function CharityCard({ image, name, description }: CharityCardProps) {
           transition from clear to frosted is smooth.
         */}
         <div
-          className="absolute bottom-0 left-0 right-0"
+          className="absolute right-0 bottom-0 left-0 rounded-b-2xl"
           style={{
             height: "55%",
             backdropFilter: "blur(11px)",
             WebkitBackdropFilter: "blur(11px)",
             maskImage: "linear-gradient(to bottom, transparent 0%, black 30%)",
-            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 30%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, transparent 0%, black 30%)",
             backgroundImage: "var(--gradient-image-mask)",
           }}
         />
 
         {/* Dark gradient overlay — bottom 48% — makes text readable */}
         <div
-          className="absolute bottom-0 left-0 right-0 mix-blend-overlay"
+          className="absolute right-0 bottom-0 left-0 mix-blend-overlay"
           style={{
             height: "48%",
             backgroundImage: "var(--gradient-dark-overlay-1)",
           }}
         />
         <div
-          className="absolute bottom-0 left-0 right-0"
+          className="absolute right-0 bottom-0 left-0"
           style={{
             height: "48%",
             backgroundImage: "var(--gradient-dark-overlay-2)",
@@ -63,20 +70,42 @@ export function CharityCard({ image, name, description }: CharityCardProps) {
         />
 
         {/* Inner highlight ring */}
-        <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[var(--shadow-highlight-inset)]" />
+        <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-(--shadow-highlight-inset)" />
       </div>
 
       {/* Profile info — pinned to bottom */}
-      <div className="absolute bottom-0 left-0 right-0 px-7 pb-4 pt-5 flex flex-col gap-1">
+      <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-2 p-6">
         <div className="flex items-center gap-2">
-          <p className="font-semibold text-lg text-surface-bright leading-snug">{name}</p>
-          <div className="relative shrink-0 w-6 h-6">
-            <img src={verifiedStar}  alt="" className="absolute inset-0 w-full h-full" />
-            <img src={verifiedCheck} alt="" className="absolute inset-[20%] w-[60%] h-[60%]" />
+          {/* truncate more than 1 line */}
+          <p className="text-lg leading-snug font-semibold text-surface-bright">
+            {name}
+          </p>
+          <div className="relative h-6 w-6 shrink-0">
+            <img
+              src={verifiedCheck}
+              alt=""
+              className="absolute inset-[20%] h-[60%] w-[60%]"
+            />
           </div>
         </div>
-        <p className="text-sm text-surface-bright leading-snug opacity-90">{description}</p>
+        {/* truncate more than 2 line */}
+
+        <p className="line-clamp-2 text-sm leading-snug text-surface-bright opacity-90">
+          {description}
+        </p>
+        <div className="flex items-center gap-1">
+          <div className="relative h-4 w-4 shrink-0">
+            <img
+              src={marker}
+              alt=""
+              className="absolute inset-0 h-full w-full"
+            />
+          </div>
+          <p className="text-xs leading-snug font-thin text-surface-bright opacity-90">
+            {location}
+          </p>
+        </div>
       </div>
     </div>
-  );
+  )
 }

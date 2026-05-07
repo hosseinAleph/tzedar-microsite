@@ -1,123 +1,125 @@
-import { useState } from "react";
-import { Download } from "lucide-react";
-import { SectionLabel } from "@/components/atoms/SectionLabel";
-import { ListingCard } from "@/components/molecules/ListingCard";
+import { useState } from "react"
+import { SectionLabel } from "@/components/atoms/SectionLabel"
+import { ListingCard } from "@/components/molecules/ListingCard"
+import { TzButton } from "../atoms/TzButton"
 
-const imgBlanket = "https://www.figma.com/api/mcp/asset/4c94550e-6969-4bfa-9dc3-46a9f2a94cc1";
-const imgCamera = "https://www.figma.com/api/mcp/asset/424cd248-a3fb-41c1-9d67-6d4fe0b3a4c0";
-const imgGuitar = "https://www.figma.com/api/mcp/asset/f1d3605b-6a6f-436c-9ae9-2f304e59c900";
+const imgBlanket = "/images/sales-1.png"
+const imgCamera = "/images/sales-2.png"
+const imgGuitar = "/images/sales-3.png"
 
 const allItems = [
   {
     image: imgBlanket,
     title: "Vintage Pendleton Blanket",
-    meta: "14 bids · auction closed 14 Apr",
+    meta: "Starting offer at $1.00",
     price: "$98.00",
-    donation: "$7.20 → Oxfam Australia",
-    seller: "Sold by Sarah M., Sydney",
+    received_by: "Sold by Sarah M., Sydney",
+    shared_by: "Shared with Oxfam Australia on 12 March 2026.",
   },
   {
     image: imgCamera,
     title: "Leica M6 film camera with 35mm Summicron lens",
-    meta: "22 bids · auction closed 14 Apr",
+    meta: "Starting offer at $1.00r",
     price: "$2,850.00",
-    donation: "$2,850.00 → WWF Australia",
     seller: "Sold by Emily R., Melbourne",
+    shared_by: "Shared with WWF Australia on 12 March 2026.",
+    received_by: "Sold by Emily R., Melbourne",
   },
   {
     image: imgGuitar,
     title: "1972 Fender Stratocaster, sunburst finish",
-    meta: "12 bids · auction closed 14 Apr",
+    meta: "Starting offer at $1.00r",
     price: "$4,200.00",
-    donation: "$420.00 → Beyond Blue",
-    seller: "Sold by James T., Brisbane",
+    received_by: "Sold by James T., Brisbane",
+    shared_by: "Shared with WWF Australia on 12 March 2026.",
   },
   {
     image: imgBlanket,
     title: "Handwoven Oaxacan Textile Rug",
-    meta: "9 bids · auction closed 12 Apr",
+    meta: "Starting offer at $1.00",
     price: "$340.00",
-    donation: "$34.00 → Red Cross Australia",
-    seller: "Sold by Maria C., Adelaide",
+    received_by: "Sold by Maria C., Adelaide",
+    shared_by: "Shared with WWF Australia on 12 March 2026.",
   },
   {
     image: imgCamera,
     title: "Hasselblad 500C/M Medium Format Camera",
-    meta: "18 bids · auction closed 11 Apr",
+    meta: "Starting offer at $1.00",
     price: "$1,600.00",
-    donation: "$160.00 → RSPCA",
-    seller: "Sold by David L., Perth",
+    received_by: "Sold by David L., Perth",
+    shared_by: "Shared with WWF Australia on 12 March 2026.",
   },
   {
     image: imgGuitar,
     title: "Gibson ES-335 Semi-Hollow Electric",
-    meta: "7 bids · auction closed 10 Apr",
+    meta: "Starting offer at $1.00",
     price: "$3,100.00",
-    donation: "$310.00 → Lifeline Australia",
-    seller: "Sold by Tom W., Sydney",
+    received_by: "Sold by Tom W., Sydney",
+    shared_by: "Shared with WWF Australia on 12 March 2026.",
   },
   {
     image: imgBlanket,
     title: "Japanese Indigo Boro Textile",
-    meta: "11 bids · auction closed 9 Apr",
+    meta: "Starting offer at $1.00",
     price: "$520.00",
-    donation: "$52.00 → Oxfam Australia",
-    seller: "Sold by Keiko N., Melbourne",
+    received_by: "Sold by Keiko N., Melbourne",
+    shared_by: "Shared with WWF Australia on 12 March 2026.",
   },
   {
     image: imgCamera,
     title: "Rolleiflex 2.8F with Carl Zeiss Planar",
-    meta: "15 bids · auction closed 8 Apr",
+    meta: "Starting offer at $1.00",
     price: "$2,200.00",
-    donation: "$220.00 → WWF Australia",
-    seller: "Sold by Peter H., Brisbane",
+    received_by: "Sold by Peter H., Brisbane",
+    shared_by: "Shared with WWF Australia on 12 March 2026.",
   },
   {
     image: imgGuitar,
     title: "1964 Rickenbacker 360 12-String",
-    meta: "19 bids · auction closed 7 Apr",
+    meta: "Starting offer at $1.00",
     price: "$5,500.00",
-    donation: "$550.00 → Beyond Blue",
-    seller: "Sold by Chris B., Gold Coast",
+    received_by: "Sold by Chris B., Gold Coast",
+    shared_by: "Shared with WWF Australia on 12 March 2026.",
   },
-];
+]
 
-// Desktop shows first 5 (1 featured + 4 grid); mobile shows first 4
-const DESKTOP_INITIAL = 5;
+// Desktop shows first 5 (1 featured + 3 grid); mobile shows first 4
+const DESKTOP_INITIAL = 5
 
 export function PastSalesSection() {
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(false)
 
-  const featuredItem = allItems[0];
-  const initialGridItems = allItems.slice(1, DESKTOP_INITIAL);
-  const extraItems = allItems.slice(DESKTOP_INITIAL);
+  const featuredItem = allItems[0]
+  const initialGridItems = allItems.slice(1, DESKTOP_INITIAL)
+  const extraItems = allItems.slice(DESKTOP_INITIAL)
 
   // Mobile visible list
-  const mobileItems = showAll ? allItems : allItems.slice(0, 4);
-  const hasMobileMore = !showAll && allItems.length > 4;
-  const hasDesktopMore = !showAll && extraItems.length > 0;
+  const mobileItems = showAll ? allItems : allItems.slice(0, 3)
+  const hasMobileMore = !showAll && allItems.length > 3
+  const hasDesktopMore = !showAll && extraItems.length > 0
 
   return (
-    <section className="py-16 sm:py-20 lg:py-[120px] px-6 sm:px-8 lg:px-20 bg-background">
-      <div className="max-w-7xl mx-auto">
-
+    <section className="bg-background p-8 sm:p-12 lg:p-16">
+      <div className="mx-auto max-w-7xl">
         {/* Section header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 sm:mb-14">
+        <div className="mb-10 flex flex-col gap-4 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex flex-col gap-3">
-            <SectionLabel>Past Sales</SectionLabel>
-            <h2 className="font-bold text-[48px] leading-none text-brand-darkest">
-              items that recently<br />found a new home
+            <SectionLabel>ReCENTLY SHARED</SectionLabel>
+            <h2 className="text-[48px] leading-none font-bold text-brand-darkest">
+              each one carries
+              <br />
+              value forward.
             </h2>
           </div>
-          <p className="text-lg sm:text-xl lg:text-2xl text-text-secondary/70 leading-snug sm:max-w-sm lg:max-w-md text-left sm:text-right">
-            Real items. Real bids. Real change for the causes that matter to you.
+          <p className="text-left text-lg leading-snug text-text-secondary/70 sm:max-w-sm sm:text-right sm:text-xl lg:max-w-md lg:text-2xl">
+            Value, discovered and shared.
           </p>
         </div>
 
         {/* ── Desktop: 1 large featured card + 2×2 grid ── */}
-        <div className="hidden sm:flex gap-4 items-stretch">
+        <div className="hidden items-stretch gap-4 sm:flex">
           {/* Featured card — left, stretches to full height of the grid */}
-          <div className="flex-1 min-w-0 self-stretch">
+          <div className="min-w-0 flex-1 self-stretch">
             <ListingCard item={featuredItem} variant="featured" />
           </div>
 
@@ -131,7 +133,7 @@ export function PastSalesSection() {
 
         {/* Extra desktop items revealed on show more */}
         {showAll && (
-          <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+          <div className="mt-4 hidden grid-cols-2 gap-4 sm:grid lg:grid-cols-4">
             {extraItems.map((item) => (
               <ListingCard key={item.title} item={item} variant="desktop" />
             ))}
@@ -139,35 +141,22 @@ export function PastSalesSection() {
         )}
 
         {/* ── Mobile: stacked list ── */}
-        <div className="sm:hidden flex flex-col gap-4">
+        <div className="flex flex-col gap-4 sm:hidden">
           {mobileItems.map((item) => (
             <ListingCard key={item.title} item={item} variant="mobile" />
           ))}
         </div>
 
-        {/* ── CTA buttons ── */}
-        <div className="mt-8 flex flex-col gap-3">
-          {/* Show more — full width on mobile when mobile has more, always on desktop */}
-          {(hasMobileMore || hasDesktopMore) && (
-            <button
-              onClick={() => setShowAll(true)}
-              className="w-full py-3.5 sm:py-5 px-6 rounded-full border border-pill-border font-semibold text-brand-dark text-sm sm:text-base hover:bg-brand-surface transition-colors shadow-[var(--shadow-pill-btn)]"
-              style={{ backgroundImage: "var(--gradient-btn-ghost)" }}
-            >
-              Show more
-            </button>
-          )}
-
-          {/* Start listing — mobile only, green primary CTA */}
-          <button
-            className="sm:hidden w-full py-3.5 px-6 rounded-full font-semibold text-white text-sm flex items-center justify-center gap-2 shadow-[var(--shadow-primary-btn)]"
-            style={{ backgroundImage: "var(--gradient-btn-primary)" }}
+        {(hasMobileMore || hasDesktopMore) && (
+          <TzButton
+            onClick={() => setShowAll(true)}
+            showArrow={true}
+            className="mt-10 w-full text-base"
           >
-            <Download className="w-4 h-4" />
-            Start listing
-          </button>
-        </div>
+            Show more
+          </TzButton>
+        )}
       </div>
     </section>
-  );
+  )
 }

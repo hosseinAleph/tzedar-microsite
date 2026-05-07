@@ -1,85 +1,101 @@
-import { SectionLabel } from "@/components/atoms/SectionLabel";
-import { CharityCard } from "@/components/molecules/CharityCard";
+import { SectionLabel } from "@/components/atoms/SectionLabel"
+import { CharityCard } from "@/components/molecules/CharityCard"
+import { cn } from "@/lib/utils"
 
 // Figma charity photos (web design)
-const imgOxfam        = "https://www.figma.com/api/mcp/asset/6afa63d3-fffc-4801-aa38-a918062e52f0";
-const imgWWF          = "https://www.figma.com/api/mcp/asset/03d4dddf-a62b-40d3-9490-937c5e9e9243";
-const imgRedCross     = "https://www.figma.com/api/mcp/asset/529a737c-9c9c-40ac-95f9-e3501cefadaa";
-const imgGreenFleet   = "https://www.figma.com/api/mcp/asset/fdda3bff-7f9d-4336-98fa-baeef9ddaf21";
-const imgSaveChildren = "https://www.figma.com/api/mcp/asset/66a2b0cf-c67e-4671-8412-96fab27297eb";
-const imgBeyondBlue   = "https://www.figma.com/api/mcp/asset/e3ffb78e-863d-4ac4-adab-401c11948875";
+const imgOxfam = "/images/charity-1.png"
+const imgWWF = "/images/charity-2.jpeg"
+const imgRedCross = "/images/charity-3.png"
+const imgGreenFleet = "/images/charity-4.jpeg"
+const imgSaveChildren = "/images/charity-5.jpeg"
+const imgBeyondBlue = "/images/charity-6.png"
 // Additional demo charities (existing assets)
-const imgRSPCA        = "https://www.figma.com/api/mcp/asset/dc0a79bc-0175-4fc4-be36-69336c86988f";
-const imgLifeline     = "https://www.figma.com/api/mcp/asset/d5f895d1-8493-49b2-93ea-3ce956fbffc4";
+const imgRSPCA = "/images/charity-2.jpeg"
+const imgLifeline = "/images/charity-4.jpeg"
 
 // Background decoration assets
-const imgEllipse = "https://www.figma.com/api/mcp/asset/27538d7d-2ad6-4bf4-a91c-22e766ab592b";
-const imgPolygon = "https://www.figma.com/api/mcp/asset/c96e460f-6d1e-4e82-a513-52363bf67179";
-const imgTexture = "https://www.figma.com/api/mcp/asset/43cacece-b262-484e-814f-9a0a181bf3f3";
+const imgEllipse = "/images/img-ellipse.svg"
+const imgPolygon = "/images/img-polygon.svg"
+const imgTexture = "/images/img-texture.svg"
 
 const charities = [
   {
     image: imgOxfam,
     name: "Oxfam Australia",
-    description: "Help developing nations grow economically, socially, & politically.",
+    description:
+      "Help a developing nations grow economically, socially, & politically.",
+    location: "Based in Sydney.",
   },
   {
     image: imgWWF,
     name: "WWF Australia",
-    description: "Protecting wildlife and natural habitats for future generations.",
+    description: "Protecting vulnerable wildlife and their natural habitats.",
+    location: "Based in Melbourne.",
   },
   {
     image: imgRedCross,
     name: "Australian Red Cross",
-    description: "Responding to humanitarian crises and supporting vulnerable communities.",
+    description:
+      "Responding to humanitarian crises and supporting vulnerable communities.",
+    location: "Based in Brisbane.",
   },
   {
     image: imgGreenFleet,
     name: "Green Fleet",
-    description: "Planting trees and restoring ecosystems to combat climate change.",
+    description:
+      "Planting trees and restoring ecosystems to combat climate change.",
+    location: "Based in Perth.",
   },
   {
     image: imgSaveChildren,
     name: "Save the Children",
-    description: "Protecting children's rights and improving their access to education.",
+    description:
+      "Protecting children's rights and improving their access to education.",
+    location: "Based in Adelaide.",
   },
   {
     image: imgBeyondBlue,
     name: "Beyond Blue",
     description: "Supporting mental health and wellbeing across Australia.",
+    location: "Based in Sydney.",
   },
   {
     image: imgRSPCA,
     name: "RSPCA Australia",
     description: "Promoting the kindness and prevention of cruelty to animals.",
+    location: "Based in Melbourne.",
   },
   {
     image: imgLifeline,
     name: "Lifeline Australia",
-    description: "Supporting Australians in crisis with 24/7 mental health services.",
+    description:
+      "Supporting Australians in crisis with 24/7 mental health services.",
+    location: "Based in Sydney.",
   },
-];
+]
 
 export function CharitiesSection() {
   return (
-    <section id="charities" className="relative py-16 sm:py-20 lg:py-28 overflow-hidden bg-brand-tint">
-
+    <section
+      id="charities"
+      className="relative overflow-hidden py-16 sm:py-20 lg:py-28"
+    >
       {/* ── Decorative background ── */}
       {/* Soft glow ellipse — upper center-right */}
-      <div className="pointer-events-none absolute right-[15%] top-0 w-[55%] aspect-square opacity-70 select-none">
+      <div className="pointer-events-none absolute top-0 right-[15%] aspect-square w-[55%] opacity-70 select-none">
         <div className="absolute inset-[-32%]">
-          <img src={imgEllipse} alt="" className="block w-full h-full" />
+          <img src={imgEllipse} alt="" className="block h-full w-full" />
         </div>
       </div>
       {/* Polygon shape — far upper right */}
-      <div className="pointer-events-none absolute right-0 top-0 w-[55%] aspect-square opacity-60 select-none">
+      <div className="pointer-events-none absolute top-0 right-0 aspect-square w-[55%] opacity-60 select-none">
         <div className="absolute inset-[-24%_-17%_1%_-17%]">
-          <img src={imgPolygon} alt="" className="block w-full h-full" />
+          <img src={imgPolygon} alt="" className="block h-full w-full" />
         </div>
       </div>
       {/* Repeating texture with overlay blend */}
       <div
-        className="pointer-events-none absolute inset-0 mix-blend-overlay opacity-30 select-none"
+        className="pointer-events-none absolute inset-0 opacity-30 mix-blend-overlay select-none"
         style={{
           backgroundImage: `url('${imgTexture}')`,
           backgroundSize: "134px 134px",
@@ -88,30 +104,34 @@ export function CharitiesSection() {
       />
 
       {/* ── Section header ── */}
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-20 mb-10 sm:mb-14">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+      <div className="relative mx-auto mb-10 max-w-7xl px-6 sm:mb-14 sm:px-8 lg:px-20">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex flex-col gap-3">
             <SectionLabel>Our Partnering Charities</SectionLabel>
-            <h2 className="font-bold text-4xl sm:text-5xl lg:text-[48px] text-brand-darkest leading-none">
+            <h2 className="text-4xl leading-none font-bold text-brand-darkest sm:text-5xl lg:text-[48px]">
               every bid supports
-              <br />
-              a cause you believe in.
+              <br />a cause you believe in.
             </h2>
           </div>
-          <p className="text-base sm:text-lg lg:text-2xl text-text-secondary/70 leading-snug sm:max-w-sm lg:max-w-md text-left sm:text-right">
-            Every charity on Tzedar has DGR status with the ATO. We check them out so you can donate with confidence.
+          <p className="text-left text-base leading-snug text-text-secondary/70 sm:max-w-sm sm:text-right sm:text-lg lg:max-w-md lg:text-2xl">
+            Every charity on Tzedar has DGR status with the ATO. We check them
+            out so you can donate with confidence.
           </p>
         </div>
       </div>
 
       {/* ── Scrollable card row ── */}
-      <div className="relative flex gap-4 lg:gap-[10px] overflow-x-auto px-6 sm:px-8 lg:px-20 pb-4 scrollbar-hide snap-x snap-mandatory">
-        {charities.map((charity) => (
-          <div key={charity.name} className="snap-start shrink-0">
+      <div className="scrollbar-hide relative flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 sm:px-8 lg:gap-[10px] lg:px-20">
+        {/* add margin left to first card  */}
+        {charities.map((charity, index) => (
+          <div
+            key={charity.name}
+            className={cn("shrink-0 snap-start", index === 0 && "pl-6")}
+          >
             <CharityCard {...charity} />
           </div>
         ))}
       </div>
     </section>
-  );
+  )
 }

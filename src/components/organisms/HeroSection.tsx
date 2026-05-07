@@ -3,7 +3,6 @@ import { TzButton } from "@/components/atoms/TzButton"
 const heroImage = "/images/hero.jpg"
 const heroImageMobile = "/images/hero-m.jpg"
 
-const bannerLabel = "share value."
 const bannerSubLabel =
   "List items you no longer need. Support a cause that matters. Someone new receives what you once loved."
 const bannerButtonLabel = "Find something"
@@ -31,7 +30,7 @@ export function HeroSection() {
             Full-width, sits at the bottom, rounded top corners only.
             Visible below md. */}
         <div
-          className="absolute right-7 bottom-0 left-0 flex flex-col justify-end gap-6 rounded-tl-[40px] rounded-tr-[40px] border-t border-brand-tint px-8 pt-12 pb-14 lg:hidden"
+          className="absolute right-7 bottom-0 left-0 flex h-[407px] flex-col justify-center gap-6 rounded-tl-[40px] rounded-tr-[40px] border-t border-brand-tint px-8 lg:hidden"
           style={{
             background: "var(--glass-bg)",
             backdropFilter: "blur(20px)",
@@ -44,7 +43,7 @@ export function HeroSection() {
                 className="text-[clamp(2.5rem,12vw,4rem)] leading-[1.09] font-bold tracking-[-0.03em]"
                 style={{ textShadow: "var(--text-shadow-mobile)" }}
               >
-                {bannerLabel}
+                share <br /> value.
               </h1>
               <p className="text-lg leading-snug opacity-95">
                 {bannerSubLabel}
@@ -79,7 +78,7 @@ export function HeroSection() {
                 className="text-[clamp(2.5rem,4.5vw,5.5rem)] leading-[1.05] font-bold tracking-[-0.024em]"
                 style={{ textShadow: "var(--text-shadow-heading)" }}
               >
-                {bannerLabel}
+                share value.
               </h1>
               <p
                 className="text-xl leading-snug lg:text-2xl"
