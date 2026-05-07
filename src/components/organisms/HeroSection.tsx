@@ -7,7 +7,7 @@ const heroImageMobile = "/images/hero-m.jpg"
 
 export function HeroSection() {
   return (
-    <section className="relative h-[calc(100vh-4rem)] w-full overflow-hidden bg-background">
+    <section className="relative h-screen w-full overflow-hidden bg-background">
       {/* ── Background image ── */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <img
@@ -22,7 +22,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative min-h-[811px] lg:min-h-[720px]">
+      <div className="relative h-full min-h-[811px] lg:min-h-[720px]">
         {/* ══ MOBILE glass panel ══
             Full-width, sits at the bottom, rounded top corners only.
             Visible below md. */}
@@ -31,7 +31,7 @@ export function HeroSection() {
           style={{ background: "var(--glass-bg)", backdropFilter: "blur(1px)" }}
         >
           {/* inner dark overlay */}
-          <div className="pointer-events-none absolute inset-0 rounded-tl-[40px] rounded-tr-[40px] bg-[var(--glass-bg)] mix-blend-darken" />
+          <div className="pointer-events-none absolute inset-0 rounded-tl-[40px] rounded-tr-[40px] bg-(--glass-bg) mix-blend-darken" />
 
           <div className="relative flex flex-col gap-6">
             <div className="flex flex-col gap-6 text-primary-foreground">
@@ -55,12 +55,13 @@ export function HeroSection() {
 
         {/* ══ DESKTOP glass panel ══
             Flush with the left edge, rounded right corners only, anchored near bottom.
-            Visible from md+. */}
+            Visible from lg+. */}
+
         <div
-          className="hidden max-w-[520px] rounded-tr-[48px] rounded-br-[48px] border-t border-brand-tint p-12 lg:flex lg:max-w-[680px] lg:flex-col lg:justify-center lg:p-16"
+          className="absolute top-1/2 left-0 hidden max-w-[520px] -translate-y-1/2 transform rounded-tr-[48px] rounded-br-[48px] border-t border-brand-tint p-12 lg:flex lg:max-w-[680px] lg:p-16"
           style={{
             background: "var(--glass-bg)",
-            backdropFilter: "blur(1px)",
+            backdropFilter: "blur(5px)",
             boxShadow: "var(--glass-shadow)",
           }}
         >

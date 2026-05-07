@@ -16,7 +16,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-background shadow-(--shadow-navbar)">
+    <header className="z-50 bg-background shadow-(--shadow-navbar)">
       <div className="mx-auto max-w-7xl px-2 lg:px-12">
         <div className="flex h-16 items-center justify-between sm:h-20">
           <div className="flex items-center gap-10">
