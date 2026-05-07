@@ -1,46 +1,45 @@
-import { Badge } from "@/components/atoms/Badge";
+import { Badge } from "@/components/atoms/Badge"
 
 type PricingCardProps = {
-  type: "subscription" | "commission";
-};
+  type: "subscription" | "commission"
+}
 
 export function PricingCard({ type }: PricingCardProps) {
-  const isSubscription = type === "subscription";
+  const isSubscription = type === "subscription"
 
   return (
-    <div className="flex-1 min-w-0 flex flex-col gap-4 items-end border border-border-default rounded-2xl pt-6 px-4 pb-10 shadow-[var(--shadow-pricing-card)] bg-transparent">
+    <div className="flex min-w-0 flex-1 flex-col items-end gap-4 rounded-2xl border border-border-default bg-transparent px-4 pt-6 pb-10 shadow-[var(--shadow-pricing-card)]">
       <Badge variant="green">
         {isSubscription ? "Annual Subscription" : "Commissions"}
       </Badge>
 
-      <div className="flex flex-col gap-2 items-start w-full">
+      <div className="flex w-full flex-col items-start gap-2">
         <div className="flex flex-col items-start">
           {isSubscription ? (
-            <div className="flex items-baseline font-bold text-gold leading-none tracking-tight">
+            <div className="flex items-baseline leading-none font-bold tracking-tight text-gold">
               <span className="text-4xl">$</span>
               <span className="text-7xl">1</span>
+              <span className="ml-2 text-lg">per year</span>
             </div>
           ) : (
-            <div className="font-bold text-gold leading-none tracking-tight">
-              <span className="text-7xl">%</span>
+            <div className="leading-none font-bold tracking-tight text-gold">
+              <span className="text-7xl">%</span>{" "}
+              <span className="ml-2 text-lg">of final sale price</span>
             </div>
           )}
-          <p className="text-base text-text-secondary/70 mt-1 leading-snug">
-            {isSubscription ? "per year" : "of final sale price above $1"}
-          </p>
         </div>
 
-        <div className="flex flex-col gap-4 mt-2 w-full">
-          <p className="font-semibold text-xl text-brand-darkest leading-snug">
-            {isSubscription ? "to unlock unlimited listings" : "only when you sell"}
+        <div className="mt-2 flex w-full flex-col gap-4">
+          <p className="text-xl leading-snug font-semibold text-brand-darkest">
+            {isSubscription ? "to take part." : "will go to a cause."}
           </p>
-          <p className="text-base text-brand-darkest/70 leading-snug">
+          <p className="text-base leading-snug text-brand-darkest/70">
             {isSubscription
-              ? "Pay once a year. List as many items as you want. The $1 covers platform access — nothing more. Collected securely at sign-up."
-              : "Commission is calculated on the amount above your $1 floor. If the item sells for exactly $1, there's no commission at all."}
+              ? "Pay $1, once a year. List as many items as you want. The $1 covers platform access, nothing more. Collected securely at sign-up."
+              : "Many begin offering at $1, where value is discovered as people take part. Even then, part of it always supports a cause."}
           </p>
         </div>
       </div>
     </div>
-  );
+  )
 }
