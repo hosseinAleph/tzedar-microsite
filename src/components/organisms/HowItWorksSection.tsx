@@ -1,53 +1,57 @@
-import { useState } from "react";
-import { SectionLabel } from "@/components/atoms/SectionLabel";
-import { HowItWorksStep } from "@/components/molecules/HowItWorksStep";
+import { useState } from "react"
+import { SectionLabel } from "@/components/atoms/SectionLabel"
+import { HowItWorksStep } from "@/components/molecules/HowItWorksStep"
 
-const stepImage1 = "https://www.figma.com/api/mcp/asset/67b2d600-0577-4e50-84d0-0b9f7ecf082d";
-const stepImage2 = "https://www.figma.com/api/mcp/asset/f720d4fb-7267-4cde-a5f2-8b0280009ebf";
-const stepImage3 = "https://www.figma.com/api/mcp/asset/53f26b9d-eeb5-48e3-8ebe-848e20c66dcb";
+const stepImage1 = "/images/profile-1.jpg"
+const stepImage2 = "/images/profile-2.jpg"
+const stepImage3 = "/images/profile-3.jpg"
 
 const steps = [
   {
     step: "01",
-    title: "photograph it",
-    description:
-      "Point your camera at the item. Our AI reads the photo, fills in the category, condition, and a starting price.",
+    title: "photo",
+    description: "We’ll do the rest. Value will find it’s level.",
     image: stepImage1,
   },
   {
     step: "02",
-    title: "pick your charity",
-    description:
-      "Choose from a curated list of verified charities. Every dollar raised goes directly to your chosen cause.",
+    title: "cause",
+    description: "Part of the value will be shared with that cause.",
     image: stepImage2,
   },
   {
     step: "03",
-    title: "charity wins, always",
+    title: "share",
     description:
-      "When your item sells, a portion of the final price goes straight to the charity. Simple, transparent, impactful.",
+      "As it moves to someone new, some of the value reaches those you choose to support.",
     image: stepImage3,
   },
-];
+]
 
 export function HowItWorksSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <section id="how-it-works" className="py-16 sm:py-20 lg:py-28 px-4 sm:px-8 lg:px-20">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="how-it-works"
+      className="px-4 py-16 sm:px-8 sm:py-20 lg:px-20 lg:py-28"
+    >
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 sm:mb-12">
+        <div className="mb-8 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex flex-col gap-3">
             <SectionLabel>how it works</SectionLabel>
-            <h2 className="font-bold text-3xl sm:text-5xl lg:text-6xl text-brand-darkest leading-tight tracking-tight">
-              three steps.
+            <h2 className="text-3xl leading-tight font-bold tracking-tight text-brand-darkest sm:text-5xl lg:text-6xl">
+              it’s simple.
               <br />
               {"that's actually it."}
             </h2>
           </div>
-          <p className="text-sm sm:text-base lg:text-lg text-text-secondary/70 leading-snug sm:max-w-xs lg:max-w-sm text-left sm:text-right">
-            No forms to fill. No charity portals to navigate. Tzedar handles the giving — you just handle the listing.
+          <p className="text-left text-sm leading-snug text-text-secondary/70 sm:max-w-xs sm:text-right sm:text-base lg:max-w-xl lg:text-lg">
+            Everything has value, even the smallest things. Offer something,
+            find something, support a cause. As value moves between us, some of
+            it always reaches those who need it most. Value isn't set, it is
+            discovered.
           </p>
         </div>
 
@@ -55,7 +59,7 @@ export function HowItWorksSection() {
           Desktop (md+): vertical flex-col accordion.
           Active step = wide landscape card, collapsed steps = full-width horizontal pills.
         */}
-        <div className="hidden lg:flex flex-col gap-4 lg:gap-6">
+        <div className="hidden flex-col gap-4 lg:flex lg:gap-6">
           {steps.map((step, index) => (
             <HowItWorksStep
               key={step.step}
@@ -72,7 +76,7 @@ export function HowItWorksSection() {
           Mobile: horizontal flex-row accordion.
           Active step = flex-1 portrait card, collapsed steps = narrow vertical pills.
         */}
-        <div className="flex lg:hidden gap-2 min-h-[260px]">
+        <div className="flex min-h-[260px] gap-2 lg:hidden">
           {steps.map((step, index) => (
             <HowItWorksStep
               key={step.step}
@@ -86,5 +90,5 @@ export function HowItWorksSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

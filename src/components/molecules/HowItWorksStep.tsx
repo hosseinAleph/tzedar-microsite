@@ -1,17 +1,17 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 type HowItWorksStepProps = Readonly<{
-  step: string;
-  title: string;
-  description: string;
-  image: string;
-  isActive: boolean;
-  stepIndex: number;
-  layout: "desktop" | "mobile";
-  onClick: () => void;
-}>;
+  step: string
+  title: string
+  description: string
+  image: string
+  isActive: boolean
+  stepIndex: number
+  layout: "desktop" | "mobile"
+  onClick: () => void
+}>
 
-const collapsedBg = ["bg-brand-medium", "bg-brand-medium", "bg-brand-light"];
+const collapsedBg = ["bg-brand-medium", "bg-brand-medium", "bg-brand-light"]
 
 export function HowItWorksStep({
   step,
@@ -30,16 +30,20 @@ export function HowItWorksStep({
         onClick={onClick}
         aria-label={`Expand: ${title}`}
         className={cn(
-          "w-full flex items-center gap-6 px-14 py-6 rounded-full cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand shrink-0",
-          collapsedBg[stepIndex],
+          "flex w-full shrink-0 cursor-pointer items-center gap-6 rounded-full px-14 py-6 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none",
+          collapsedBg[stepIndex]
         )}
       >
-        <div className="w-14 h-14 shrink-0 rounded-full flex items-center justify-center bg-gold-surface border-2 border-primary-foreground backdrop-blur-sm">
-          <span className="font-semibold text-2xl text-gold leading-none">{step}</span>
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-primary-foreground bg-gold-surface backdrop-blur-sm">
+          <span className="text-2xl leading-none font-semibold text-gold">
+            {step}
+          </span>
         </div>
-        <span className="font-bold text-4xl lg:text-5xl text-primary-foreground leading-none whitespace-nowrap">{title}</span>
+        <span className="text-4xl leading-none font-bold whitespace-nowrap text-primary-foreground lg:text-5xl">
+          {title}
+        </span>
       </button>
-    );
+    )
   }
 
   /* ── Mobile collapsed: narrow vertical pill ── */
@@ -49,37 +53,39 @@ export function HowItWorksStep({
         onClick={onClick}
         aria-label={`Expand: ${title}`}
         className={cn(
-          "flex flex-col items-center justify-between py-3 shrink-0 cursor-pointer rounded-[24px] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand",
+          "flex shrink-0 cursor-pointer flex-col items-center justify-between rounded-[24px] py-3 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none",
           "w-10",
-          collapsedBg[stepIndex],
+          collapsedBg[stepIndex]
         )}
       >
-        <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gold-surface border border-primary-foreground shrink-0">
-          <span className="font-semibold text-[10px] text-gold leading-none">{step}</span>
+        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-primary-foreground bg-gold-surface">
+          <span className="text-[10px] leading-none font-semibold text-gold">
+            {step}
+          </span>
         </div>
-        <div className="flex-1 flex items-center justify-center overflow-hidden py-2">
+        <div className="flex flex-1 items-center justify-center overflow-hidden py-2">
           <span
-            className="font-semibold text-xs text-primary-foreground whitespace-nowrap"
+            className="text-xs font-semibold whitespace-nowrap text-primary-foreground"
             style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
           >
             {title}
           </span>
         </div>
       </button>
-    );
+    )
   }
 
   /* ── Expanded card (shared between desktop and mobile) ── */
   return (
     <div
       className={cn(
-        "relative overflow-hidden border border-border-subtle shadow-[var(--shadow-step-card)]",
+        "relative overflow-hidden border border-border-subtle shadow-(--shadow-step-card)",
         "transition-all duration-500 ease-out",
         "animate-in duration-400",
         // Figma outer radius: 49.836px ≈ 50px (desktop), proportional for mobile
         layout === "desktop"
-          ? "w-full h-[360px] lg:h-[460px] shrink-0 rounded-[50px]"
-          : "flex-1 min-w-0 rounded-[32px]",
+          ? "h-[360px] w-full shrink-0 rounded-[50px] lg:h-[460px]"
+          : "min-w-0 flex-1 rounded-[32px]"
       )}
       style={{
         background: "var(--gradient-step-card)",
@@ -89,16 +95,16 @@ export function HowItWorksStep({
       {/* Inner image — Figma inset: 14.54px, inner radius: 33.224px ≈ 34px */}
       <div
         className={cn(
-          "absolute overflow-hidden border border-[var(--inner-border-color)] animate-in zoom-in-95 duration-500",
+          "absolute animate-in overflow-hidden border border-(--inner-border-color) duration-500 zoom-in-95",
           layout === "desktop"
             ? "inset-[14px] rounded-[34px]"
-            : "inset-[8px] rounded-[22px]",
+            : "inset-[8px] rounded-[22px]"
         )}
       >
         <img
           src={image}
           alt={title}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
         />
         <div
           className="absolute inset-0"
@@ -107,17 +113,17 @@ export function HowItWorksStep({
       </div>
 
       {/* Step badge */}
-      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:top-8 lg:left-8 z-10">
+      <div className="absolute top-4 left-4 z-10 sm:top-6 sm:left-6 lg:top-8 lg:left-8">
         <div
           className={cn(
-            "rounded-full flex items-center justify-center bg-gold-surface border-2 border-primary-foreground",
-            layout === "desktop" ? "w-14 h-14 lg:w-16 lg:h-16" : "w-8 h-8",
+            "flex items-center justify-center rounded-full border-2 border-primary-foreground bg-gold-surface",
+            layout === "desktop" ? "h-14 w-14 lg:h-16 lg:w-16" : "h-8 w-8"
           )}
         >
           <span
             className={cn(
-              "font-semibold text-brand-light leading-none",
-              layout === "desktop" ? "text-2xl lg:text-2xl" : "text-xs",
+              "leading-none font-semibold text-brand-light",
+              layout === "desktop" ? "text-2xl lg:text-2xl" : "text-xs"
             )}
           >
             {step}
@@ -126,24 +132,24 @@ export function HowItWorksStep({
       </div>
 
       {/* Text — slides up slightly after the image fades in */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 p-5 sm:p-8 lg:p-10 flex flex-col gap-1 sm:gap-2 animate-in slide-in-from-bottom-3 duration-500 delay-150">
+      <div className="absolute right-0 bottom-0 left-0 z-10 flex animate-in flex-col gap-1 p-5 sm:gap-2 sm:p-8 lg:p-10">
         <p
           className={cn(
-            "font-bold text-primary-foreground leading-tight",
-            layout === "desktop" ? "text-3xl lg:text-5xl" : "text-xl",
+            "leading-tight font-bold text-primary-foreground",
+            layout === "desktop" ? "text-3xl lg:text-5xl" : "text-xl"
           )}
         >
           {title}
         </p>
         <p
           className={cn(
-            "text-brand-pale leading-snug opacity-90",
-            layout === "desktop" ? "text-base lg:text-2xl" : "text-xs",
+            "leading-snug text-brand-pale opacity-90",
+            layout === "desktop" ? "text-base lg:text-2xl" : "text-xs"
           )}
         >
           {description}
         </p>
       </div>
     </div>
-  );
+  )
 }
