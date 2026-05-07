@@ -7,7 +7,7 @@ import { Spinner } from "./Spinner"
  * Secondary — transparent fill, near-white text, neutral border, blue glow
  * Action   — no fill, no border, white text + arrow (always shown), ghost-style
  */
-type TzButtonVariant = "primary" | "secondary" | "action"
+type TzButtonVariant = "primary" | "secondary" | "action" | "gold"
 
 type TzButtonProps = Omit<
   React.ComponentPropsWithoutRef<"button">,
@@ -50,6 +50,14 @@ const variantConfig: Record<
       "font-normal text-primary-foreground hover:bg-primary-foreground/10",
     style: {},
   },
+  gold: {
+    className:
+      "font-semibold text-brand-surface border-[0.5px] border-[var(--color-btn-primary-border)]",
+    style: {
+      backgroundColor: "var(--color-gold)",
+      boxShadow: "var(--shadow-btn-gold)",
+    },
+  },
 }
 
 export function TzButton({
@@ -77,7 +85,7 @@ export function TzButton({
     <>
       {loading ? <Spinner /> : children}
       {(showArrow || variant === "action") && (
-        <ArrowRight className="h-4 w-4 shrink-0" />
+        <ArrowRight className="h-5 w-5 shrink-0" />
       )}
     </>
   )
