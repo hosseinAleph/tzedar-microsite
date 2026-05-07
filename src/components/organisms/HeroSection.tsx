@@ -2,32 +2,32 @@ import { Link } from "react-router-dom"
 import { TzButton } from "@/components/atoms/TzButton"
 import { ArrowRight } from "lucide-react"
 
-const heroImage =
-  "https://www.figma.com/api/mcp/asset/7cb4d73d-aadb-4920-9f91-b81d4138f13e"
+const heroImage = "/images/hero.jpg"
+const heroImageMobile = "/images/hero-m.jpg"
 
 export function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-background">
+    <section className="relative h-[calc(100vh-4rem)] w-full overflow-hidden bg-background">
       {/* ── Background image ── */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <img
           src={heroImage}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className="hidden h-full w-full object-cover object-center sm:block"
+        />
+        <img
+          src={heroImageMobile}
+          alt=""
+          className="block h-full w-full object-cover object-center lg:hidden"
         />
       </div>
 
-      {/*
-        Two glass panels in the same container; only one is visible at a time.
-        The section height adapts: shorter on mobile (hero fills ~80vh),
-        taller on desktop (hero is a fixed ~680px).
-      */}
       <div className="relative min-h-[811px] lg:min-h-[720px]">
         {/* ══ MOBILE glass panel ══
             Full-width, sits at the bottom, rounded top corners only.
             Visible below md. */}
         <div
-          className="absolute right-20 bottom-0 left-0 flex flex-col justify-end gap-6 rounded-tl-[40px] rounded-tr-[40px] border-t border-brand-tint px-8 pt-12 pb-14 md:hidden"
+          className="absolute right-20 bottom-0 left-0 flex flex-col justify-end gap-6 rounded-tl-[40px] rounded-tr-[40px] border-t border-brand-tint px-8 pt-12 pb-14 lg:hidden"
           style={{ background: "var(--glass-bg)", backdropFilter: "blur(1px)" }}
         >
           {/* inner dark overlay */}
@@ -47,7 +47,7 @@ export function HeroSection() {
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3">
-              <TzButton size="sm">Start selling</TzButton>
+              <TzButton>Start selling</TzButton>
               <GhostButton>Join as a charity</GhostButton>
             </div>
           </div>
@@ -57,7 +57,7 @@ export function HeroSection() {
             Flush with the left edge, rounded right corners only, anchored near bottom.
             Visible from md+. */}
         <div
-          className="absolute bottom-10 left-0 hidden max-w-[520px] flex-col justify-end rounded-tr-[48px] rounded-br-[48px] border-t border-brand-tint p-12 md:flex lg:bottom-16 lg:max-w-[680px] lg:p-16"
+          className="hidden max-w-[520px] rounded-tr-[48px] rounded-br-[48px] border-t border-brand-tint p-12 lg:flex lg:max-w-[680px] lg:flex-col lg:justify-center lg:p-16"
           style={{
             background: "var(--glass-bg)",
             backdropFilter: "blur(1px)",
@@ -101,7 +101,7 @@ function GhostButton({ children }: { children: React.ReactNode }) {
   return (
     <Link
       to="/join"
-      className="flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10 md:text-lg"
+      className="flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10 lg:text-lg"
     >
       {children}
       <ArrowRight className="h-5 w-5" />

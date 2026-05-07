@@ -23,7 +23,7 @@ export function CharityCtaSection() {
     <section className="relative overflow-hidden bg-background">
 
       {/* ══ DESKTOP (md+) ══ */}
-      <div className="hidden md:block relative" style={{ height: "874px" }}>
+      <div className="hidden lg:block relative" style={{ height: "874px" }}>
         {/* Background photo */}
         <img
           src={bgWeb}
@@ -76,7 +76,7 @@ export function CharityCtaSection() {
       </div>
 
       {/* ══ MOBILE (< md) ══ */}
-      <div className="md:hidden relative" style={{ minHeight: "874px" }}>
+      <div className="lg:hidden relative" style={{ minHeight: "874px" }}>
         {/* Background photo — shifted left in Figma to focus on centre of image */}
         <div className="absolute inset-0 overflow-hidden">
           <img

@@ -16,15 +16,15 @@ type TzButtonProps = Omit<
   children: React.ReactNode
   variant?: TzButtonVariant
   href?: string
-  size?: "sm" | "md" | "lg"
+  size?: "sm" | "default"
   showArrow?: boolean
   loading?: boolean
+  className?: string
 }
 
 const sizeClasses: Record<NonNullable<TzButtonProps["size"]>, string> = {
   sm: "px-5 py-2.5 text-sm",
-  md: "px-6 py-3 text-base",
-  lg: "px-8 py-4 text-lg",
+  default: "px-6 py-3 text-2xl",
 }
 
 const variantConfig: Record<
@@ -32,8 +32,7 @@ const variantConfig: Record<
   { className: string; style: React.CSSProperties }
 > = {
   primary: {
-    className:
-      "font-semibold text-primary-foreground border-[0.5px] border-[var(--color-btn-primary-border)]",
+    className: "font-semibold text-secondary-foreground",
     style: {
       backgroundImage: "var(--gradient-btn-primary)",
       boxShadow: "var(--shadow-btn-primary)",
@@ -57,9 +56,10 @@ export function TzButton({
   children,
   variant = "primary",
   href,
-  size = "md",
+  size = "default",
   showArrow = false,
   loading = false,
+  className,
   ...rest
 }: TzButtonProps) {
   const config = variantConfig[variant]
@@ -67,7 +67,8 @@ export function TzButton({
   const classes = cn(
     "inline-flex cursor-pointer items-center justify-center gap-2 rounded-full transition-all duration-200 select-none",
     sizeClasses[size],
-    config.className
+    config.className,
+    className
   )
 
   const mergedStyle: React.CSSProperties = { ...config.style }
@@ -83,7 +84,7 @@ export function TzButton({
 
   if (href) {
     return (
-      <a href={href} className={classes} style={mergedStyle}>
+      <a href={href} className={cn(classes)} style={mergedStyle}>
         {content}
       </a>
     )

@@ -5,18 +5,28 @@
 
 /* ════════════════════════════════════════════════════════════
    LAYER 1 — Primitive palette
-   To rebrand the site, only edit the 7 lines below.
+   To rebrand the site, only edit the lines below.
    Everything else — tokens, gradients, shadows — updates
    automatically because it references these primitives.
+
+   Light blue scale (from Figma "Pale Blue" palette):
+   75 → 100 → 200 → 300 → 350 → 400
 ════════════════════════════════════════════════════════════ */
 :root {
-  --primitive-900: #071929; /* darkest navy  */
-  --primitive-800: #112948; /* dark navy     */
-  --primitive-600: ##6b9db8; /* base - Steel sky     */
-  --primitive-500: #2d5788; /* medium blue   */
-  --primitive-400: #6b9db8; /* steel sky     */
-  --primitive-200: #bdd9f2; /* soft sky      */
-  --primitive-50: #f0f7fb; /* surface blue  */
+  /* ── Darks ── */
+  --primitive-900: #071929; /* darkest navy    */
+  --primitive-800: #1c4168; /* dark navy       */
+  --primitive-600: #3a75a8; /* base blue       */
+  --primitive-500: #2d5788; /* medium blue     */
+
+  /* ── Blues (Figma "Pale Blue" scale, light → mid) ── */
+  --primitive-400: #6b9db8; /* steel sky       */
+  --primitive-350: #9fc5e0; /* wedgwood        */
+  --primitive-300: #a8cce8; /* porcelain blue  */
+  --primitive-200: #bdd9f2; /* soft sky        */
+  --primitive-100: #c8e3f5; /* cloud blue      */
+  --primitive-75: #d6ecf8; /* ice blue        */
+  --primitive-50: #f0f7fb; /* surface blue    */
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -39,26 +49,30 @@
   --color-brand-surface: var(--primitive-50);
 
   /* ── Brand tints (update these when rebranding) ── */
-  --color-brand-tint: #e8f3fb;
-  --color-brand-pale: #f0f7fb;
-  --color-brand-sidebar: #9fc5e0;
+  --color-brand-tint: var(--primitive-75); /* ice blue   */
+  --color-brand-pale: var(--primitive-50); /* surface    */
+  --color-brand-sidebar: var(--primitive-350); /* wedgwood */
 
   /* ── Gold / accent (independent of brand) ── */
   --color-gold: #c49a3a;
   --color-gold-surface: #fbf6e9;
+  /* #153B2E */
+  --color-green: #153b2e;
+  --color-green-accent: #3d8c6e;
+  --color-green-light: #5ba88a;
 
   /* ── Surfaces (neutral) ── */
   --color-surface-bright: #fafafa;
   --color-surface-neutral: #f7f7f7;
 
   /* ── Text ── */
-  --color-text-primary: #111d16;
-  --color-text-secondary: #3d5248;
-  --color-text-placeholder: #8fa898;
+  --color-text-primary: var(--primitive-900);
+  --color-text-secondary: var(--primitive-800);
+  --color-text-placeholder: var(--primitive-700);
 
   /* ── Borders ── */
   --color-border-default: #d4ddd4;
-  --color-border-strong: #8fa898;
+  --color-border-strong: var(--primitive-700);
   --color-border-subtle: #eeeeee;
   --color-pill-border: #d9dbe9;
   --color-card-edge: #f1f2f9;
@@ -145,7 +159,7 @@
   );
   --gradient-step-card: linear-gradient(
     to bottom,
-    rgba(150, 192, 224, 0.7),
+    color-mix(in srgb, var(--primitive-350) 70%, transparent),
     color-mix(in srgb, var(--primitive-800) 70%, transparent)
   );
   --gradient-image-mask: linear-gradient(
@@ -177,9 +191,16 @@
     rgba(0, 0, 0, 0) 35%,
     rgba(0, 0, 0, 0.82) 100%
   );
-  /* Button uses pale blue (#a8cce8→#9dc0e8), lighter than primitive scale */
-  --gradient-btn-primary: linear-gradient(175deg, #a8cce8 5%, #9dc0e8 87%);
-  --gradient-btn-submit: linear-gradient(178deg, #a8cce8 5%, #9dc0e8 87%);
+  --gradient-btn-primary: linear-gradient(
+    175deg,
+    var(--primitive-300) 5%,
+    var(--primitive-350) 87%
+  );
+  --gradient-btn-submit: linear-gradient(
+    178deg,
+    var(--primitive-300) 5%,
+    var(--primitive-350) 87%
+  );
 
   /* ── Inner borders / highlights ── */
   --inner-border-color: color-mix(

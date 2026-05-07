@@ -1,7 +1,7 @@
 import { useState, useCallback, type SubmitEvent } from "react"
 import { useNavigate } from "react-router-dom"
 import { Info, X } from "lucide-react"
-import { Logo } from "@/components/atoms/Logo"
+import { TzLogo } from "@/components/atoms/TzLogo"
 import { SubmissionPopup } from "@/components/molecules/SubmissionPopup"
 // import emailJS from "@emailjs/browser";
 import { TzButton } from "@/components/atoms/TzButton"
@@ -192,7 +192,7 @@ export function JoinAsCharityPage() {
 
           {/* Logo + divider */}
           <div className="relative z-10 flex flex-col items-center gap-6">
-            <Logo height={40} variant="white" />
+            <TzLogo height={40} variant="white" />
             <div className="w-full border-t border-primary-foreground/20" />
           </div>
 
@@ -235,7 +235,7 @@ export function JoinAsCharityPage() {
       <div className="flex flex-1 flex-col lg:hidden">
         {/* Mobile nav bar */}
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border-default bg-background px-4 py-3">
-          <Logo height={28} />
+          <TzLogo height={28} />
           <button
             type="button"
             onClick={handleClose}

@@ -3,29 +3,30 @@
 const BASE_W = 93.4
 const BASE_H = 30.498
 
-const logoWhite = "/icons/logo-white.png"
-const logoDefault = "/icons/logo-default.png"
+const logoWhite = "/images/logo-white.png"
+const logoDefault = "/images/logo-default.png"
 
-type LogoProps = {
+type TzLogoProps = {
   className?: string
   variant?: "default" | "white"
   /** Height in px — width scales proportionally from the 93.4:30.498 native ratio */
   height?: number
 }
 
-export function Logo({
+export function TzLogo({
   variant = "default",
   height = 40,
-}: Readonly<LogoProps>) {
+}: Readonly<TzLogoProps>) {
   const scale = height / BASE_H
   const width = Math.round(BASE_W * scale)
 
   return (
-    <div
-      className={`flex items-center justify-center`}
-      style={{ width, height }}
-    >
-      <img src={variant === "white" ? logoWhite : logoDefault} alt="Tzedar" />
+    <div className={`flex items-center justify-center`}>
+      <img
+        src={variant === "white" ? logoWhite : logoDefault}
+        alt="Tzedar"
+        style={{ width, height }}
+      />
     </div>
   )
 }

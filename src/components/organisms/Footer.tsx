@@ -1,4 +1,4 @@
-import { Logo } from "@/components/atoms/Logo"
+import { TzLogo } from "@/components/atoms/TzLogo"
 
 // Social icon assets (white, from Figma)
 const imgFb =
@@ -35,7 +35,7 @@ export function Footer() {
         {/* ── Top: logo + tagline + social ── */}
         <div className="relative z-10 flex flex-col gap-6">
           <div className="flex flex-col gap-2.5">
-            <Logo height={60} variant="white" />
+            <TzLogo height={60} variant="white" />
             <p className="text-[18px] leading-snug font-semibold text-primary-foreground">
               Good things, going further.
             </p>
@@ -116,7 +116,7 @@ export function Footer() {
         {/* ── Top row: logo+tagline (left) · social icons (right, aligned to baseline) ── */}
         <div className="relative z-10 flex items-end justify-between">
           <div className="flex flex-col gap-2.5">
-            <Logo height={60} variant="white" />
+            <TzLogo height={60} variant="white" />
             {/* Figma: Body-XXL-32, Regular */}
             <p className="text-[32px] leading-snug font-normal text-primary-foreground">
               Good things, going further.

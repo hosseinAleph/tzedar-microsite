@@ -55,7 +55,7 @@ export function HowItWorksSection() {
           Desktop (md+): vertical flex-col accordion.
           Active step = wide landscape card, collapsed steps = full-width horizontal pills.
         */}
-        <div className="hidden md:flex flex-col gap-4 lg:gap-6">
+        <div className="hidden lg:flex flex-col gap-4 lg:gap-6">
           {steps.map((step, index) => (
             <HowItWorksStep
               key={step.step}
@@ -72,7 +72,7 @@ export function HowItWorksSection() {
           Mobile: horizontal flex-row accordion.
           Active step = flex-1 portrait card, collapsed steps = narrow vertical pills.
         */}
-        <div className="flex md:hidden gap-2 min-h-[260px]">
+        <div className="flex lg:hidden gap-2 min-h-[260px]">
           {steps.map((step, index) => (
             <HowItWorksStep
               key={step.step}
