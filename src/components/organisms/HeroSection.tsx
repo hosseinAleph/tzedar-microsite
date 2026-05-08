@@ -4,30 +4,32 @@ import { PhotoGlassSection } from "./PhotoGlassSection"
 const heroImage = "/images/hero.jpg"
 const heroImageMobile = "/images/hero-m.jpg"
 
-const bannerSubLabel =
-  "List items you no longer need. Support a cause that matters. Someone new receives what you once loved."
-const bannerButtonLabel = "Find something"
+const bannerButtonLabel = "Offer something"
 const bannerButtonActionLabel = "Join as a cause"
 
 export function HeroSection() {
   return (
     <PhotoGlassSection bgImage={heroImage} bgImageMobile={heroImageMobile}>
-      <div className="flex flex-col gap-6 sm:h-[407px] lg:h-auto lg:gap-8">
+      <div
+        className="flex flex-col gap-6 px-8 py-16 lg:h-auto lg:w-[47vw] lg:gap-8
+          lg:py-[64px]"
+      >
         <div className="flex flex-col gap-4 text-primary-foreground lg:gap-6">
           <h1
-            className="text-[clamp(2.5rem,12vw,4rem)] leading-[1.09] font-bold
-              tracking-[-0.03em] lg:text-[clamp(2.5rem,4.5vw,5.5rem)]
-              lg:leading-[1.05] lg:tracking-[-0.024em]"
+            className="text-[64px] leading-[1.09] font-bold tracking-[-0.03em]
+              lg:text-[89px] lg:leading-[1.05] lg:tracking-[-0.024em]"
             style={{ textShadow: "var(--text-shadow-heading)" }}
           >
-            share value.
+            share <br className="lg:hidden" /> value.
           </h1>
           <p
-            className="text-lg leading-snug opacity-95 lg:text-2xl
+            className="text-lg leading-snug opacity-95 lg:text-[32px]
               lg:opacity-100"
             style={{ textShadow: "var(--text-shadow-body)" }}
           >
-            {bannerSubLabel}
+            Everything has value. When you pass
+            <br />
+            something on, part of what it becomes always supports a cause.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">

@@ -27,10 +27,9 @@ export function PhotoGlassSection({
 
       <div
         className="absolute right-7 bottom-0 left-0 rounded-tl-[40px]
-          rounded-tr-[40px] border-t border-brand-tint px-8 lg:top-1/2
-          lg:right-auto lg:bottom-auto lg:w-[50vw] lg:-translate-y-1/2
-          lg:rounded-tl-none lg:rounded-tr-[48px] lg:rounded-br-[48px]
-          lg:rounded-bl-none lg:p-12 xl:p-16"
+          rounded-tr-[40px] border-t border-brand-tint lg:top-1/2 lg:right-auto
+          lg:bottom-auto lg:-translate-y-1/2 lg:rounded-tl-none
+          lg:rounded-tr-[48px] lg:rounded-br-[48px] lg:rounded-bl-none"
         style={{
           background: "var(--glass-bg)",
           backdropFilter: "blur(20px)",
