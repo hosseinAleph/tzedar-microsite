@@ -34,15 +34,15 @@ export function PricingSection() {
           <div className="flex flex-col gap-3">
             <SectionLabel>Pricing</SectionLabel>
             <h2
-              className="text-4xl leading-none font-bold text-brand-darkest
+              className="text-5xl leading-none font-bold text-brand-darkest
                 sm:text-5xl lg:text-[48px]"
             >
-              clear and simple.
+              clear and <br className="lg:hidden" /> simple.
             </h2>
           </div>
           <p
-            className="text-left text-base leading-snug text-text-secondary/70
-              sm:max-w-sm sm:text-right sm:text-lg lg:max-w-2xl lg:text-2xl"
+            className="text-left text-[18px] leading-snug text-text-secondary/70
+              sm:text-right lg:max-w-2xl lg:text-2xl"
           >
             Where value is discovered. Or you can set the starting value{" "}
             <br className="hidden lg:block" /> — when something begins above $1,
@@ -50,7 +50,7 @@ export function PricingSection() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-5 sm:flex-row sm:gap-8 lg:gap-10">
+        <div className="flex flex-col gap-8 sm:flex-row">
           <PricingCard type="subscription" />
           <PricingCard type="commission" />
         </div>
