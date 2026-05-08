@@ -1,15 +1,10 @@
 import { TzLogo } from "@/components/atoms/TzLogo"
 
 // Social icon assets (white, from Figma)
-const imgFb =
-  "https://www.figma.com/api/mcp/asset/d8d70eea-8807-4b22-bc4e-3daba9bead72"
-const imgIg =
-  "https://www.figma.com/api/mcp/asset/5d7f07ae-be01-4632-ad1a-49a93d81b342"
-// Decorative glow (reused across mobile and desktop, repositioned via CSS)
-const imgGlowMobile =
-  "https://www.figma.com/api/mcp/asset/e1b393aa-5287-4a56-b2e2-27bf57304daa"
-const imgGlowDesktop =
-  "https://www.figma.com/api/mcp/asset/5b89edd0-9a56-45f7-a44a-5064a70cd6e2"
+const imgFb = "/images/logo-fb.svg"
+const imgIg = "/images/logo-ig.svg"
+// logo-x
+const imgX = "/images/logo-x.svg"
 
 const legalLinks = [
   { label: "Privacy Notice", href: "/privacy" },
@@ -24,28 +19,16 @@ export function Footer() {
           MOBILE  (< lg)
       ════════════════════════════════════════ */}
       <div className="relative flex flex-col gap-20 px-6 py-12 lg:hidden">
-        {/* Decorative glow — Figma: centred vertically, left ≈ 166 px */}
-        <img
-          src={imgGlowMobile}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute top-1/2 left-[166px] w-[236px]
-            -translate-y-1/2 opacity-60 mix-blend-plus-lighter"
-        />
-
         {/* ── Top: logo + tagline + social ── */}
         <div className="relative z-10 flex flex-col gap-6">
-          <div className="flex flex-col gap-2.5">
-            <TzLogo height={60} variant="white" />
-            <p
-              className="text-[18px] leading-snug font-semibold
-                text-primary-foreground"
-            >
-              Good things, going further.
-            </p>
-          </div>
-          {/* Social icons — gap-32px (Figma). Explicit w+h to prevent distortion. */}
-          {/* Figma mobile: FB 9.4×18px · IG 20×20px */}
+          <TzLogo height={60} variant="white" />
+          <p
+            className="text-[18px] leading-snug font-semibold
+              text-primary-foreground"
+          >
+            Value, shared.
+          </p>
+
           <div className="flex items-center gap-8">
             <a
               href="https://facebook.com/tzedar"
@@ -55,8 +38,9 @@ export function Footer() {
               <img
                 src={imgFb}
                 alt="Facebook"
-                style={{ width: "9px", height: "18px" }}
                 className="object-contain"
+                width={26}
+                height={30}
               />
             </a>
             <a
@@ -67,8 +51,22 @@ export function Footer() {
               <img
                 src={imgIg}
                 alt="Instagram"
-                style={{ width: "20px", height: "20px" }}
+                width={30}
+                height={30}
                 className="object-contain"
+              />
+            </a>
+            <a
+              href="https://x.com/tzedar"
+              aria-label="X"
+              className="opacity-80 transition-opacity hover:opacity-100"
+            >
+              <img
+                src={imgX}
+                alt="X"
+                className="object-contain"
+                width={20}
+                height={20}
               />
             </a>
           </div>
@@ -86,8 +84,8 @@ export function Footer() {
               {legalLinks[0].label}
             </a>
             <div
-              className="flex min-w-0 flex-1 items-center justify-center
-                border-r border-l border-border-strong px-2"
+              className="border-border-[#3A75A8] flex min-w-0 flex-1
+                items-center justify-center border-r border-l px-2"
             >
               <a
                 href={legalLinks[1].href}
@@ -118,15 +116,6 @@ export function Footer() {
           DESKTOP  (lg+)
       ════════════════════════════════════════ */}
       <div className="relative hidden flex-col gap-10 px-20 pt-10 pb-12 lg:flex">
-        {/* Decorative glow — Figma: right edge, vertically centred */}
-        <img
-          src={imgGlowDesktop}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute top-1/2 right-[-20px]
-            w-[236px] -translate-y-1/2 opacity-60 mix-blend-plus-lighter"
-        />
-
         {/* ── Top row: logo+tagline (left) · social icons (right, aligned to baseline) ── */}
         <div className="relative z-10 flex items-end justify-between">
           <div className="flex flex-col gap-2.5">
@@ -136,7 +125,7 @@ export function Footer() {
               className="text-[32px] leading-snug font-normal
                 text-primary-foreground"
             >
-              Good things, going further.
+              Value, shared.
             </p>
           </div>
 
@@ -148,24 +137,21 @@ export function Footer() {
               aria-label="Facebook"
               className="opacity-80 transition-opacity hover:opacity-100"
             >
-              <img
-                src={imgFb}
-                alt="Facebook"
-                style={{ width: "19px", height: "36px" }}
-                className="object-contain"
-              />
+              <img src={imgFb} alt="Facebook" className="object-contain" />
             </a>
             <a
               href="https://instagram.com/tzedar"
               aria-label="Instagram"
               className="opacity-80 transition-opacity hover:opacity-100"
             >
-              <img
-                src={imgIg}
-                alt="Instagram"
-                style={{ width: "40px", height: "40px" }}
-                className="object-contain"
-              />
+              <img src={imgIg} alt="Instagram" className="object-contain" />
+            </a>
+            <a
+              href="https://x.com/tzedar"
+              aria-label="X"
+              className="opacity-80 transition-opacity hover:opacity-100"
+            >
+              <img src={imgX} alt="X" className="object-contain" />
             </a>
           </div>
         </div>
