@@ -13,73 +13,90 @@ const allItems = [
     title: "Vintage Pendleton Blanket",
     meta: "Starting offer at $1.00",
     price: "$98.00",
-    received_by: "Sold by Sarah M., Sydney",
-    shared_by: "Shared with Oxfam Australia on 12 March 2026.",
+    receivedBy: "Sarah M., Sydney",
+    sharedWith: "Oxfam Australia",
+    linkToCharity: "https://www.oxfam.org.au/",
+    dateOfShare: "12 March 2026",
   },
   {
     image: imgCamera,
     title: "Leica M6 film camera with 35mm Summicron lens",
     meta: "Starting offer at $1.00r",
     price: "$2,850.00",
-    seller: "Sold by Emily R., Melbourne",
-    shared_by: "Shared with WWF Australia on 12 March 2026.",
-    received_by: "Sold by Emily R., Melbourne",
+    receivedBy: "Emily R., Melbourne",
+    sharedWith: "WWF Australia",
+    linkToCharity: "https://www.wwf.org.au/",
+    dateOfShare: "12 March 2026",
   },
   {
     image: imgGuitar,
     title: "1972 Fender Stratocaster, sunburst finish",
     meta: "Starting offer at $1.00r",
     price: "$4,200.00",
-    received_by: "Sold by James T., Brisbane",
-    shared_by: "Shared with WWF Australia on 12 March 2026.",
+    receivedBy: "James T., Brisbane",
+    sharedWith: "WWF Australia",
+    linkToCharity: "https://www.wwf.org.au/",
+    dateOfShare: "12 March 2026",
   },
   {
     image: imgBlanket,
     title: "Handwoven Oaxacan Textile Rug",
     meta: "Starting offer at $1.00",
     price: "$340.00",
-    received_by: "Sold by Maria C., Adelaide",
-    shared_by: "Shared with WWF Australia on 12 March 2026.",
+    receivedBy: "Maria C., Adelaide",
+    sharedWith: "WWF Australia",
+    linkToCharity: "https://www.wwf.org.au/",
+    dateOfShare: "12 March 2026",
   },
   {
     image: imgCamera,
     title: "Hasselblad 500C/M Medium Format Camera",
     meta: "Starting offer at $1.00",
     price: "$1,600.00",
-    received_by: "Sold by David L., Perth",
-    shared_by: "Shared with WWF Australia on 12 March 2026.",
+    receivedBy: "David L., Perth",
+    sharedWith: "WWF Australia",
+    linkToCharity: "https://www.wwf.org.au/",
+    dateOfShare: "12 March 2026",
   },
   {
     image: imgGuitar,
     title: "Gibson ES-335 Semi-Hollow Electric",
     meta: "Starting offer at $1.00",
     price: "$3,100.00",
-    received_by: "Sold by Tom W., Sydney",
-    shared_by: "Shared with WWF Australia on 12 March 2026.",
+    receivedBy: "Tom W., Sydney",
+    sharedWith: "WWF Australia",
+    linkToCharity: "https://www.wwf.org.au/",
+    dateOfShare: "12 March 2026",
   },
   {
     image: imgBlanket,
     title: "Japanese Indigo Boro Textile",
     meta: "Starting offer at $1.00",
     price: "$520.00",
-    received_by: "Sold by Keiko N., Melbourne",
-    shared_by: "Shared with WWF Australia on 12 March 2026.",
+    receivedBy: "Keiko N., Melbourne",
+    sharedWith: "WWF Australia",
+    linkToCharity: "https://www.wwf.org.au/",
+    dateOfShare: "12 March 2026",
   },
   {
     image: imgCamera,
     title: "Rolleiflex 2.8F with Carl Zeiss Planar",
     meta: "Starting offer at $1.00",
     price: "$2,200.00",
-    received_by: "Sold by Peter H., Brisbane",
-    shared_by: "Shared with WWF Australia on 12 March 2026.",
+    receivedBy: "Peter H., Brisbane",
+    sharedWith: "WWF Australia",
+    linkToCharity: "https://www.wwf.org.au/",
+    dateOfShare: "12 March 2026",
   },
   {
     image: imgGuitar,
     title: "1964 Rickenbacker 360 12-String",
     meta: "Starting offer at $1.00",
     price: "$5,500.00",
-    received_by: "Sold by Chris B., Gold Coast",
-    shared_by: "Shared with WWF Australia on 12 March 2026.",
+    receivedBy: "Chris B., Gold Coast",
+    sharedWith: "WWF Australia",
+    linkToCharity: "https://www.wwf.org.au/",
+    dateOfShare: "12 March 2026",
   },
 ]
 
@@ -100,9 +117,9 @@ export function PastSalesSection() {
 
   return (
     <section className="bg-background p-8 sm:p-12 lg:p-16">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1568px]">
         {/* Section header */}
-        <div className="mb-10 flex flex-col gap-4 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-10 flex flex-col sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex flex-col gap-3">
             <SectionLabel>ReCENTLY SHARED</SectionLabel>
             <h2 className="text-[48px] leading-none font-bold text-brand-darkest">
@@ -119,14 +136,14 @@ export function PastSalesSection() {
         {/* ── Desktop: 1 large featured card + 2×2 grid ── */}
         <div className="hidden items-stretch gap-4 sm:flex">
           {/* Featured card — left, stretches to full height of the grid */}
-          <div className="min-w-0 flex-1 self-stretch">
+          <div className="">
             <ListingCard item={featuredItem} variant="featured" />
           </div>
 
           {/* Right side: 2 columns × 2 rows of smaller cards */}
           <div className="grid grid-cols-2 gap-4" style={{ flex: "1" }}>
             {initialGridItems.map((item) => (
-              <ListingCard key={item.title} item={item} variant="desktop" />
+              <ListingCard key={item.title} item={item} />
             ))}
           </div>
         </div>
@@ -135,7 +152,7 @@ export function PastSalesSection() {
         {showAll && (
           <div className="mt-4 hidden grid-cols-2 gap-4 sm:grid lg:grid-cols-4">
             {extraItems.map((item) => (
-              <ListingCard key={item.title} item={item} variant="desktop" />
+              <ListingCard key={item.title} item={item} />
             ))}
           </div>
         )}
@@ -143,7 +160,7 @@ export function PastSalesSection() {
         {/* ── Mobile: stacked list ── */}
         <div className="flex flex-col gap-4 sm:hidden">
           {mobileItems.map((item) => (
-            <ListingCard key={item.title} item={item} variant="mobile" />
+            <ListingCard key={item.title} item={item} />
           ))}
         </div>
 
