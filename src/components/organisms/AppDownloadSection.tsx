@@ -1,15 +1,10 @@
 import { SectionLabel } from "@/components/atoms/SectionLabel"
-
-// ── Hero photo (desktop right panel) ──────────────────────────────────────────
-const imgPhotoDesktop = "/images/download-app.jpg"
-
-const imgPhoneMobile = "/images/download-app-m.jpg"
-
-// ── QR code + corner markers (desktop only) ───────────────────────────────────
-const imgQrCode = "/images/qr.png"
-const imgPlanSwitcher = "/images/plan-switcher.svg"
-const imgAppleStore = "/images/app-store.png"
-const imgGooglePlay = "/images/play-store.png"
+import imgPhotoDesktop from "@/assets/images/download-app.jpg"
+import imgPhoneMobile from "@/assets/images/download-app-m.jpg"
+import imgQrCode from "@/assets/images/qr.png"
+import imgPlanSwitcher from "@/assets/images/plan-switcher.svg"
+import imgAppleStore from "@/assets/images/app-store.png"
+import imgGooglePlay from "@/assets/images/play-store.png"
 const stats = [
   {
     value: "$47.5k raised",

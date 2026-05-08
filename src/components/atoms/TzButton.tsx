@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils"
 import { ArrowRight } from "lucide-react"
+import { Link } from "react-router-dom"
 import { Spinner } from "./Spinner"
 
 /**
@@ -92,8 +93,16 @@ export function TzButton({
   )
 
   if (href) {
+    const isInternal = href.startsWith("/") || href.startsWith("#")
+    if (isInternal) {
+      return (
+        <Link to={href} className={cn(classes)} style={mergedStyle}>
+          {content}
+        </Link>
+      )
+    }
     return (
-      <a href={href} className={cn(classes)} style={mergedStyle}>
+      <a href={href} className={cn(classes)} style={mergedStyle} target="_blank" rel="noopener noreferrer">
         {content}
       </a>
     )

@@ -1,8 +1,8 @@
+import logoWhite from "@/assets/images/logo-white.png"
+import logoDefault from "@/assets/images/logo-default.png"
+
 const BASE_W = 93.4
 const BASE_H = 30.498
-
-const logoWhite = "/images/logo-white.png"
-const logoDefault = "/images/logo-default.png"
 
 type TzLogoProps = {
   className?: string

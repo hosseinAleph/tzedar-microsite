@@ -2,9 +2,8 @@ import { useState } from "react"
 import { TzLogo } from "@/components/atoms/TzLogo"
 import { TzButton } from "@/components/atoms/TzButton"
 import { TzLink } from "@/components/atoms/TzLink"
-
-const imgClose = "/images/close.svg"
-const imgMenu = "/images/menu.svg"
+import imgClose from "@/assets/images/close.svg"
+import imgMenu from "@/assets/images/menu.svg"
 
 const navLinks = [
   { label: "how it works", href: "#how-it-works" },

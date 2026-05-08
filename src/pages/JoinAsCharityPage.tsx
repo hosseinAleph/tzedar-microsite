@@ -9,8 +9,9 @@ import { cn } from "@/lib/utils"
 import { TzLogo } from "@/components/atoms/TzLogo"
 import { SubmissionPopup } from "@/components/molecules/SubmissionPopup"
 import { TzButton } from "@/components/atoms/TzButton"
-
-const decorImage = "/images/join-as-charity-decor.svg"
+import decorImage from "@/assets/images/join-as-charity-decor.svg"
+import imgCloseLg from "@/assets/images/close-lg.svg"
+import imgClose from "@/assets/images/close.svg"
 
 /* ── Shared form field definitions ── */
 const fields = [
@@ -304,7 +305,7 @@ export function JoinAsCharityPage() {
             cursor-pointer items-center justify-center rounded-2xl
             transition-colors hover:bg-border-default/30"
         >
-          <img src="/images/close-lg.svg" alt="Close" />
+          <img src={imgCloseLg} alt="Close" />
         </button>
       </div>
 
@@ -325,7 +326,7 @@ export function JoinAsCharityPage() {
             className="rounded-full p-2 transition-colors
               hover:bg-brand-surface"
           >
-            <img src="/images/close.svg" alt="Close" />
+            <img src={imgClose} alt="Close" />
           </button>
         </div>
 

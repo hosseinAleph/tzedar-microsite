@@ -1,21 +1,18 @@
 import { SectionLabel } from "@/components/atoms/SectionLabel"
 import { CharityCard } from "@/components/molecules/CharityCard"
 import { cn } from "@/lib/utils"
+import imgOxfam from "@/assets/images/charity-1.png"
+import imgWWF from "@/assets/images/charity-2.jpeg"
+import imgRedCross from "@/assets/images/charity-3.png"
+import imgGreenFleet from "@/assets/images/charity-4.jpeg"
+import imgSaveChildren from "@/assets/images/charity-5.jpeg"
+import imgBeyondBlue from "@/assets/images/charity-6.png"
+import imgEllipse from "@/assets/images/img-ellipse.svg"
+import imgPolygon from "@/assets/images/img-polygon.svg"
+import imgTexture from "@/assets/images/img-texture.png"
 
-const imgOxfam = "/images/charity-1.png"
-const imgWWF = "/images/charity-2.jpeg"
-const imgRedCross = "/images/charity-3.png"
-const imgGreenFleet = "/images/charity-4.jpeg"
-const imgSaveChildren = "/images/charity-5.jpeg"
-const imgBeyondBlue = "/images/charity-6.png"
-// Additional demo charities (existing assets)
-const imgRSPCA = "/images/charity-2.jpeg"
-const imgLifeline = "/images/charity-4.jpeg"
-
-// Background decoration assets
-const imgEllipse = "/images/img-ellipse.svg"
-const imgPolygon = "/images/img-polygon.svg"
-const imgTexture = "/images/img-texture.svg"
+const imgRSPCA = imgWWF
+const imgLifeline = imgGreenFleet
 
 const charities = [
   {

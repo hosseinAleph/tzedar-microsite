@@ -2,10 +2,9 @@ import { useState } from "react"
 import { SectionLabel } from "@/components/atoms/SectionLabel"
 import { ListingCard } from "@/components/molecules/ListingCard"
 import { TzButton } from "../atoms/TzButton"
-
-const imgBlanket = "/images/sales-1.png"
-const imgCamera = "/images/sales-2.png"
-const imgGuitar = "/images/sales-3.png"
+import imgBlanket from "@/assets/images/sales-1.png"
+import imgCamera from "@/assets/images/sales-2.png"
+import imgGuitar from "@/assets/images/sales-3.png"
 
 const allItems = [
   {

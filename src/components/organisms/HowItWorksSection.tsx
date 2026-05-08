@@ -1,10 +1,9 @@
 import { useState } from "react"
 import { SectionLabel } from "@/components/atoms/SectionLabel"
 import { HowItWorksStep } from "@/components/molecules/HowItWorksStep"
-
-const stepImage1 = "/images/profile-1.jpg"
-const stepImage2 = "/images/profile-2.jpg"
-const stepImage3 = "/images/profile-3.jpg"
+import stepImage1 from "@/assets/images/profile-1.jpg"
+import stepImage2 from "@/assets/images/profile-2.jpg"
+import stepImage3 from "@/assets/images/profile-3.jpg"
 
 const steps = [
   {

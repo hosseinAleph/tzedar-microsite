@@ -1,6 +1,5 @@
 import { useEffect } from "react"
-
-const alertSuccess = "/images/alert-success.svg"
+import alertSuccess from "@/assets/images/alert-success.svg"
 
 type SubmissionPopupProps = Readonly<{
   onClose: () => void

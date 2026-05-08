@@ -1,8 +1,7 @@
 import { TzButton } from "../atoms/TzButton"
 import { PhotoGlassSection } from "./PhotoGlassSection"
-
-const bgWeb = "/images/charity-cta.jpg"
-const bgMobile = "/images/charity-cta-m.jpg"
+import bgWeb from "@/assets/images/charity-cta.jpg"
+import bgMobile from "@/assets/images/charity-cta-m.jpg"
 
 const bannerButtonLabel = "Express interest as a cause"
 const bannerButtonActionLabel = "Nominate as a cause"

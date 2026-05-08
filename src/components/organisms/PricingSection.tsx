@@ -1,8 +1,7 @@
 import { SectionLabel } from "@/components/atoms/SectionLabel"
 import { PricingCard } from "@/components/molecules/PricingCard"
-
-const bgTexture = "/images/pricing-bg.jpg"
-const bgTextureMobile = "/images/pricing-bg-m.jpg"
+import bgTexture from "@/assets/images/pricing-bg.jpg"
+import bgTextureMobile from "@/assets/images/pricing-bg-m.jpg"
 
 export function PricingSection() {
   return (

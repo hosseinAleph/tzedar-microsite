@@ -1,9 +1,7 @@
 import { TzLogo } from "@/components/atoms/TzLogo"
-
-const imgFb = "/images/logo-fb.svg"
-const imgIg = "/images/logo-ig.svg"
-// logo-x
-const imgX = "/images/logo-x.svg"
+import imgFb from "@/assets/images/logo-fb.svg"
+import imgIg from "@/assets/images/logo-ig.svg"
+import imgX from "@/assets/images/logo-x.svg"
 
 const legalLinks = [
   { label: "Privacy Notice", href: "/privacy" },

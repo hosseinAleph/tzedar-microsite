@@ -1,8 +1,7 @@
 import { TzButton } from "@/components/atoms/TzButton"
 import { PhotoGlassSection } from "./PhotoGlassSection"
-
-const heroImage = "/images/hero.jpg"
-const heroImageMobile = "/images/hero-m.jpg"
+import heroImage from "@/assets/images/hero.jpg"
+import heroImageMobile from "@/assets/images/hero-m.jpg"
 
 const bannerButtonLabel = "Offer something"
 const bannerButtonActionLabel = "Join as a cause"

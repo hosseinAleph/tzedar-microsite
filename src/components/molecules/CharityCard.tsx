@@ -1,13 +1,12 @@
+import marker from "@/assets/images/marker-pin-icon.png"
+import verifiedCheck from "@/assets/images/verification-icon.png"
+
 type CharityCardProps = Readonly<{
   image: string
   name: string
   description: string
   location: string
 }>
-
-// marker-pin-icon
-const marker = "/images/marker-pin-icon.png"
-const verifiedCheck = "/images/verification-icon.png"
 
 export function CharityCard({
   image,
