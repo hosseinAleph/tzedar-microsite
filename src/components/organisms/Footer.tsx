@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { TzLogo } from "@/components/atoms/TzLogo"
 import imgFb from "@/assets/images/logo-fb.svg"
 import imgIg from "@/assets/images/logo-ig.svg"
@@ -72,32 +73,32 @@ export function Footer() {
         {/* ── Bottom: links row + copyright ── */}
         <div className="relative z-10 flex flex-col gap-4">
           <div className="flex w-full items-center gap-4">
-            <a
-              href={legalLinks[0].href}
+            <Link
+              to={legalLinks[0].href}
               className="shrink-0 text-[14px] whitespace-nowrap
                 text-primary-foreground transition-opacity hover:opacity-80"
             >
               {legalLinks[0].label}
-            </a>
+            </Link>
             <div
               className="border-border-[#3A75A8] flex min-w-0 flex-1
                 items-center justify-center border-r border-l px-2"
             >
-              <a
-                href={legalLinks[1].href}
+              <Link
+                to={legalLinks[1].href}
                 className="text-center text-[14px] leading-snug
                   text-primary-foreground transition-opacity hover:opacity-80"
               >
                 {legalLinks[1].label}
-              </a>
+              </Link>
             </div>
-            <a
-              href={legalLinks[2].href}
+            <Link
+              to={legalLinks[2].href}
               className="shrink-0 text-[14px] whitespace-nowrap
                 text-primary-foreground transition-opacity hover:opacity-80"
             >
               {legalLinks[2].label}
-            </a>
+            </Link>
           </div>
           <p
             className="text-center text-[14px] leading-snug
@@ -153,14 +154,14 @@ export function Footer() {
         <div className="relative z-10 flex flex-col gap-4">
           <div className="flex flex-col gap-4">
             {legalLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 className="w-fit text-[14px] text-primary-foreground
                   transition-opacity hover:opacity-80"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
           <p

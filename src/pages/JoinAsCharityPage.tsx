@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { Info } from "lucide-react"
 import { z } from "zod"
 import { useForm } from "react-hook-form"
@@ -201,9 +201,9 @@ function PartnerForm({
 
       <p className="text-center text-[12px] leading-snug text-text-secondary/70">
         By submitting you agree to{" "}
-        <a href="/terms" className="text-brand-light underline">
+        <Link to="/terms" className="text-brand-light underline">
           our terms
-        </a>
+        </Link>
         {". We'll only contact you about your application."}
       </p>
     </form>
