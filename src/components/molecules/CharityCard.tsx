@@ -18,7 +18,9 @@ export function CharityCard({
   return (
     /* Outer frosted card */
     <div
-      className="relative h-[420px] w-[264px] shrink-0 overflow-hidden rounded-[24px] border border-border-subtle shadow-(--shadow-charity-card) sm:h-[479px] sm:w-[280px]"
+      className="relative h-[420px] w-[264px] shrink-0 overflow-hidden
+        rounded-[24px] border border-border-subtle
+        shadow-(--shadow-charity-card) sm:h-[479px] sm:w-[280px]"
       style={{
         background: "var(--gradient-frosted-card)",
         backdropFilter: "blur(32px)",
@@ -26,7 +28,10 @@ export function CharityCard({
       }}
     >
       {/* Inner inset image container */}
-      <div className="absolute inset-[7px] overflow-hidden rounded-2xl border border-(--inner-border-color)">
+      <div
+        className="absolute inset-[7px] overflow-hidden rounded-2xl border
+          border-(--inner-border-color)"
+      >
         {/* Photo — no full-image blur; stays sharp at the top */}
         <img
           src={image}
@@ -70,7 +75,10 @@ export function CharityCard({
         />
 
         {/* Inner highlight ring */}
-        <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-(--shadow-highlight-inset)" />
+        <div
+          className="pointer-events-none absolute inset-0 rounded-[inherit]
+            shadow-(--shadow-highlight-inset)"
+        />
       </div>
 
       {/* Profile info — pinned to bottom */}
@@ -90,7 +98,10 @@ export function CharityCard({
         </div>
         {/* truncate more than 2 line */}
 
-        <p className="line-clamp-2 text-sm leading-snug text-surface-bright opacity-90">
+        <p
+          className="line-clamp-2 text-sm leading-snug text-surface-bright
+            opacity-90"
+        >
           {description}
         </p>
         <div className="flex items-center gap-1">
@@ -101,7 +112,10 @@ export function CharityCard({
               className="absolute inset-0 h-full w-full"
             />
           </div>
-          <p className="text-xs leading-snug font-thin text-surface-bright opacity-90">
+          <p
+            className="text-xs leading-snug font-thin text-surface-bright
+              opacity-90"
+          >
             {location}
           </p>
         </div>

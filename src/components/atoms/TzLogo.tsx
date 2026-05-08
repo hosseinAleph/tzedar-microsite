@@ -21,7 +21,7 @@ export function TzLogo({
   const width = Math.round(BASE_W * scale)
 
   return (
-    <div className={`flex items-center justify-center`}>
+    <div className={"flex items-center justify-center"}>
       <img
         src={variant === "white" ? logoWhite : logoDefault}
         alt="Tzedar"

@@ -8,7 +8,8 @@ export function TzLink({ children, className, ...rest }: TzLinkProps) {
   return (
     <a
       className={cn(
-        "rounded-xl text-2xl font-semibold text-green transition-colors hover:bg-brand-surface",
+        `rounded-xl text-2xl font-semibold text-green transition-colors
+        hover:bg-brand-surface`,
         className
       )}
       {...rest}

@@ -119,16 +119,24 @@ export function PastSalesSection() {
     <section className="bg-background p-8 sm:p-12 lg:p-16">
       <div className="mx-auto max-w-[1568px]">
         {/* Section header */}
-        <div className="mb-10 flex flex-col sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
+        <div
+          className="mb-10 flex flex-col sm:mb-14 sm:flex-row sm:items-end
+            sm:justify-between"
+        >
           <div className="flex flex-col gap-3">
             <SectionLabel>ReCENTLY SHARED</SectionLabel>
-            <h2 className="text-[48px] leading-none font-bold text-brand-darkest">
+            <h2
+              className="text-[48px] leading-none font-bold text-brand-darkest"
+            >
               each one carries
               <br />
               value forward.
             </h2>
           </div>
-          <p className="text-left text-lg leading-snug text-text-secondary/70 sm:max-w-sm sm:text-right sm:text-xl lg:max-w-md lg:text-2xl">
+          <p
+            className="text-left text-lg leading-snug text-text-secondary/70
+              sm:max-w-sm sm:text-right sm:text-xl lg:max-w-md lg:text-2xl"
+          >
             Value, discovered and shared.
           </p>
         </div>

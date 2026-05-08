@@ -82,20 +82,27 @@ export function CharitiesSection() {
     >
       {/* ── Decorative background ── */}
       {/* Soft glow ellipse — upper center-right */}
-      <div className="pointer-events-none absolute top-0 right-[15%] aspect-square w-[55%] opacity-70 select-none">
+      <div
+        className="pointer-events-none absolute top-0 right-[15%] aspect-square
+          w-[55%] opacity-70 select-none"
+      >
         <div className="absolute inset-[-32%]">
           <img src={imgEllipse} alt="" className="block h-full w-full" />
         </div>
       </div>
       {/* Polygon shape — far upper right */}
-      <div className="pointer-events-none absolute top-0 right-0 aspect-square w-[55%] opacity-60 select-none">
+      <div
+        className="pointer-events-none absolute top-0 right-0 aspect-square
+          w-[55%] opacity-60 select-none"
+      >
         <div className="absolute inset-[-24%_-17%_1%_-17%]">
           <img src={imgPolygon} alt="" className="block h-full w-full" />
         </div>
       </div>
       {/* Repeating texture with overlay blend */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-30 mix-blend-overlay select-none"
+        className="pointer-events-none absolute inset-0 opacity-30
+          mix-blend-overlay select-none"
         style={{
           backgroundImage: `url('${imgTexture}')`,
           backgroundSize: "134px 134px",
@@ -104,16 +111,28 @@ export function CharitiesSection() {
       />
 
       {/* ── Section header ── */}
-      <div className="relative mx-auto mb-10 max-w-7xl px-6 sm:mb-14 sm:px-8 lg:px-20">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div
+        className="relative mx-auto mb-10 max-w-7xl px-6 sm:mb-14 sm:px-8
+          lg:px-20"
+      >
+        <div
+          className="flex flex-col gap-4 sm:flex-row sm:items-end
+            sm:justify-between"
+        >
           <div className="flex flex-col gap-3">
             <SectionLabel>Our Partnering Charities</SectionLabel>
-            <h2 className="text-4xl leading-none font-bold text-brand-darkest sm:text-5xl lg:text-[48px]">
+            <h2
+              className="text-4xl leading-none font-bold text-brand-darkest
+                sm:text-5xl lg:text-[48px]"
+            >
               every bid supports
               <br />a cause you believe in.
             </h2>
           </div>
-          <p className="text-left text-base leading-snug text-text-secondary/70 sm:max-w-sm sm:text-right sm:text-lg lg:max-w-md lg:text-2xl">
+          <p
+            className="text-left text-base leading-snug text-text-secondary/70
+              sm:max-w-sm sm:text-right sm:text-lg lg:max-w-md lg:text-2xl"
+          >
             Every charity on Tzedar has DGR status with the ATO. We check them
             out so you can donate with confidence.
           </p>
@@ -121,7 +140,10 @@ export function CharitiesSection() {
       </div>
 
       {/* ── Scrollable card row ── */}
-      <div className="scrollbar-hide relative flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 sm:px-8 lg:gap-[10px] lg:px-20">
+      <div
+        className="scrollbar-hide relative flex snap-x snap-mandatory gap-4
+          overflow-x-auto px-6 pb-4 sm:px-8 lg:gap-[10px] lg:px-20"
+      >
         {/* add margin left to first card  */}
         {charities.map((charity, index) => (
           <div

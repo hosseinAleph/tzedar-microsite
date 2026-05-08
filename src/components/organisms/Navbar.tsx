@@ -35,7 +35,8 @@ export function Navbar() {
           </div>
 
           <button
-            className="rounded-lg p-2 transition-colors hover:bg-brand-surface lg:hidden"
+            className="rounded-lg p-2 transition-colors hover:bg-brand-surface
+              lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -49,7 +50,10 @@ export function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="absolute top-[calc(4rem-1px)] right-0 left-16 h-screen border-t border-border-default bg-background px-6 pb-34 lg:hidden">
+        <div
+          className="absolute top-[calc(4rem-1px)] right-0 left-16 h-screen
+            border-t border-border-default bg-background px-6 pb-34 lg:hidden"
+        >
           <div className="absolute -left-16 h-full w-16 bg-black opacity-70" />
           <nav className="flex h-full w-full flex-col gap-10 pt-10">
             {navLinks.map((link) => (

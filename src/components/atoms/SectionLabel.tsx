@@ -1,12 +1,15 @@
 type SectionLabelProps = {
-  children: React.ReactNode;
-  className?: string;
-};
+  children: React.ReactNode
+  className?: string
+}
 
 export function SectionLabel({ children, className = "" }: SectionLabelProps) {
   return (
-    <p className={`text-brand-light text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] leading-tight ${className}`}>
+    <p
+      className={`text-xs leading-tight font-semibold tracking-[0.2em]
+        text-brand-light uppercase sm:text-sm ${className}`}
+    >
       {children}
     </p>
-  );
+  )
 }

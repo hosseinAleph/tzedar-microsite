@@ -73,7 +73,8 @@ export function TzButton({
   const config = variantConfig[variant]
 
   const classes = cn(
-    "inline-flex cursor-pointer items-center justify-center gap-2 rounded-full transition-all duration-200 select-none",
+    `inline-flex cursor-pointer items-center justify-center gap-2 rounded-full
+    transition-all duration-200 select-none`,
     sizeClasses[size],
     config.className,
     className

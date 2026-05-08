@@ -38,16 +38,25 @@ export function HowItWorksSection() {
     >
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-8 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
+        <div
+          className="mb-8 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-end
+            sm:justify-between"
+        >
           <div className="flex flex-col gap-3">
             <SectionLabel>how it works</SectionLabel>
-            <h2 className="text-3xl leading-tight font-bold tracking-tight text-brand-darkest sm:text-5xl lg:text-6xl">
+            <h2
+              className="text-3xl leading-tight font-bold tracking-tight
+                text-brand-darkest sm:text-5xl lg:text-6xl"
+            >
               it’s simple.
               <br />
               {"that's actually it."}
             </h2>
           </div>
-          <p className="text-left text-sm leading-snug text-text-secondary/70 sm:max-w-xs sm:text-right sm:text-base lg:max-w-xl lg:text-lg">
+          <p
+            className="text-left text-sm leading-snug text-text-secondary/70
+              sm:max-w-xs sm:text-right sm:text-base lg:max-w-xl lg:text-lg"
+          >
             Everything has value, even the smallest things. Offer something,
             find something, support a cause. As value moves between us, some of
             it always reaches those who need it most. Value isn't set, it is

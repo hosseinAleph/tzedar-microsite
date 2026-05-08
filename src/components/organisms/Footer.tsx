@@ -29,14 +29,18 @@ export function Footer() {
           src={imgGlowMobile}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute top-1/2 left-[166px] w-[236px] -translate-y-1/2 opacity-60 mix-blend-plus-lighter"
+          className="pointer-events-none absolute top-1/2 left-[166px] w-[236px]
+            -translate-y-1/2 opacity-60 mix-blend-plus-lighter"
         />
 
         {/* ── Top: logo + tagline + social ── */}
         <div className="relative z-10 flex flex-col gap-6">
           <div className="flex flex-col gap-2.5">
             <TzLogo height={60} variant="white" />
-            <p className="text-[18px] leading-snug font-semibold text-primary-foreground">
+            <p
+              className="text-[18px] leading-snug font-semibold
+                text-primary-foreground"
+            >
               Good things, going further.
             </p>
           </div>
@@ -76,26 +80,35 @@ export function Footer() {
           <div className="flex w-full items-center gap-4">
             <a
               href={legalLinks[0].href}
-              className="shrink-0 text-[14px] whitespace-nowrap text-primary-foreground transition-opacity hover:opacity-80"
+              className="shrink-0 text-[14px] whitespace-nowrap
+                text-primary-foreground transition-opacity hover:opacity-80"
             >
               {legalLinks[0].label}
             </a>
-            <div className="flex min-w-0 flex-1 items-center justify-center border-r border-l border-border-strong px-2">
+            <div
+              className="flex min-w-0 flex-1 items-center justify-center
+                border-r border-l border-border-strong px-2"
+            >
               <a
                 href={legalLinks[1].href}
-                className="text-center text-[14px] leading-snug text-primary-foreground transition-opacity hover:opacity-80"
+                className="text-center text-[14px] leading-snug
+                  text-primary-foreground transition-opacity hover:opacity-80"
               >
                 {legalLinks[1].label}
               </a>
             </div>
             <a
               href={legalLinks[2].href}
-              className="shrink-0 text-[14px] whitespace-nowrap text-primary-foreground transition-opacity hover:opacity-80"
+              className="shrink-0 text-[14px] whitespace-nowrap
+                text-primary-foreground transition-opacity hover:opacity-80"
             >
               {legalLinks[2].label}
             </a>
           </div>
-          <p className="text-center text-[14px] leading-snug text-primary-foreground">
+          <p
+            className="text-center text-[14px] leading-snug
+              text-primary-foreground"
+          >
             © {new Date().getFullYear()} Tzedar. All Rights Reserved.
           </p>
         </div>
@@ -110,7 +123,8 @@ export function Footer() {
           src={imgGlowDesktop}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute top-1/2 right-[-20px] w-[236px] -translate-y-1/2 opacity-60 mix-blend-plus-lighter"
+          className="pointer-events-none absolute top-1/2 right-[-20px]
+            w-[236px] -translate-y-1/2 opacity-60 mix-blend-plus-lighter"
         />
 
         {/* ── Top row: logo+tagline (left) · social icons (right, aligned to baseline) ── */}
@@ -118,7 +132,10 @@ export function Footer() {
           <div className="flex flex-col gap-2.5">
             <TzLogo height={60} variant="white" />
             {/* Figma: Body-XXL-32, Regular */}
-            <p className="text-[32px] leading-snug font-normal text-primary-foreground">
+            <p
+              className="text-[32px] leading-snug font-normal
+                text-primary-foreground"
+            >
               Good things, going further.
             </p>
           </div>
@@ -161,14 +178,18 @@ export function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="w-fit text-[14px] text-primary-foreground transition-opacity hover:opacity-80"
+                className="w-fit text-[14px] text-primary-foreground
+                  transition-opacity hover:opacity-80"
               >
                 {link.label}
               </a>
             ))}
           </div>
           {/* Figma: 16px SemiBold, centered */}
-          <p className="w-full text-center text-[16px] font-semibold text-primary-foreground">
+          <p
+            className="w-full text-center text-[16px] font-semibold
+              text-primary-foreground"
+          >
             © {new Date().getFullYear()} Tzedar. All Rights Reserved.
           </p>
         </div>

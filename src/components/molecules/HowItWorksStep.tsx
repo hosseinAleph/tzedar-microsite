@@ -30,16 +30,25 @@ export function HowItWorksStep({
         onClick={onClick}
         aria-label={`Expand: ${title}`}
         className={cn(
-          "flex w-full shrink-0 cursor-pointer items-center gap-6 rounded-full px-14 py-6 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none",
+          `flex w-full shrink-0 cursor-pointer items-center gap-6 rounded-full
+          px-14 py-6 transition-all duration-300 focus-visible:ring-2
+          focus-visible:ring-brand focus-visible:outline-none`,
           collapsedBg[stepIndex]
         )}
       >
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-primary-foreground bg-gold-surface backdrop-blur-sm">
+        <div
+          className="flex h-14 w-14 shrink-0 items-center justify-center
+            rounded-full border-2 border-primary-foreground bg-gold-surface
+            backdrop-blur-sm"
+        >
           <span className="text-2xl leading-none font-semibold text-gold">
             {step}
           </span>
         </div>
-        <span className="text-4xl leading-none font-bold whitespace-nowrap text-primary-foreground lg:text-5xl">
+        <span
+          className="text-4xl leading-none font-bold whitespace-nowrap
+            text-primary-foreground lg:text-5xl"
+        >
           {title}
         </span>
       </button>
@@ -53,19 +62,28 @@ export function HowItWorksStep({
         onClick={onClick}
         aria-label={`Expand: ${title}`}
         className={cn(
-          "flex shrink-0 cursor-pointer flex-col items-center justify-between rounded-[24px] py-3 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none",
+          `flex shrink-0 cursor-pointer flex-col items-center justify-between
+          rounded-[24px] py-3 transition-all duration-300 focus-visible:ring-2
+          focus-visible:ring-brand focus-visible:outline-none`,
           "w-10",
           collapsedBg[stepIndex]
         )}
       >
-        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-primary-foreground bg-gold-surface">
+        <div
+          className="flex h-7 w-7 shrink-0 items-center justify-center
+            rounded-full border border-primary-foreground bg-gold-surface"
+        >
           <span className="text-[10px] leading-none font-semibold text-gold">
             {step}
           </span>
         </div>
-        <div className="flex flex-1 items-center justify-center overflow-hidden py-2">
+        <div
+          className="flex flex-1 items-center justify-center overflow-hidden
+            py-2"
+        >
           <span
-            className="text-xs font-semibold whitespace-nowrap text-primary-foreground"
+            className="text-xs font-semibold whitespace-nowrap
+              text-primary-foreground"
             style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
           >
             {title}
@@ -79,7 +97,8 @@ export function HowItWorksStep({
   return (
     <div
       className={cn(
-        "relative overflow-hidden border border-border-subtle shadow-(--shadow-step-card)",
+        `relative overflow-hidden border border-border-subtle
+        shadow-(--shadow-step-card)`,
         "transition-all duration-500 ease-out",
         "animate-in duration-400",
         // Figma outer radius: 49.836px ≈ 50px (desktop), proportional for mobile
@@ -95,7 +114,8 @@ export function HowItWorksStep({
       {/* Inner image — Figma inset: 14.54px, inner radius: 33.224px ≈ 34px */}
       <div
         className={cn(
-          "absolute animate-in overflow-hidden border border-(--inner-border-color) duration-500 zoom-in-95",
+          `absolute animate-in overflow-hidden border
+          border-(--inner-border-color) duration-500 zoom-in-95`,
           layout === "desktop"
             ? "inset-[14px] rounded-[34px]"
             : "inset-[8px] rounded-[22px]"
@@ -113,10 +133,14 @@ export function HowItWorksStep({
       </div>
 
       {/* Step badge */}
-      <div className="absolute top-4 left-4 z-10 sm:top-6 sm:left-6 lg:top-8 lg:left-8">
+      <div
+        className="absolute top-4 left-4 z-10 sm:top-6 sm:left-6 lg:top-8
+          lg:left-8"
+      >
         <div
           className={cn(
-            "flex items-center justify-center rounded-full border-2 border-primary-foreground bg-gold-surface",
+            `flex items-center justify-center rounded-full border-2
+            border-primary-foreground bg-gold-surface`,
             layout === "desktop" ? "h-14 w-14 lg:h-16 lg:w-16" : "h-8 w-8"
           )}
         >
@@ -132,7 +156,10 @@ export function HowItWorksStep({
       </div>
 
       {/* Text — slides up slightly after the image fades in */}
-      <div className="absolute right-0 bottom-0 left-0 z-10 flex animate-in flex-col gap-1 p-5 sm:gap-2 sm:p-8 lg:p-10">
+      <div
+        className="absolute right-0 bottom-0 left-0 z-10 flex animate-in
+          flex-col gap-1 p-5 sm:gap-2 sm:p-8 lg:p-10"
+      >
         <p
           className={cn(
             "leading-tight font-bold text-primary-foreground",
