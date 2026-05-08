@@ -2,7 +2,6 @@ import { SectionLabel } from "@/components/atoms/SectionLabel"
 import { CharityCard } from "@/components/molecules/CharityCard"
 import { cn } from "@/lib/utils"
 
-// Figma charity photos (web design)
 const imgOxfam = "/images/charity-1.png"
 const imgWWF = "/images/charity-2.jpeg"
 const imgRedCross = "/images/charity-3.png"

@@ -1,13 +1,16 @@
-import { useState, useCallback, type SubmitEvent } from "react"
+import { useState, useCallback } from "react"
 import { useNavigate } from "react-router-dom"
-import { Info, X } from "lucide-react"
+import { Info } from "lucide-react"
+import { z } from "zod"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import type { UseFormRegisterReturn } from "react-hook-form"
+import { cn } from "@/lib/utils"
 import { TzLogo } from "@/components/atoms/TzLogo"
 import { SubmissionPopup } from "@/components/molecules/SubmissionPopup"
-// import emailJS from "@emailjs/browser";
 import { TzButton } from "@/components/atoms/TzButton"
 
-const decorImage =
-  "https://www.figma.com/api/mcp/asset/7bdfbb8e-0b72-40ce-9272-3e9e8bf6d719"
+const decorImage = "/images/join-as-charity-decor.svg"
 
 /* ── Shared form field definitions ── */
 const fields = [
@@ -36,10 +39,29 @@ const fields = [
     name: "abn",
     id: "abn",
     label: "ABN",
-    placeholder: "e.g. 12 345 678 901",
+    placeholder: "e.g. 12345678901",
     hint: "We'll use this to confirm your spot and send next steps.",
   },
 ]
+
+/* ── Zod schema ── */
+
+const partnerSchema = z.object({
+  name: z
+    .string()
+    .min(1, "Please enter your full name.")
+    .refine((v) => v.trim().split(/\s+/).length >= 2, {
+      message: "Please enter your full name.",
+    }),
+  email: z.email({ message: "Please use your organisation's email address." }),
+
+  org: z.string().min(1, "Please enter your organisation's registered name."),
+  abn: z.string().refine((v) => /^\d{11}$/.test(v.replaceAll(/[\s-]/g, "")), {
+    message: "Please enter a valid 11-digit ABN. No spaces or dashes.",
+  }),
+})
+
+type FormValues = z.infer<typeof partnerSchema>
 
 /* ── DGR callout ── */
 function DgrCallout() {
@@ -68,7 +90,16 @@ function FormInput({
   label,
   placeholder,
   hint,
-}: Readonly<{ id: string; label: string; placeholder: string; hint: string }>) {
+  registration,
+  error,
+}: Readonly<{
+  id: string
+  label: string
+  placeholder: string
+  hint: string
+  registration: UseFormRegisterReturn
+  error?: string
+}>) {
   return (
     <div className="flex w-full flex-col gap-1">
       <label
@@ -80,44 +111,52 @@ function FormInput({
       <input
         id={id}
         type={id === "email" ? "email" : "text"}
+        inputMode={id === "abn" ? "numeric" : undefined}
         placeholder={placeholder}
-        className="h-11 w-full rounded-lg border border-border-strong
-          bg-background px-4 text-sm text-text-primary transition
-          placeholder:text-text-placeholder focus:ring-2 focus:ring-brand
-          focus:outline-none"
+        {...registration}
+        className={cn(
+          "h-11 w-full rounded-lg border bg-background px-4 text-sm",
+          "text-text-primary transition placeholder:text-text-placeholder",
+          "focus:ring-2 focus:outline-none",
+          error
+            ? "border-destructive text-destructive focus:ring-destructive/20"
+            : "border-border-strong focus:ring-brand"
+        )}
       />
-      {hint && (
-        <p className="text-[12px] leading-snug text-brand-medium/70">{hint}</p>
+      {error ? (
+        <p className="text-[12px] leading-snug text-destructive">{error}</p>
+      ) : (
+        hint && (
+          <p className="text-[12px] leading-snug text-brand-medium/70">
+            {hint}
+          </p>
+        )
       )}
     </div>
   )
 }
 
 /* ── Form content (used in both layouts) ── */
-function PartnerForm({ onSubmit }: Readonly<{ onSubmit: () => void }>) {
-  console.log("🚀 ~ PartnerForm ~ onSubmit:", onSubmit)
-  const [loading, setLoading] = useState(false)
+function PartnerForm({
+  onSubmit: onSubmitProp,
+}: Readonly<{ onSubmit: () => void }>) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>({
+    resolver: zodResolver(partnerSchema),
+  })
 
-  const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log("first", e.target)
-    setLoading(true)
-    // TODO: Add the public key to the environment variables
-    // emailJS.sendForm('service_874wrye', 'template_dos7199', e.target as HTMLFormElement, 'MW7fh2GtF3biGDMAH')
-    //   .then((result) => {
-    //     console.log(result);
-    //   }, (error) => {
-    //     console.error(error);
-    //   }).finally(() => {
-    //     onSubmit()
-    //   })
-    setTimeout(() => {
-      setLoading(false)
-    }, 3000)
-  }
+  // Replace with real emailJS / API call when ready
+  const submitHandler = handleSubmit(async (data) => {
+    console.log("🚀 ~ PartnerForm ~ data:", data)
+    await new Promise<void>((resolve) => setTimeout(resolve, 3000))
+    onSubmitProp()
+  })
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+    <form onSubmit={submitHandler} className="flex flex-col gap-8">
       {/* Form header */}
       <div className="flex flex-col gap-2">
         <p
@@ -141,7 +180,12 @@ function PartnerForm({ onSubmit }: Readonly<{ onSubmit: () => void }>) {
       {/* Fields */}
       <div className="flex flex-col gap-4">
         {fields.map((f) => (
-          <FormInput key={f.id} {...f} />
+          <FormInput
+            key={f.id}
+            {...f}
+            registration={register(f.id as keyof FormValues)}
+            error={errors[f.id as keyof FormValues]?.message}
+          />
         ))}
       </div>
 
@@ -149,7 +193,7 @@ function PartnerForm({ onSubmit }: Readonly<{ onSubmit: () => void }>) {
 
       {/* Submit */}
       <div className="flex flex-col gap-3">
-        <TzButton type="submit" loading={loading} showArrow={!loading}>
+        <TzButton type="submit" loading={isSubmitting} size="sm">
           Join as a partner
         </TzButton>
       </div>
@@ -185,7 +229,13 @@ export function JoinAsCharityPage() {
         ${isLeaving ? "animate-page-exit" : "animate-page-enter"}`}
     >
       {/* ── Submission popup (shown over both layouts) ── */}
-      {submitted && <SubmissionPopup onClose={() => setSubmitted(false)} />}
+      {submitted && (
+        <SubmissionPopup
+          onClose={() => {
+            navigate("/")
+          }}
+        />
+      )}
 
       {/* ════════════════════════════════
           DESKTOP layout (lg+): two columns
@@ -194,21 +244,21 @@ export function JoinAsCharityPage() {
       <div className="relative hidden min-h-screen flex-1 gap-4 p-4 lg:flex">
         {/* Left sidebar — pale blue */}
         <div
-          className="relative flex w-[360px] shrink-0 flex-col overflow-hidden
-            rounded-[24px] bg-[#9fc5e0] px-8 pt-10 pb-12 xl:w-[420px]"
+          className="relative w-[360px] overflow-hidden rounded-[24px]
+            bg-brand-light px-8 pt-10 pb-12 xl:w-[420px]"
         >
           {/* Decorative glow */}
           <img
             src={decorImage}
             alt=""
-            className="pointer-events-none absolute top-1/2 left-[160px]
-              w-[236px] -translate-y-1/4 opacity-60 mix-blend-plus-lighter"
+            className="pointer-events-none absolute right-0 bottom-10 w-[236px]
+              mix-blend-plus-lighter"
             aria-hidden="true"
           />
 
           {/* Logo + divider */}
           <div className="relative z-10 flex flex-col items-center gap-6">
-            <TzLogo height={40} variant="white" />
+            <TzLogo height={48} variant="white" />
             <div className="w-full border-t border-primary-foreground/20" />
           </div>
 
@@ -217,7 +267,7 @@ export function JoinAsCharityPage() {
             className="relative z-10 flex flex-1 flex-col justify-center gap-6"
           >
             <p
-              className="text-[11px] font-semibold tracking-[0.2em]
+              className="mt-10 text-[11px] font-semibold tracking-[0.2em]
                 text-primary-foreground/80 uppercase"
             >
               Charity partnership
@@ -238,8 +288,7 @@ export function JoinAsCharityPage() {
         {/* Right panel — full-height white card, form centered inside */}
         <div
           className="flex flex-1 items-center justify-center rounded-[32px]
-            border border-card-edge bg-card py-10
-            shadow-[var(--shadow-form-card)]"
+            border border-card-edge bg-card py-10 shadow-(--shadow-form-card)"
         >
           <div className="w-full max-w-[720px] px-8">
             <PartnerForm onSubmit={() => setSubmitted(true)} />
@@ -251,11 +300,11 @@ export function JoinAsCharityPage() {
           type="button"
           onClick={handleClose}
           aria-label="Close"
-          className="absolute top-[17px] right-[17px] flex size-12 items-center
-            justify-center rounded-full transition-colors
-            hover:bg-border-default/30"
+          className="absolute top-[40px] right-[40px] flex size-12
+            cursor-pointer items-center justify-center rounded-2xl
+            transition-colors hover:bg-border-default/30"
         >
-          <X className="h-5 w-5 text-text-secondary" />
+          <img src="/images/close-lg.svg" alt="Close" />
         </button>
       </div>
 
@@ -276,7 +325,7 @@ export function JoinAsCharityPage() {
             className="rounded-full p-2 transition-colors
               hover:bg-brand-surface"
           >
-            <X className="h-5 w-5 text-text-secondary" />
+            <img src="/images/close.svg" alt="Close" />
           </button>
         </div>
 

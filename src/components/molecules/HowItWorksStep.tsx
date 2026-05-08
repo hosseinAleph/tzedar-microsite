@@ -101,7 +101,6 @@ export function HowItWorksStep({
         shadow-(--shadow-step-card)`,
         "transition-all duration-500 ease-out",
         "animate-in duration-400",
-        // Figma outer radius: 49.836px ≈ 50px (desktop), proportional for mobile
         layout === "desktop"
           ? "h-[360px] w-full shrink-0 rounded-[50px] lg:h-[460px]"
           : "min-w-0 flex-1 rounded-[32px]"
@@ -111,7 +110,6 @@ export function HowItWorksStep({
         backdropFilter: "blur(16px)",
       }}
     >
-      {/* Inner image — Figma inset: 14.54px, inner radius: 33.224px ≈ 34px */}
       <div
         className={cn(
           `absolute animate-in overflow-hidden border

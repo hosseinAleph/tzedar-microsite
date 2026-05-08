@@ -1,6 +1,5 @@
 import { TzLogo } from "@/components/atoms/TzLogo"
 
-// Social icon assets (white, from Figma)
 const imgFb = "/images/logo-fb.svg"
 const imgIg = "/images/logo-ig.svg"
 // logo-x
@@ -73,7 +72,6 @@ export function Footer() {
         </div>
 
         {/* ── Bottom: links row + copyright ── */}
-        {/* Figma: Privacy | Terms | Disclaimer as horizontal row, middle item has border-l/r */}
         <div className="relative z-10 flex flex-col gap-4">
           <div className="flex w-full items-center gap-4">
             <a
@@ -120,7 +118,6 @@ export function Footer() {
         <div className="relative z-10 flex items-end justify-between">
           <div className="flex flex-col gap-2.5">
             <TzLogo height={60} variant="white" />
-            {/* Figma: Body-XXL-32, Regular */}
             <p
               className="text-[32px] leading-snug font-normal
                 text-primary-foreground"
@@ -128,9 +125,7 @@ export function Footer() {
               Value, shared.
             </p>
           </div>
-
-          {/* Social icons — gap-64px (Figma). Explicit w+h to prevent distortion. */}
-          {/* Figma desktop: FB 18.8×35.9px · IG 40.2×40px */}
+          \{" "}
           <div className="flex items-center gap-16">
             <a
               href="https://facebook.com/tzedar"
@@ -158,7 +153,6 @@ export function Footer() {
 
         {/* ── Bottom: stacked links (left-aligned) + centred copyright ── */}
         <div className="relative z-10 flex flex-col gap-4">
-          {/* Figma desktop: links stacked vertically, left-aligned, 14px regular */}
           <div className="flex flex-col gap-4">
             {legalLinks.map((link) => (
               <a
@@ -171,7 +165,6 @@ export function Footer() {
               </a>
             ))}
           </div>
-          {/* Figma: 16px SemiBold, centered */}
           <p
             className="w-full text-center text-[16px] font-semibold
               text-primary-foreground"

@@ -1,10 +1,6 @@
 import { useEffect } from "react"
 
-// Figma: popup/art — envelope notification on a pale-blue circle
-const imgEllipse =
-  "https://www.figma.com/api/mcp/asset/8763158f-85e9-4361-9a2e-c17e1ea479d1"
-const imgEnvIcon =
-  "https://www.figma.com/api/mcp/asset/e9e9edee-a2ba-4b18-8da5-22dc7e9b3ac7"
+const alertSuccess = "/images/alert-success.svg"
 
 type SubmissionPopupProps = Readonly<{
   onClose: () => void
@@ -34,33 +30,16 @@ export function SubmissionPopup({ onClose }: SubmissionPopupProps) {
       <div
         className="relative z-10 flex w-full max-w-[340px] flex-col items-center
           gap-6 rounded-2xl border border-border-default bg-background px-2
-          pt-10 pb-4 shadow-[var(--shadow-form-card)] sm:max-w-[380px]"
+          pt-10 pb-4 shadow-(--shadow-form-card) sm:max-w-[380px]"
       >
         {/* ── Art: green circle + envelope icon ── */}
         <div className="relative size-20 shrink-0">
           <img
-            src={imgEllipse}
+            src={alertSuccess}
             alt=""
             className="absolute inset-0 h-full w-full"
             aria-hidden="true"
           />
-          <div
-            className="absolute top-1/2 left-1/2 size-16 -translate-x-1/2
-              -translate-y-1/2 overflow-hidden"
-          >
-            <img
-              src={imgEnvIcon}
-              alt=""
-              aria-hidden="true"
-              className="absolute"
-              style={{
-                width: "44.8px",
-                height: "32.9px",
-                left: "9.6px",
-                top: "15.6px",
-              }}
-            />
-          </div>
         </div>
 
         {/* ── Text ── */}
@@ -81,7 +60,7 @@ export function SubmissionPopup({ onClose }: SubmissionPopupProps) {
           <button
             onClick={onClose}
             className="w-full rounded-[8px] py-4 text-sm font-semibold
-              text-primary-foreground transition-opacity hover:opacity-90"
+              text-brand-dark transition-opacity hover:opacity-90"
             style={{ backgroundImage: "var(--gradient-btn-submit)" }}
           >
             Okay

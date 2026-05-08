@@ -1,5 +1,3 @@
-// Figma logo (node I22:3544;433:1658) — base dimensions 93.4 × 30.498 px
-// Assets are saved locally in /public/logos/ to avoid Figma URL expiry.
 const BASE_W = 93.4
 const BASE_H = 30.498
 

@@ -32,7 +32,6 @@ export function AppDownloadSection() {
       className="overflow-hidden bg-background px-6 py-16 sm:px-8 sm:py-20
         lg:px-20 lg:py-[120px]"
     >
-      {/* Figma: left ≈ 37% (584 px) · right ≈ 63% (984 px) of 1568 px content area */}
       <div
         className="mx-auto flex max-w-7xl flex-col items-center gap-10
           lg:flex-row lg:gap-14"
