@@ -6,9 +6,9 @@ import imgClose from "@/assets/images/close.svg"
 import imgMenu from "@/assets/images/menu.svg"
 
 const navLinks = [
-  { label: "how it works", href: "#how-it-works" },
-  { label: "charities", href: "#charities" },
-  { label: "pricing", href: "#pricing" },
+  { label: "how it works", href: "/#how-it-works" },
+  { label: "charities", href: "/#charities" },
+  { label: "pricing", href: "/#pricing" },
 ]
 
 export function Navbar() {
@@ -30,7 +30,7 @@ export function Navbar() {
           </div>
 
           <div className="hidden items-center gap-4 lg:flex">
-            <TzButton href="#app-download">Get the app</TzButton>
+            <TzButton href="/#app-download">Get the app</TzButton>
           </div>
 
           <button
@@ -66,7 +66,7 @@ export function Navbar() {
             ))}
           </nav>
 
-          <TzButton size="sm" href="#app-download" className="w-full">
+          <TzButton size="sm" href="/#app-download" className="w-full">
             Get the app
           </TzButton>
         </div>
