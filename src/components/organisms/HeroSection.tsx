@@ -34,7 +34,7 @@ export function HeroSection() {
         </div>
         <div className="flex flex-wrap items-center gap-3">
           <TzButton
-            href="/join"
+            href="#app-download"
             variant="gold"
             size="sm"
             className="lg:px-6 lg:py-3 lg:text-2xl"
