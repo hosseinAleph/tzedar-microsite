@@ -10,7 +10,10 @@ const bannerButtonActionLabel = "Nominate as a cause"
 export function CharityCtaSection() {
   return (
     <PhotoGlassSection bgImage={bgWeb} bgImageMobile={bgMobile}>
-      <div className="flex flex-col gap-6 lg:gap-8">
+      <div
+        className="flex flex-col gap-6 px-[32px] py-[48px] lg:w-[50vw] lg:gap-8
+          lg:px-[64px] lg:py-[64px]"
+      >
         <div className="flex flex-col gap-4 text-primary-foreground lg:gap-6">
           <p className="text-sm leading-[125%] tracking-[0.20px] uppercase">
             Charity partnership
