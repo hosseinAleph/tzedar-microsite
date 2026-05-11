@@ -35,6 +35,9 @@
    These become Tailwind utility classes (bg-brand, text-gold…)
 ════════════════════════════════════════════════════════════ */
 @theme inline {
+  /* ── Layout ── */
+  --max-width-inner: 1570px; /* max-w-inner — shared container cap across all sections */
+
   /* ── Fonts ── */
   --font-sans: "Figtree Variable", sans-serif;
   --font-heading: var(--font-sans);
