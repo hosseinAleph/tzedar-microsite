@@ -42,7 +42,7 @@ export function AppDownloadSection() {
             <h2
               className="text-[48px] leading-none font-bold text-brand-darkest"
             >
-              value finds it’s place.
+              value finds its place.
             </h2>
 
             <p className="text-[18px] leading-snug text-text-secondary/70">

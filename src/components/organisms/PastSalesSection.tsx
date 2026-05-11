@@ -172,11 +172,7 @@ export function PastSalesSection() {
         </div>
 
         {(hasMobileMore || hasDesktopMore) && (
-          <TzButton
-            onClick={() => setShowAll(true)}
-            showArrow={true}
-            className="mt-10 w-full text-base"
-          >
+          <TzButton onClick={() => setShowAll(true)} className="mt-10 w-full">
             Show more
           </TzButton>
         )}

@@ -9,7 +9,7 @@ const steps = [
   {
     step: "01",
     title: "photo",
-    description: "We’ll do the rest. Value will find it’s level.",
+    description: "We’ll do the rest. Value will find its level.",
     image: stepImage1,
   },
   {
