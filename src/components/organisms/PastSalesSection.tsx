@@ -20,7 +20,7 @@ const allItems = [
   {
     image: imgCamera,
     title: "Leica M6 film camera with 35mm Summicron lens",
-    meta: "Starting offer at $1.00r",
+    meta: "Starting offer at $1.00",
     price: "$2,850.00",
     receivedBy: "Emily R., Melbourne",
     sharedWith: "WWF Australia",
@@ -30,7 +30,7 @@ const allItems = [
   {
     image: imgGuitar,
     title: "1972 Fender Stratocaster, sunburst finish",
-    meta: "Starting offer at $1.00r",
+    meta: "Starting offer at $1.00",
     price: "$4,200.00",
     receivedBy: "James T., Brisbane",
     sharedWith: "WWF Australia",
@@ -123,7 +123,7 @@ export function PastSalesSection() {
             sm:justify-between"
         >
           <div className="flex flex-col gap-3">
-            <SectionLabel>ReCENTLY SHARED</SectionLabel>
+            <SectionLabel>RECENTLY SHARED</SectionLabel>
             <h2
               className="text-[48px] leading-none font-bold text-brand-darkest"
             >

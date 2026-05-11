@@ -123,8 +123,7 @@ export function Footer() {
             >
               Value, shared.
             </p>
-          </div>
-          \{" "}
+          </div>{" "}
           <div className="flex items-center gap-16">
             <a
               href="https://facebook.com/tzedar"
