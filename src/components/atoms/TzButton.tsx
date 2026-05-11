@@ -25,7 +25,7 @@ type TzButtonProps = Omit<
 }
 
 const sizeClasses: Record<NonNullable<TzButtonProps["size"]>, string> = {
-  sm: "px-5 py-2.5 text-sm",
+  sm: "px-4 py-3 text-sm",
   default: "px-6 py-3 text-2xl",
 }
 
@@ -54,7 +54,7 @@ const variantConfig: Record<
   },
   gold: {
     className:
-      "font-semibold text-brand-surface border-[0.5px] border-[var(--color-btn-primary-border)]",
+      "text-brand-surface border-[0.5px] border-[var(--color-btn-primary-border)]",
     style: {
       backgroundColor: "var(--color-gold)",
       boxShadow: "var(--shadow-btn-gold)",
@@ -77,7 +77,7 @@ export function TzButton({
 
   const classes = cn(
     `inline-flex cursor-pointer items-center justify-center gap-2 rounded-full
-    transition-all duration-200 select-none`,
+    whitespace-nowrap transition-all duration-200 select-none`,
     sizeClasses[size],
     config.className,
     className

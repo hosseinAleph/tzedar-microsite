@@ -62,31 +62,26 @@ export function HowItWorksStep({
         onClick={onClick}
         aria-label={`Expand: ${title}`}
         className={cn(
-          `flex shrink-0 cursor-pointer flex-col items-center justify-between
+          `flex shrink-0 cursor-pointer flex-col items-center justify-end gap-2
           rounded-[24px] py-3 transition-all duration-300 focus-visible:ring-2
           focus-visible:ring-brand focus-visible:outline-none`,
           "w-10",
           collapsedBg[stepIndex]
         )}
       >
+        <span
+          className="text-base font-semibold whitespace-nowrap
+            text-primary-foreground"
+          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+        >
+          {title}
+        </span>
         <div
           className="flex h-7 w-7 shrink-0 items-center justify-center
             rounded-full border border-primary-foreground bg-gold-surface"
         >
           <span className="text-[10px] leading-none font-semibold text-gold">
             {step}
-          </span>
-        </div>
-        <div
-          className="flex flex-1 items-center justify-center overflow-hidden
-            py-2"
-        >
-          <span
-            className="text-xs font-semibold whitespace-nowrap
-              text-primary-foreground"
-            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-          >
-            {title}
           </span>
         </div>
       </button>
