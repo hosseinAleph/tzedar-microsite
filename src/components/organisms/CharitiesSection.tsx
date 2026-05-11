@@ -108,8 +108,8 @@ export function CharitiesSection() {
 
       {/* ── Section header ── */}
       <div
-        className="relative mx-auto mb-10 max-w-7xl px-6 sm:mb-14 sm:px-8
-          lg:px-20"
+        className="relative mx-auto mb-10 max-w-inner px-6 sm:mb-14 sm:px-8
+          lg:px-[54px]"
       >
         <div
           className="flex flex-col gap-4 sm:flex-row sm:items-end

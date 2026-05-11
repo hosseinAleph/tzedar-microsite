@@ -116,7 +116,7 @@ export function PastSalesSection() {
 
   return (
     <section className="bg-background p-8 sm:p-12 lg:p-16">
-      <div className="mx-auto max-w-[1568px]">
+      <div className="mx-auto max-w-inner px-4 lg:px-[54px]">
         {/* Section header */}
         <div
           className="mb-10 flex flex-col sm:mb-14 sm:flex-row sm:items-end

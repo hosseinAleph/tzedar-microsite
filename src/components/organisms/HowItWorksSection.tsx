@@ -33,69 +33,68 @@ export function HowItWorksSection() {
   return (
     <section
       id="how-it-works"
-      className="px-4 py-16 sm:px-8 sm:py-20 lg:px-20 lg:py-28"
+      className="mx-auto max-w-inner px-4 pt-12 pb-10 lg:px-[54px] lg:pt-28
+        lg:pb-20"
     >
-      <div className="mx-auto max-w-7xl">
-        {/* Header */}
-        <div
-          className="mb-8 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-end
-            sm:justify-between"
-        >
-          <div className="flex flex-col gap-3">
-            <SectionLabel>how it works</SectionLabel>
-            <h2
-              className="text-3xl leading-tight font-bold tracking-tight
-                text-brand-darkest sm:text-5xl lg:text-6xl"
-            >
-              it’s simple.
-              <br />
-              {"that's actually it."}
-            </h2>
-          </div>
-          <p
-            className="text-left text-sm leading-snug text-text-secondary/70
-              sm:max-w-xs sm:text-right sm:text-base lg:max-w-xl lg:text-lg"
+      {/* Header */}
+      <div
+        className="mb-8 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-end
+          sm:justify-between"
+      >
+        <div className="flex flex-col gap-3">
+          <SectionLabel>how it works</SectionLabel>
+          <h2
+            className="text-3xl leading-tight font-bold tracking-tight
+              text-brand-darkest sm:text-5xl lg:text-6xl"
           >
-            Everything has value, even the smallest things. Offer something,
-            find something, support a cause. As value moves between us, some of
-            it always reaches those who need it most. Value isn't set, it is
-            discovered.
-          </p>
+            it’s simple.
+            <br />
+            {"that's actually it."}
+          </h2>
         </div>
+        <p
+          className="text-left text-sm leading-snug text-text-secondary/70
+            sm:max-w-xs sm:text-right sm:text-base lg:max-w-xl lg:text-lg"
+        >
+          Everything has value, even the smallest things. Offer something, find
+          something, support a cause. As value moves between us, some of it
+          always reaches those who need it most. Value isn't set, it is
+          discovered.
+        </p>
+      </div>
 
-        {/*
+      {/*
           Desktop (md+): vertical flex-col accordion.
           Active step = wide landscape card, collapsed steps = full-width horizontal pills.
         */}
-        <div className="hidden flex-col gap-4 lg:flex lg:gap-6">
-          {steps.map((step, index) => (
-            <HowItWorksStep
-              key={step.step}
-              {...step}
-              stepIndex={index}
-              isActive={activeIndex === index}
-              layout="desktop"
-              onClick={() => setActiveIndex(index)}
-            />
-          ))}
-        </div>
+      <div className="hidden flex-col gap-4 lg:flex lg:gap-6">
+        {steps.map((step, index) => (
+          <HowItWorksStep
+            key={step.step}
+            {...step}
+            stepIndex={index}
+            isActive={activeIndex === index}
+            layout="desktop"
+            onClick={() => setActiveIndex(index)}
+          />
+        ))}
+      </div>
 
-        {/*
+      {/*
           Mobile: horizontal flex-row accordion.
           Active step = flex-1 portrait card, collapsed steps = narrow vertical pills.
         */}
-        <div className="flex min-h-[260px] gap-2 lg:hidden">
-          {steps.map((step, index) => (
-            <HowItWorksStep
-              key={step.step}
-              {...step}
-              stepIndex={index}
-              isActive={activeIndex === index}
-              layout="mobile"
-              onClick={() => setActiveIndex(index)}
-            />
-          ))}
-        </div>
+      <div className="flex min-h-[260px] gap-2 lg:hidden">
+        {steps.map((step, index) => (
+          <HowItWorksStep
+            key={step.step}
+            {...step}
+            stepIndex={index}
+            isActive={activeIndex === index}
+            layout="mobile"
+            onClick={() => setActiveIndex(index)}
+          />
+        ))}
       </div>
     </section>
   )

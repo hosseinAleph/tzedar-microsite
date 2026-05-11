@@ -12,7 +12,7 @@ const legalLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-brand">
+    <footer className="relative overflow-hidden bg-[#6B9DB8]">
       {/* ════════════════════════════════════════
           MOBILE  (< lg)
       ════════════════════════════════════════ */}

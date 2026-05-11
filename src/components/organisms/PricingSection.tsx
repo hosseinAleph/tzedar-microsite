@@ -25,7 +25,7 @@ export function PricingSection() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-inner px-4 lg:px-[54px]">
         <div
           className="mb-10 flex flex-col gap-4 sm:mb-14 sm:flex-row sm:items-end
             sm:justify-between"

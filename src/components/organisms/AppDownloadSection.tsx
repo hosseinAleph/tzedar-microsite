@@ -28,8 +28,8 @@ export function AppDownloadSection() {
         lg:px-20 lg:py-[120px]"
     >
       <div
-        className="mx-auto flex max-w-7xl flex-col items-center gap-10
-          lg:flex-row lg:gap-14"
+        className="mx-auto flex max-w-inner flex-col items-center gap-10 px-4
+          lg:flex-row lg:gap-14 lg:px-[54px]"
       >
         {/* ── LEFT: Text + CTAs — ~37% on desktop ──────────────────────── */}
         <div
