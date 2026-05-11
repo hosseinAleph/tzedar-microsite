@@ -171,10 +171,33 @@ export function PastSalesSection() {
           ))}
         </div>
 
-        {(hasMobileMore || hasDesktopMore) && (
-          <TzButton onClick={() => setShowAll(true)} className="mt-10 w-full">
+        {hasDesktopMore && (
+          <TzButton
+            onClick={() => setShowAll(true)}
+            className="mt-10 hidden w-full lg:block"
+          >
             Show more
           </TzButton>
+        )}
+        {hasMobileMore && (
+          <div className="lg:hidden">
+            <TzButton
+              onClick={() => setShowAll(true)}
+              className="mt-10 w-full"
+              size="sm"
+              variant="secondary"
+            >
+              Show more
+            </TzButton>
+            <TzButton
+              href="/#app-download"
+              className="mt-5 w-full"
+              size="sm"
+              showArrow={true}
+            >
+              Start listing
+            </TzButton>
+          </div>
         )}
       </div>
     </section>

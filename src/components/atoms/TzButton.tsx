@@ -42,7 +42,7 @@ const variantConfig: Record<
   },
   secondary: {
     className:
-      "text-[var(--color-btn-secondary-text)] border border-[var(--color-pill-border)]",
+      "text-secondary-foreground border border-[var(--color-pill-border)]",
     style: {
       boxShadow: "var(--shadow-btn-secondary)",
     },
@@ -127,6 +127,7 @@ export function TzButton({
       className={cn(classes, loading && "cursor-not-allowed opacity-80")}
       style={mergedStyle}
       {...rest}
+      onClick={onClick}
       disabled={loading}
     >
       {content}

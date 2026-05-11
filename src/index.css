@@ -17,10 +17,10 @@
   --primitive-900: #071929; /* darkest navy    */
   --primitive-800: #1c4168; /* dark navy       */
   --primitive-600: #3a75a8; /* base blue       */
-  --primitive-500: #2d5788; /* medium blue     */
+  --primitive-500: #6b9db8; /* medium blue     */
 
   /* ── Blues (Figma "Pale Blue" scale, light → mid) ── */
-  --primitive-400: #6b9db8; /* steel sky       */
+  --primitive-400: #9fc5e0; /* steel sky       */
   --primitive-350: #9fc5e0; /* wedgwood        */
   --primitive-300: #a8cce8; /* porcelain blue  */
   --primitive-200: #bdd9f2; /* soft sky        */
@@ -159,11 +159,6 @@
     to bottom,
     color-mix(in srgb, var(--primitive-50) 70%, transparent),
     color-mix(in srgb, var(--primitive-200) 70%, transparent)
-  );
-  --gradient-step-card: linear-gradient(
-    to bottom,
-    color-mix(in srgb, var(--primitive-350) 70%, transparent),
-    color-mix(in srgb, var(--primitive-800) 70%, transparent)
   );
   --gradient-image-mask: linear-gradient(
     to bottom,

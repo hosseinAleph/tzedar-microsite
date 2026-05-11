@@ -11,7 +11,18 @@ type HowItWorksStepProps = Readonly<{
   onClick: () => void
 }>
 
-const collapsedBg = ["bg-brand-medium", "bg-brand-medium", "bg-brand-light"]
+const collapsedBg = ["bg-brand-dark", "bg-brand-medium", "bg-brand-light"]
+
+// Per-step expanded card gradients matched to Figma (node 221-1476).
+// Colors: blue-800 #142c4a | pale-blue-500 #6b9db8 | pale-blue-400 #9fc5e0, all at 70% opacity.
+const stepGradients = [
+  // Step 0 (photo): blue-800 → pale-blue-500  [dark → medium]
+  "linear-gradient(to bottom, rgba(20,44,74,0.7), rgba(107,157,184,0.7))",
+  // Step 1 (cause): pale-blue-500 → pale-blue-400  [medium → light]
+  "linear-gradient(to bottom, rgba(107,157,184,0.7), rgba(159,197,224,0.7))",
+  // Step 2 (share): pale-blue-500 → pale-blue-400  [medium → light]
+  "linear-gradient(to bottom, rgba(107,157,184,0.7), rgba(159,197,224,0.7))",
+]
 
 export function HowItWorksStep({
   step,
@@ -101,7 +112,7 @@ export function HowItWorksStep({
           : "min-w-0 flex-1 rounded-[32px]"
       )}
       style={{
-        background: "var(--gradient-step-card)",
+        background: stepGradients[stepIndex] ?? stepGradients[0],
         backdropFilter: "blur(16px)",
       }}
     >
