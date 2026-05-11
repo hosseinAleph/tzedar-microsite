@@ -34,7 +34,7 @@ const variantConfig: Record<
   { className: string; style: React.CSSProperties }
 > = {
   primary: {
-    className: "font-semibold text-secondary-foreground",
+    className: "text-secondary-foreground",
     style: {
       backgroundImage: "var(--gradient-btn-primary)",
       boxShadow: "var(--shadow-btn-primary)",
@@ -42,7 +42,7 @@ const variantConfig: Record<
   },
   secondary: {
     className:
-      "font-semibold text-[var(--color-btn-secondary-text)] border border-[var(--color-pill-border)]",
+      "text-[var(--color-btn-secondary-text)] border border-[var(--color-pill-border)]",
     style: {
       boxShadow: "var(--shadow-btn-secondary)",
     },
@@ -98,13 +98,25 @@ export function TzButton({
     const isInternal = href.startsWith("/") || href.startsWith("#")
     if (isInternal) {
       return (
-        <Link to={href} className={cn(classes)} style={mergedStyle} onClick={onClick}>
+        <Link
+          to={href}
+          className={cn(classes)}
+          style={mergedStyle}
+          onClick={onClick}
+        >
           {content}
         </Link>
       )
     }
     return (
-      <a href={href} className={cn(classes)} style={mergedStyle} onClick={onClick} target="_blank" rel="noopener noreferrer">
+      <a
+        href={href}
+        className={cn(classes)}
+        style={mergedStyle}
+        onClick={onClick}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {content}
       </a>
     )
