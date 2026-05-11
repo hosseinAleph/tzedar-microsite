@@ -22,14 +22,10 @@ const stats = [
 
 export function AppDownloadSection() {
   return (
-    <section
-      id="app-download"
-      className="overflow-hidden bg-background px-6 py-16 sm:px-8 sm:py-20
-        lg:px-20 lg:py-[120px]"
-    >
+    <section id="app-download" className="overflow-hidden bg-background">
       <div
         className="mx-auto flex max-w-inner flex-col items-center gap-10 px-4
-          lg:flex-row lg:gap-14 lg:px-[54px]"
+          py-16 lg:flex-row lg:gap-14 lg:px-[54px] lg:py-20"
       >
         {/* ── LEFT: Text + CTAs — ~37% on desktop ──────────────────────── */}
         <div

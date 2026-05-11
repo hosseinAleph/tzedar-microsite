@@ -7,7 +7,7 @@ export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="relative overflow-hidden px-6 py-16 sm:px-8 sm:py-20 lg:px-20
+      className="relative overflow-hidden px-4 py-16 sm:px-8 sm:py-20 lg:px-20
         lg:py-28"
     >
       <img

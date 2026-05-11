@@ -115,8 +115,11 @@ export function PastSalesSection() {
   const hasDesktopMore = !showAll && extraItems.length > 0
 
   return (
-    <section className="bg-background p-8 sm:p-12 lg:p-16">
-      <div className="mx-auto max-w-inner px-4 lg:px-[54px]">
+    <section className="bg-background">
+      <div
+        className="mx-auto max-w-inner px-4 py-14 sm:py-20 lg:px-[54px]
+          lg:py-28"
+      >
         {/* Section header */}
         <div
           className="mb-10 flex flex-col sm:mb-14 sm:flex-row sm:items-end
