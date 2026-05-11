@@ -14,6 +14,7 @@ type TzLogoProps = {
 export function TzLogo({
   variant = "default",
   height = 40,
+  className,
 }: Readonly<TzLogoProps>) {
   const scale = height / BASE_H
   const width = Math.round(BASE_W * scale)
@@ -22,6 +23,7 @@ export function TzLogo({
     <img
       src={variant === "white" ? logoWhite : logoDefault}
       alt="Tzedar"
+      className={className}
       style={{ width, height }}
     />
   )
