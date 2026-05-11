@@ -1,5 +1,32 @@
 import { cn } from "@/lib/utils"
 
+function PriceDisplay({
+  price,
+  className,
+  decimalClassName,
+}: Readonly<{
+  price: string
+  className?: string
+  decimalClassName?: string
+}>) {
+  const match = /^(\D*[\d,]+)(\.\d+)?(.*)$/.exec(price)
+  if (match?.[2]) {
+    const dot = match[2][0]
+    const digits = match[2].slice(1)
+    return (
+      <span className={cn("flex items-start leading-none", className)}>
+        {match[1]}
+        {dot}
+        <span className={cn("mt-0.5 leading-none", decimalClassName)}>
+          {digits}
+        </span>
+        {match[3]}
+      </span>
+    )
+  }
+  return <span className={className}>{price}</span>
+}
+
 type ListingItem = {
   image: string
   title: string
@@ -34,7 +61,7 @@ const TransactionInfo = ({
       {/* add link to charity with title shareWith variable */}
       <p
         className={cn(
-          "truncate text-[28px] leading-tight text-brand-medium/70",
+          "truncate text-[28px] leading-tight text-text-secondary/70",
           isSmall && "text-sm"
         )}
       >
@@ -54,7 +81,7 @@ const TransactionInfo = ({
       </p>
       <p
         className={cn(
-          "truncate text-[28px] leading-tight text-brand-medium/70",
+          "truncate text-[28px] leading-tight text-text-secondary/70",
           isSmall && "text-sm"
         )}
       >
@@ -78,9 +105,11 @@ export function ListingCard({ item, variant = "default" }: ListingCardProps) {
             className="h-full w-full object-cover"
           />
         </div>
+        {/* Content */}
+
         <div
-          className="flex h-[400px] flex-col justify-center gap-4 px-6 py-6
-            xl:gap-6 xl:px-8 xl:py-8"
+          className="flex flex-col justify-center px-6 py-6 xl:gap-6 xl:px-8
+            xl:py-8"
         >
           <div className="flex flex-col gap-1">
             <p
@@ -89,14 +118,21 @@ export function ListingCard({ item, variant = "default" }: ListingCardProps) {
             >
               {item.title}
             </p>
-            <p className="text-sm leading-snug text-text-secondary xl:text-base">
+            <p
+              className="text-sm leading-snug text-text-secondary
+                xl:text-[28px]"
+            >
               {item.meta}
             </p>
           </div>
-          <p className="text-[18px] leading-snug text-gold">Discovered at</p>
-          <p className="text-3xl leading-snug font-bold text-gold xl:text-4xl">
-            {item.price}
+          <p className="text-[18px] leading-snug text-gold lg:text-[28px]">
+            Discovered at
           </p>
+          <PriceDisplay
+            price={item.price}
+            className="text-3xl font-bold text-gold lg:text-[58px]"
+            decimalClassName="text-base lg:text-[28px]"
+          />
 
           <TransactionInfo
             dateOfShare={item.dateOfShare}
@@ -155,12 +191,11 @@ export function ListingCard({ item, variant = "default" }: ListingCardProps) {
             >
               Discovered at
             </p>
-            <p
-              className="text-[18px] leading-tight font-semibold text-gold
-                lg:text-[28px]"
-            >
-              {item.price}
-            </p>
+            <PriceDisplay
+              price={item.price}
+              className="text-[18px] font-semibold text-gold lg:text-[28px]"
+              decimalClassName="text-[11px] lg:text-base"
+            />
           </div>
 
           <TransactionInfo
