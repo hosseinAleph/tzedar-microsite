@@ -12,7 +12,7 @@ type TzButtonVariant = "primary" | "secondary" | "action" | "gold"
 
 type TzButtonProps = Omit<
   React.ComponentPropsWithoutRef<"button">,
-  "children" | "style"
+  "children" | "style" | "onClick"
 > & {
   children: React.ReactNode
   variant?: TzButtonVariant
@@ -21,6 +21,7 @@ type TzButtonProps = Omit<
   showArrow?: boolean
   loading?: boolean
   className?: string
+  onClick?: React.MouseEventHandler<HTMLElement>
 }
 
 const sizeClasses: Record<NonNullable<TzButtonProps["size"]>, string> = {
@@ -69,6 +70,7 @@ export function TzButton({
   showArrow = false,
   loading = false,
   className,
+  onClick,
   ...rest
 }: TzButtonProps) {
   const config = variantConfig[variant]
@@ -96,13 +98,13 @@ export function TzButton({
     const isInternal = href.startsWith("/") || href.startsWith("#")
     if (isInternal) {
       return (
-        <Link to={href} className={cn(classes)} style={mergedStyle}>
+        <Link to={href} className={cn(classes)} style={mergedStyle} onClick={onClick}>
           {content}
         </Link>
       )
     }
     return (
-      <a href={href} className={cn(classes)} style={mergedStyle} target="_blank" rel="noopener noreferrer">
+      <a href={href} className={cn(classes)} style={mergedStyle} onClick={onClick} target="_blank" rel="noopener noreferrer">
         {content}
       </a>
     )

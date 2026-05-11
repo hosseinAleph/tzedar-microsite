@@ -67,7 +67,14 @@ export function Navbar() {
             ))}
           </nav>
 
-          <TzButton size="sm" href="/#app-download" className="w-full">
+          <TzButton
+            size="sm"
+            href="/#app-download"
+            className="z-50 w-full"
+            onClick={() => {
+              setMobileOpen(false)
+            }}
+          >
             Get the app
           </TzButton>
         </div>
