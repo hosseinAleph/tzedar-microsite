@@ -10,6 +10,7 @@ import imgBeyondBlue from "@/assets/images/charity-6.png"
 import imgEllipse from "@/assets/images/img-ellipse.svg"
 import imgPolygon from "@/assets/images/img-polygon.svg"
 import imgTexture from "@/assets/images/img-texture.png"
+import { SectionTitle } from "../atoms/SectionTitle"
 
 const imgRSPCA = imgWWF
 const imgLifeline = imgGreenFleet
@@ -117,13 +118,11 @@ export function CharitiesSection() {
         >
           <div className="flex flex-col gap-3">
             <SectionLabel>Our Partnering Charities</SectionLabel>
-            <h2
-              className="text-4xl leading-none font-bold text-brand-darkest
-                sm:text-5xl lg:text-[48px]"
-            >
-              every bid supports
-              <br />a cause you believe in.
-            </h2>
+            <SectionTitle>
+              every exchange
+              <br />
+              supports a cause.
+            </SectionTitle>
           </div>
           <p
             className="text-left text-base leading-snug text-text-secondary/70

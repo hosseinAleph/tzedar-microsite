@@ -2,6 +2,7 @@ import { SectionLabel } from "@/components/atoms/SectionLabel"
 import { PricingCard } from "@/components/molecules/PricingCard"
 import bgTexture from "@/assets/images/pricing-bg.jpg"
 import bgTextureMobile from "@/assets/images/pricing-bg-m.jpg"
+import { SectionTitle } from "../atoms/SectionTitle"
 
 export function PricingSection() {
   return (
@@ -32,12 +33,9 @@ export function PricingSection() {
         >
           <div className="flex flex-col gap-3">
             <SectionLabel>Pricing</SectionLabel>
-            <h2
-              className="text-5xl leading-none font-bold text-brand-darkest
-                sm:text-5xl lg:text-[48px]"
-            >
+            <SectionTitle>
               clear and <br className="lg:hidden" /> simple.
-            </h2>
+            </SectionTitle>
           </div>
           <p
             className="text-left text-[18px] leading-snug text-text-secondary/70

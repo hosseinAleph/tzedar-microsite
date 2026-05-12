@@ -4,6 +4,7 @@ import { HowItWorksStep } from "@/components/molecules/HowItWorksStep"
 import stepImage1 from "@/assets/images/profile-1.jpg"
 import stepImage2 from "@/assets/images/profile-2.jpg"
 import stepImage3 from "@/assets/images/profile-3.jpg"
+import { SectionTitle } from "../atoms/SectionTitle"
 
 const steps = [
   {
@@ -43,14 +44,7 @@ export function HowItWorksSection() {
       >
         <div className="flex flex-col gap-3">
           <SectionLabel>how it works</SectionLabel>
-          <h2
-            className="text-3xl leading-tight font-bold tracking-tight
-              text-brand-darkest sm:text-5xl lg:text-6xl"
-          >
-            it’s simple.
-            <br />
-            {"that's actually it."}
-          </h2>
+          <SectionTitle>it’s simple.</SectionTitle>
         </div>
         <p
           className="text-left text-sm leading-snug text-text-secondary/70

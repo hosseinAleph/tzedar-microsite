@@ -5,6 +5,7 @@ import { TzButton } from "../atoms/TzButton"
 import imgBlanket from "@/assets/images/sales-1.png"
 import imgCamera from "@/assets/images/sales-2.png"
 import imgGuitar from "@/assets/images/sales-3.png"
+import { SectionTitle } from "../atoms/SectionTitle"
 
 const allItems = [
   {
@@ -127,13 +128,11 @@ export function PastSalesSection() {
         >
           <div className="flex flex-col gap-3">
             <SectionLabel>RECENTLY SHARED</SectionLabel>
-            <h2
-              className="text-[48px] leading-none font-bold text-brand-darkest"
-            >
-              each one carries
-              <br />
-              value forward.
-            </h2>
+            <SectionTitle>
+              each one <br className="lg:hidden" /> carries
+              <br className="hidden lg:block" />
+              {""} value forward.
+            </SectionTitle>
           </div>
           <p
             className="text-left text-lg leading-snug text-text-secondary/70
