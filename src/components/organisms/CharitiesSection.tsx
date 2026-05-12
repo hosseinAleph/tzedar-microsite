@@ -109,29 +109,24 @@ export function CharitiesSection() {
 
       {/* ── Section header ── */}
       <div
-        className="relative mx-auto mb-10 max-w-inner px-6 sm:mb-14 sm:px-8
-          lg:px-[54px]"
+        className="relative mx-auto mb-10 flex max-w-inner items-center
+          justify-between gap-4 px-6 sm:mb-14 sm:px-8 lg:px-[54px]"
       >
-        <div
-          className="flex flex-col gap-4 sm:flex-row sm:items-end
-            sm:justify-between"
-        >
-          <div className="flex flex-col gap-3">
-            <SectionLabel>Our Partnering Charities</SectionLabel>
-            <SectionTitle>
-              every exchange
-              <br />
-              supports a cause.
-            </SectionTitle>
-          </div>
-          <p
-            className="text-left text-base leading-snug text-text-secondary/70
-              sm:max-w-sm sm:text-right sm:text-lg lg:max-w-md lg:text-2xl"
-          >
-            Every charity on Tzedar has DGR status with the ATO. We check them
-            out so you can donate with confidence.
-          </p>
+        <div className="">
+          <SectionLabel>Our Partnering Charities</SectionLabel>
+          <SectionTitle>
+            every exchange
+            <br />
+            supports a cause.
+          </SectionTitle>
         </div>
+        <p
+          className="text-left text-base leading-snug text-text-secondary/70
+            sm:max-w-sm sm:text-right sm:text-lg lg:max-w-md lg:text-2xl"
+        >
+          Every charity on Tzedar has DGR status with the ATO. We check them out
+          so you can donate with confidence.
+        </p>
       </div>
 
       {/* ── Scrollable card row ── */}

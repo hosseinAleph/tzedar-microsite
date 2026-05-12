@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { TzLogo } from "@/components/atoms/TzLogo"
 import { TzButton } from "@/components/atoms/TzButton"
 import { TzLink } from "@/components/atoms/TzLink"
@@ -13,6 +14,7 @@ const navLinks = [
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const navigate = useNavigate()
 
   return (
     <header
@@ -24,8 +26,17 @@ export function Navbar() {
           lg:px-[54px] lg:py-6"
       >
         <div className="flex items-center gap-10">
-          <TzLogo height={48} className="hidden lg:block" />
-          <TzLogo height={30} className="block lg:hidden" />
+          <button
+            onClick={() => {
+              navigate("/", { replace: true })
+              window.scrollTo({ top: 0, behavior: "smooth" })
+            }}
+            aria-label="Scroll to top"
+            className="cursor-pointer"
+          >
+            <TzLogo height={48} className="hidden lg:block" />
+            <TzLogo height={30} className="block lg:hidden" />
+          </button>
           <nav className="hidden gap-10 lg:flex">
             {navLinks.map((link) => (
               <TzLink key={link.label} href={link.href}>
