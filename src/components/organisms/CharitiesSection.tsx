@@ -109,8 +109,8 @@ export function CharitiesSection() {
 
       {/* ── Section header ── */}
       <div
-        className="relative mx-auto mb-10 flex max-w-inner items-center
-          justify-between gap-4 px-6 sm:mb-14 sm:px-8 lg:px-[54px]"
+        className="relative mx-auto mb-10 flex flex-col max-w-inner
+          gap-4 px-6 sm:mb-14 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-[54px]"
       >
         <div className="">
           <SectionLabel>Our Partnering Charities</SectionLabel>
